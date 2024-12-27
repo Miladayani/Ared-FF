@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # third party libraries
     'crispy_forms',
+    'crispy_bootstrap5',
     'allauth',
     'allauth.account',
 
@@ -158,3 +159,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+# crispy forms settings
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
