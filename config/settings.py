@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # apps
     'accounts',
     'pages',
+    'foods',
 
 ]
 
