@@ -1,8 +1,13 @@
 from django.contrib import admin
 
-from .models import Food
+from .models import Pizza, Sandwich
 
 
-@admin.register(Food)
-class FoodAdmin(admin.ModelAdmin):
-    list_display = ('title', 'price', 'active')
+@admin.register(Pizza)
+class PizzaAdmin(admin.ModelAdmin):
+    list_display = ('title', 'price', 'active', 'size')
+
+
+@admin.register(Sandwich)
+class SandwichAdmin(admin.ModelAdmin):
+    list_display = ('title', 'price', 'active',)
