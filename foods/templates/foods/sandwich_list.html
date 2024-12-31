@@ -1,0 +1,11 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h1>Sandwich List</h1>
+    {% for sandwich in sandwiches %}
+        <a href="{{ sandwich.get_absolute_url }}">
+            {{ sandwich.title }}
+        </a>
+    {% endfor %}
+
+{% endblock %}

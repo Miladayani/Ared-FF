@@ -22,7 +22,7 @@ class Pizza(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('food_detail', args=[self.pk])
+        return reverse('pizza_detail', args=[self.pk])
 
 
 class Sandwich(models.Model):
@@ -39,4 +39,4 @@ class Sandwich(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('food_detail', args=[self.pk])
+        return reverse('sandwich_detail', args=[self.pk])
