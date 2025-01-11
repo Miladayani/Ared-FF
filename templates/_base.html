@@ -59,41 +59,63 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-
 <body>
+
 {% block content %}
-{% endblock content %}
+{% endblock %}
 
-{#{% include 'footer.html' %} #}
+<!--==============================
+All Js File
+============================== -->
+<!-- Jquery -->
+<script src="{% static 'js/vendor/jquery-3.7.1.min.js' %}"></script>
+<!-- Swiper Js -->
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Magnific Popup -->
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<!-- Counter Up -->
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<!-- Date Time -->
+<script src="{% static 'js/jquery.datetimepicker.min.js' %}"></script>
+<!-- Isotope Filter -->
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
 
-    <!--==============================
-    All Js File
-    ============================== -->
-    <!-- Jquery -->
-    <script src="{% static 'js/vendor/jquery-3.7.1.min.js' %}"></script>
-    <!-- Swiper Js -->
-    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
-    <!-- Bootstrap -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- Magnific Popup -->
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <!-- Counter Up -->
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <!-- Date Time -->
-    <script src="{% static 'js/jquery.datetimepicker.min.js' %}"></script>
-    <!-- Isotope Filter -->
-    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-    
-    <!-- Gsap Animation -->
-    <script src="{% static 'js/gsap.min.js' %}"></script>
-    <script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
-    <script src="{% static 'js/ScrollToPlugin.min.js' %}"></script>
-    <script src="{% static 'js/ScrollSmoother.min.js' %}"></script>
-    <script src="{% static 'js/SplitText.min.js' %}"></script>
-    
-    <!-- Main Js File -->
-    <script src="{% static 'js/main.js' %}"></script>
+<!-- Gsap Animation -->
+<script src="{% static 'js/gsap.min.js' %}"></script>
+<script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+<script src="{% static 'js/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'js/ScrollSmoother.min.js' %}"></script>
+<script src="{% static 'js/SplitText.min.js' %}"></script>
+
+<!-- Main Js File -->
+<script src="{% static 'js/main.js' %}"></script>
+{##}
+{#<script>#}
+{#    document.addEventListener('DOMContentLoaded', function () {#}
+{#        const buttons = document.querySelectorAll('.tab-menu button');#}
+{#        const items = document.querySelectorAll('.filter-active .col-xl-3');#}
+{##}
+{#        buttons.forEach((button) => {#}
+{#            button.addEventListener('click', () => {#}
+{#                const filter = button.getAttribute('data-filter');#}
+{##}
+{#                buttons.forEach((btn) => btn.classList.remove('active'));#}
+{#                button.classList.add('active');#}
+{##}
+{#                items.forEach((item) => {#}
+{#                    if (filter === '*' || item.classList.contains(filter.substring(1))) {#}
+{#                        item.style.display = 'block';#}
+{#                    } else {#}
+{#                        item.style.display = 'none';#}
+{#                    }#}
+{#                });#}
+{#            });#}
+{#        });#}
+{#    });#}
+{#</script>#}
 
 </body>
 </html>

@@ -10,6 +10,7 @@ class Pizza(models.Model):
 
     title = models.CharField(max_length=100)
     description = models.TextField()
+    short_description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     size = models.CharField(max_length=10, choices=PIZZA_SIZE, default='1')
@@ -28,6 +29,7 @@ class Pizza(models.Model):
 class Sandwich(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    short_description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     # image =

@@ -1,11 +1,11 @@
-i{% extends "_base.html" %}
+{% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}
     Restaurant Shop
 {% endblock page_title %}
 
 {% block content %}
-
     <body class="theme-golden">
 
     <!--[if lte IE 9]>
@@ -814,191 +814,39 @@ Product Area
                         <div class="tab-menu1 filter-menu-active">
                             <button data-filter="*" class="th-btn style-border btn-sm active" type="button">All Foods
                             </button>
-                            <button data-filter=".cat1" class="th-btn style-border btn-sm" type="button">Breakfast
+                            <button data-filter=".cat2" class="th-btn style-border btn-sm" type="button">Sandwich
                             </button>
-                            <button data-filter=".cat2" class="th-btn style-border btn-sm" type="button">Lunch</button>
-                            <button data-filter=".cat3" class="th-btn style-border btn-sm" type="button">Dinner</button>
-                        </div>
+                            <button data-filter=".cat3" class="th-btn style-border btn-sm" type="button">Pizza</button>
+                        </div>  
                     </div>
                     <div class="row gy-40 filter-active">
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_1.png" alt="Product Image">
-                                    <span class="product-tag">-25%</span>
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                        {% for food in all_foods %}
+                            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
+                                <div class="th-product product-grid">
+                                    <div class="product-img transparent-img">
+                                        <img src="assets/img/product/product_1_1.png" alt="Product Image">
+                                        <span class="product-tag">-25%</span>
+                                        <div class="actions">
+                                            <a href="#QuickView" class="icon-btn popup-content"><i
+                                                    class="far fa-eye"></i></a>
+                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                        <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                class="rating">1</span> customer rating</span>
-                                    </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Egg and Cocumber</a></h3>
-                                    <span class="price">$24.00<del>$32.00</del></span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat1 cat2">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_2.png" alt="Product Image">
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
+                                    <div class="product-content">
+                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
                                         <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
                                                 class="rating">1</span> customer rating</span>
+                                        </div>
+                                        <h3 class="product-title"><a href="shop-details.html">{{ food.title }}</a></h3>
+                                        <span class="price">$24.00<del>$32.00</del></span>
                                     </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Tofu Red Chili</a></h3>
-                                    <span class="price">$39.85</span>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat1 cat3">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_3.png" alt="Product Image">
-                                    <span class="product-tag">-25%</span>
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                        <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                class="rating">1</span> customer rating</span>
-                                    </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Salmon Salad</a></h3>
-                                    <span class="price">$24.00<del>$32.00</del></span>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
 
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_4.png" alt="Product Image">
-                                    <span class="product-tag">-25%</span>
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                        <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                class="rating">1</span> customer rating</span>
-                                    </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Raw Salmon Salad</a></h3>
-                                    <span class="price">$18.85<del>$16.99</del></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat2">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_5.png" alt="Product Image">
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                        <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                class="rating">1</span> customer rating</span>
-                                    </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Salmon Beef Stack</a></h3>
-                                    <span class="price">$32.85</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat1 cat2">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_6.png" alt="Product Image">
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                        <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                class="rating">1</span> customer rating</span>
-                                    </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Chicken Fride Rice</a></h3>
-                                    <span class="price">$30.85</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat2 cat1">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_7.png" alt="Product Image">
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                        <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                class="rating">1</span> customer rating</span>
-                                    </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Sicilian Pizza</a></h3>
-                                    <span class="price">$232.85</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
-                            <div class="th-product product-grid">
-                                <div class="product-img transparent-img">
-                                    <img src="assets/img/product/product_1_8.png" alt="Product Image">
-                                    <div class="actions">
-                                        <a href="#QuickView" class="icon-btn popup-content"><i
-                                                class="far fa-eye"></i></a>
-                                        <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                        <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                class="rating">1</span> customer rating</span>
-                                    </div>
-                                    <h3 class="product-title"><a href="shop-details.html">Chicken with Rice</a></h3>
-                                    <span class="price">$30.85</span>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -1098,176 +946,52 @@ Menu Area
                     <div class="row gy-30">
                         <div class="col-xl-6">
                             <div class="menu-list-block">
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_1.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                {% for pizza in pizzas %}
+
+                                    <div class="menu-list">
+                                        <div class="box-img">
+                                            <img src="assets/img/product/menu_thumb_1.png" alt="Food">
+                                            <div class="actions">
+                                                <a href="cart.html" class="icon-btn"><i
+                                                        class="far fa-cart-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h3 class="box-title"><a href="shop-details.html">{{ pizza.title }}</a></h3>
+                                            <div class="box-content">
+                                                <p class="box-text">{{ pizza.short_description|truncatechars:60 }}</p>
+                                                <div class="box-line"></div>
+                                                <h4 class="box-price">{{ pizza.price }}</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Grilled Salmon with Dil
-                                            Sauce</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$40</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_2.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Roast Beef with Vegetable</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$50</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_3.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Marrakesh Vegetarian Curry</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$30</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_4.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Spicy Vegan Potato Curry</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$20</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_5.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Apple Pie with Cream</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$45</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="menu-list-block">
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_7.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                {% for sandwich in sandwiches %}
+
+                                    <div class="menu-list">
+                                        <div class="box-img">
+                                            <img src="assets/img/product/menu_thumb_7.png" alt="Food">
+                                            <div class="actions">
+                                                <a href="cart.html" class="icon-btn"><i
+                                                        class="far fa-cart-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h3 class="box-title"><a href="shop-details.html">{{ sandwich.title }}</a>
+                                            </h3>
+                                            <div class="box-content">
+                                                <p class="box-text">{{ sandwich.short_description|truncatechars:60 }}</p>
+                                                <div class="box-line"></div>
+                                                <h4 class="box-price">{{ sandwich.price }}</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">French Onion Soup</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$40</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_8.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Roast Beef with Vegetable</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$50</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_9.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Italian Vegetarian Pizza</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$30</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_10.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Fried Rice Set Menu</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$20</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_11.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Beef Fried and Kabab</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$45</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
+
                             </div>
                         </div>
                     </div>
@@ -1313,52 +1037,52 @@ Brand Area
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_1.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_2.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_3.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_4.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_5.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_1.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_2.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_3.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_4.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box style2">
-                                    <img src="assets/img/brand/brand_2_5.svg" alt="Brand Logo">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                         </div>
@@ -1603,6 +1327,119 @@ Blog Area
                     </div>
                 </div>
             </section>
+            <!--==============================
+	Footer Area
+==============================-->
+            <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer_bg_2.jpg">
+                <div class="container z-index-common">
+                    <div class="newsletter-wrap">
+                        <div class="newsletter-content">
+                            <h2 class="sec-title title-ani2 text-white m-0">Subscribe for daily update</h2>
+                        </div>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input class="form-control" type="email" placeholder="Email Address" required="">
+                            </div>
+                            <button type="submit" class="th-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="widget-area">
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget footer-widget">
+                                    <div class="th-widget-about">
+                                        <div class="about-logo">
+                                            <a href="home-restaurant-shop.html"><img src="assets/img/logo-footer.svg"
+                                                                                     alt="Restar"></a>
+                                        </div>
+                                        <p class="about-text">We believe that great food shouldn't break the bank.
+                                            That's why we offer affordable options without compromising on taste.</p>
+                                        <div class="info-box">
+                                            <h4 class="box-title">Address Location</h4>
+                                            <div class="box-content">
+                                                <div class="box-icon">
+                                                    <i class="fas fa-location-dot"></i>
+                                                </div>
+                                                <p class="box-text">138 MacArthur Ave, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget widget_nav_menu footer-widget">
+                                    <h3 class="widget_title">Quick Links</h3>
+                                    <div class="menu-all-pages-container">
+                                        <ul class="menu">
+                                            <li><a href="team.html">Team Member</a></li>
+                                            <li><a href="about.html">Testimonials</a></li>
+                                            <li><a href="about.html">Company History</a></li>
+                                            <li><a href="contact.html">Need a Career?</a></li>
+                                            <li><a href="faq.html">FAQs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget widget_nav_menu footer-widget">
+                                    <h3 class="widget_title">Food Menu</h3>
+                                    <div class="menu-all-pages-container">
+                                        <ul class="menu">
+                                            <li><a href="shop.html">White Castle</a></li>
+                                            <li><a href="shop.html">Beef Sandwich</a></li>
+                                            <li><a href="shop.html">Cherry Limeade</a></li>
+                                            <li><a href="shop.html">Sandwich</a></li>
+                                            <li><a href="shop.html">Pumpkin Spice</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget widget_download footer-widget">
+                                    <h4 class="widget_title">Install App</h4>
+                                    <div class="th-download-widget">
+                                        <p class="footer-text">From App Store or Google Play</p>
+                                        <div class="btn-group">
+                                            <a href="https://www.apple.com/app-store/" class="download-btn">
+                                                <img src="assets/img/icon/app_store_1.png" alt="icon">
+                                            </a>
+                                            <a href="https://play.google.com/store/apps" class="download-btn">
+                                                <img src="assets/img/icon/app_store_2.png" alt="icon">
+                                            </a>
+                                        </div>
+                                        <p class="mt-30 mb-3">24/7 Support Center</p>
+                                        <h3 class="box-title"><a href="tel:+19524357106">+1 952-435-7106</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-wrap">
+                    <div class="container">
+                        <div class="row gx-1 gy-2 align-items-center">
+                            <div class="col-md-7">
+                                <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2024 <a
+                                        href="home-restaurant-shop.html">Restar</a>. All Rights Reserved.</p>
+                            </div>
+                            <div class="col-md-5 text-center text-md-end">
+                                <div class="footer-links">
+                                    <ul>
+                                        <li><a href="about.html">Terms & Condition</a></li>
+                                        <li><a href="about.html">Privacy & Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
 
             <!--********************************
 			Code End  Here 
@@ -1613,14 +1450,13 @@ Blog Area
     </div>
 
 
-
     <!-- Scroll To Top -->
     <div class="scroll-top">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                  style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
         </svg>
     </div>
-
-
     </body>
+
 {% endblock content %}

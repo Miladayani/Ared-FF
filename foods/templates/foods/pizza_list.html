@@ -1,7 +1,6 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <h1>Pizzas List</h1>
     {% for pizza in pizzas %}
         <a href="{{ pizza.get_absolute_url }}">
             {{ pizza.title }}
