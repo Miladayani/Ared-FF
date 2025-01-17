@@ -318,7 +318,7 @@ Menu Area
                                             </div>
                                         </div>
                                         <div class="media-body">
-                                            <h3 class="box-title"><a href="shop-details.html">{{ pizza.title }}</a></h3>
+                                            <h3 class="box-title"><a href="{{ pizza.get_absolute_url }}">{{ pizza.title }}</a></h3>
                                             <div class="box-content">
                                                 <p class="box-text">{{ pizza.short_description|truncatechars:60 }}</p>
                                                 <div class="box-line"></div>

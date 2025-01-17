@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
@@ -10,10 +11,22 @@ class PizzaListView(ListView):
     context_object_name = 'pizzas'
 
 
+class PizzaDetailView(DetailView):
+    model = Pizza
+    template_name = 'foods/pizza_detail.html'
+    context_object_name = 'pizza'
+
+
 class SandwichListView(ListView):
     queryset = Sandwich.objects.filter(active=True)
     template_name = 'foods/sandwich_list.html'
     context_object_name = 'sandwiches'
+
+
+class SandwichDetailView(DetailView):
+    model = Sandwich
+    template_name = 'foods/sandwich_detail.html'
+    context_object_name = 'sandwich'
 
 
 class Shop(ListView):
