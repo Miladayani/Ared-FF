@@ -376,7 +376,7 @@ Product Lightbox
                                     <a href="shop-details.html" class="woocommerce-review-link">(<span
                                             class="count">4</span> customer reviews)</a>
                                 </div>
-                                <p class="text">{{ pizza.description }}.</p>
+                                <p class="text">{{ pizza.short_description|truncatechars:60 }}.</p>
                                 <div class="mt-2 link-inherit">
                                     <p>
                                         <strong class="text-title me-3">Availability:</strong>
@@ -415,21 +415,7 @@ Product Lightbox
                     </ul>
                     <div class="tab-content" id="productTabContent">
                         <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description-tab">
-                            <p>Welcome to Restar, where culinary excellence meets exceptional service. Our restaurant is
-                                a haven for food enthusiasts seeking an elevated dining experience. Immerse yourself in
-                                a sophisticated and inviting ambiance. The carefully curated decor sets the stage for
-                                intimate dinners, celebrations, and memorable moments shared with friends and family.
-                                Indulge in a gourmet journey with a menu that showcases a fusion of flavors. Our chefs
-                                use the finest ingredients to create dishes that are not just meals but unforgettable
-                                experiences. Elevate your dining experience with our extensive selection of fine wines
-                                and expertly crafted cocktails. Each sip complements the richness of our dishes,
-                                creating a symphony of taste.</p>
-                            <p>From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a
-                                variety of fast-food favorites. Each item is crafted with quality ingredients to ensure
-                                a tasty experience with every order. Enjoy your quick meal in a casual and friendly
-                                setting. Whether you're grabbing a bite on your lunch break or stopping by for a snack,
-                                our welcoming atmosphere makes every visit enjoyable. We believe that great food
-                                shouldn't break the bank.</p>
+                            <p>{{ pizza.description }}.</p>
                         </div>
                         <div class="tab-pane fade show active" id="reviews" role="tabpanel"
                              aria-labelledby="reviews-tab">
