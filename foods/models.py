@@ -17,7 +17,7 @@ class Pizza(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     size = models.CharField(max_length=10, choices=PIZZA_SIZE, default='1')
-    # image =
+    image = models.ImageField(upload_to='pizza/pizza_cover', blank=True)
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
@@ -35,7 +35,7 @@ class Sandwich(models.Model):
     short_description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
-    # image =
+    image = models.ImageField(upload_to='sandwich/sandwich_cover', blank=True)
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)

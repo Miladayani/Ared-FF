@@ -5,12 +5,12 @@ from .models import Pizza, Sandwich, Comment
 
 @admin.register(Pizza)
 class PizzaAdmin(admin.ModelAdmin):
-    list_display = ('title', 'price', 'active', 'size')
+    list_display = ('title', 'price', 'active', 'size', 'image', )
 
 
 @admin.register(Sandwich)
 class SandwichAdmin(admin.ModelAdmin):
-    list_display = ('title', 'price', 'active',)
+    list_display = ('title', 'price', 'active', 'image', )
 
 
 @admin.register(Comment)
