@@ -15,7 +15,7 @@ class SandwichAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('get_product', 'rating', 'author', 'body', 'email', 'date_created', 'active', 'profile_picture',  )
+    list_display = ('get_product', 'rating', 'author', 'body', 'email', 'date_created', 'active', 'profile_picture', )
     list_filter = ('active', 'rating', 'date_created')
     search_fields = ('body', 'email', 'author__username', )
 

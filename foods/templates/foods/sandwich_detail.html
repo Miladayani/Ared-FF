@@ -415,107 +415,35 @@ Product Lightbox
                     </ul>
                     <div class="tab-content" id="productTabContent">
                         <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description-tab">
-                            <p>Welcome to Restar, where culinary excellence meets exceptional service. Our restaurant is
-                                a haven for food enthusiasts seeking an elevated dining experience. Immerse yourself in
-                                a sophisticated and inviting ambiance. The carefully curated decor sets the stage for
-                                intimate dinners, celebrations, and memorable moments shared with friends and family.
-                                Indulge in a gourmet journey with a menu that showcases a fusion of flavors. Our chefs
-                                use the finest ingredients to create dishes that are not just meals but unforgettable
-                                experiences. Elevate your dining experience with our extensive selection of fine wines
-                                and expertly crafted cocktails. Each sip complements the richness of our dishes,
-                                creating a symphony of taste.</p>
-                            <p>From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a
-                                variety of fast-food favorites. Each item is crafted with quality ingredients to ensure
-                                a tasty experience with every order. Enjoy your quick meal in a casual and friendly
-                                setting. Whether you're grabbing a bite on your lunch break or stopping by for a snack,
-                                our welcoming atmosphere makes every visit enjoyable. We believe that great food
-                                shouldn't break the bank.</p>
+                            <p>{{ sandwich.description }}</p>
                         </div>
                         <div class="tab-pane fade show active" id="reviews" role="tabpanel"
                              aria-labelledby="reviews-tab">
                             <div class="woocommerce-Reviews">
                                 <div class="th-comments-wrap ">
                                     <ul class="comment-list">
-                                        <li class="review th-comment-item">
-                                            <div class="th-post-comment">
-                                                <div class="comment-avater">
-                                                    <img src="assets/img/blog/comment-author-1.jpg"
-                                                         alt="Comment Author">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <h4 class="name">Adam Jhon</h4>
-                                                    <span class="commented-on"><i class="fal fa-calendar"></i>22 January, 2024</span>
-                                                    <div class="star-rating" role="img"
-                                                         aria-label="Rated 5.00 out of 5">
+                                        {% for comment in sandwich.comments.all %}
+                                            <li class="review th-comment-item">
+                                                <div class="th-post-comment">
+                                                    <div class="comment-avater">
+                                                        <img src="{{ comment.profile_picture.url }}"
+                                                             alt="Comment Author">
+                                                    </div>
+                                                    <div class="comment-content">
+                                                        <h4 class="name">{{ comment.author.username }}</h4>
+                                                        <span class="commented-on"><i class="fal fa-calendar"></i>{{ comment.date_created }}</span>
+                                                        <div class="star-rating" role="img"
+                                                             aria-label="Rated 5.00 out of 5">
                                                         <span style="width:100%">Rated <strong
                                                                 class="rating">5.00</strong> out of 5 based on <span
                                                                 class="rating">1</span> customer rating</span>
+                                                        </div>
+                                                        <p class="text">{{ comment.body }}</p>
                                                     </div>
-                                                    <p class="text">This product is very much qualityful and I love this
-                                                        working system and speed.</p>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li class="review th-comment-item">
-                                            <div class="th-post-comment">
-                                                <div class="comment-avater">
-                                                    <img src="assets/img/blog/comment-author-2.jpg"
-                                                         alt="Comment Author">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <h4 class="name">Jusctin Dacon</h4>
-                                                    <span class="commented-on"><i class="fal fa-calendar"></i>26 January, 2024</span>
-                                                    <div class="star-rating" role="img"
-                                                         aria-label="Rated 5.00 out of 5">
-                                                        <span style="width:100%">Rated <strong
-                                                                class="rating">5.00</strong> out of 5 based on <span
-                                                                class="rating">1</span> customer rating</span>
-                                                    </div>
-                                                    <p class="text">They delivered the product in a few time. Product
-                                                        quality is also very good.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="review th-comment-item">
-                                            <div class="th-post-comment">
-                                                <div class="comment-avater">
-                                                    <img src="assets/img/blog/comment-author-3.jpg"
-                                                         alt="Comment Author">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <h4 class="name">Jacklin July</h4>
-                                                    <span class="commented-on"><i class="fal fa-calendar"></i>26 January, 2024</span>
-                                                    <div class="star-rating" role="img"
-                                                         aria-label="Rated 5.00 out of 5">
-                                                        <span style="width:100%">Rated <strong
-                                                                class="rating">5.00</strong> out of 5 based on <span
-                                                                class="rating">1</span> customer rating</span>
-                                                    </div>
-                                                    <p class="text">Their product and service is very satisfying. I
-                                                        highly recommend their services.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="review th-comment-item">
-                                            <div class="th-post-comment">
-                                                <div class="comment-avater">
-                                                    <img src="assets/img/blog/comment-author-4.jpg"
-                                                         alt="Comment Author">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <h4 class="name">Adison Smith</h4>
-                                                    <span class="commented-on"><i class="fal fa-calendar"></i>26 January, 2024</span>
-                                                    <div class="star-rating" role="img"
-                                                         aria-label="Rated 5.00 out of 5">
-                                                        <span style="width:100%">Rated <strong
-                                                                class="rating">5.00</strong> out of 5 based on <span
-                                                                class="rating">1</span> customer rating</span>
-                                                    </div>
-                                                    <p class="text">I am just in love with this product. Their service
-                                                        is also very good you can also try.</p>
-                                                </div>
-                                            </div>
-                                        </li>
+                                            </li>
+                                        {% endfor %}
+
                                     </ul>
                                 </div> <!-- Comment Form -->
                                 <div class="th-comment-form ">
