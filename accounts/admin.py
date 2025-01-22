@@ -19,18 +19,17 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
 
     # فقط نمایش فیلدهای username و email در لیست کاربران
-    list_display = ('username', 'email')
+    list_display = ('username', 'email', 'profile_picture')
 
-    # حذف سایر فیلدها و نمایش فقط username و email در صفحه ویرایش کاربر
+    # حذف سایر فیلدها و نمایش فقط username، email و profile_picture در صفحه ویرایش کاربر
     fieldsets = (
-        (None, {'fields': ('username', 'email', 'password')}),
+        (None, {'fields': ('username', 'email', 'password', 'profile_picture')}),
     )
 
     # تنظیم فیلدهای مورد نیاز در فرم افزودن کاربر
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'email', 'password1', 'password2'),
+            'fields': ('username', 'email', 'password1', 'password2', 'profile_picture'),
         }),
     )
-
