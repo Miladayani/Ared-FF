@@ -50,15 +50,17 @@ class Sandwich(models.Model):
 class Comment(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, related_name='comments', null=True, blank=True)
     sandwich = models.ForeignKey(Sandwich, on_delete=models.CASCADE, related_name='comments', null=True, blank=True)
-    rating = models.PositiveIntegerField(default=1, choices=[(i, i) for i in range(1, 6)])  # امتیاز از 1 تا 5
+    rating = models.PositiveIntegerField(default=5, choices=[(i, i) for i in range(1, 6)])  # امتیاز از 1 تا 5
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
     body = models.TextField()
     email = models.EmailField()
-    profile_picture = models.ImageField(upload_to='profile/profile_cover', blank=True, null=True)
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
 
     def get_absolute_url(self):
-        return reverse('pizza_detail', args=[self.pizza.id])
+        if self.pizza:
+            return reverse('pizza_detail', args=[self.pizza.id])
+        elif self.sandwich:
+            return reverse('sandwich_detail', args=[self.sandwich.id])

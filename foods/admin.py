@@ -15,10 +15,14 @@ class SandwichAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('get_product', 'rating', 'author', 'body', 'email', 'date_created', 'active', 'profile_picture', )
+    list_display = ('get_product', 'rating', 'author', 'body', 'email', 'date_created', 'active', )
     list_filter = ('active', 'rating', 'date_created')
     search_fields = ('body', 'email', 'author__username', )
 
     def get_product(self, obj):
-        return obj.pizza.title if obj.pizza else obj.sandwich.title
+        if obj.pizza:
+            return obj.pizza.title
+        elif obj.sandwich:
+            return obj.sandwich.title
+        return None
     get_product.short_description = 'Product'

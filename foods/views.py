@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
+from django.shortcuts import reverse
 
 from .forms import CommentForm
 from .models import Pizza, Sandwich, Comment
@@ -49,8 +50,35 @@ class CommentCreateView(CreateView):
         obj = form.save(commit=False)
         obj.author = self.request.user
 
-        pizza_id = int(self.kwargs['pizza_id'])
-        pizza = get_object_or_404(Pizza, id=pizza_id)
-        obj.pizza = pizza
+        # بررسی وجود pizza_id یا sandwich_id در kwargs
+        if 'pizza_id' in self.kwargs:
+            obj.pizza = get_object_or_404(Pizza, id=self.kwargs['pizza_id'])
+        elif 'sandwich_id' in self.kwargs:
+            obj.sandwich = get_object_or_404(Sandwich, id=self.kwargs['sandwich_id'])
 
+        obj.save()
         return super().form_valid(form)
+
+    def get_success_url(self):
+        # برگشت به صفحه جزئیات مدل صحیح
+        if 'pizza_id' in self.kwargs:
+            return reverse('pizza_detail', args=[self.kwargs['pizza_id']])
+        elif 'sandwich_id' in self.kwargs:
+            return reverse('sandwich_detail', args=[self.kwargs['sandwich_id']])
+
+
+# class CommentCreateView(CreateView):
+#     model = Comment
+#     form_class = CommentForm
+#
+#     def form_valid(self, form):
+#         obj = form.save(commit=False)
+#         obj.author = self.request.user
+#
+#         pizza_id = int(self.kwargs['pizza_id'])
+#         pizza = get_object_or_404(Pizza, id=pizza_id)
+#         obj.pizza = pizza
+#
+#         return super().form_valid(form)
+
+

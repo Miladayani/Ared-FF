@@ -456,19 +456,20 @@ Product Lightbox
                                     </div>
                                     {% if user.is_authenticated %}
                                         <form method="POST" enctype="multipart/form-data"
-                                              action="{% url 'comment_create' pizza.id %}">
+                                              action="{% url 'pizza_comment_create' pizza.id %}">
                                             {% csrf_token %}
                                             <div class="row">
+                                                <input type="hidden" name="rating" value="0">
                                                 <div class="form-group rating-select d-flex align-items-center">
                                                     <label>Your Rating</label>
                                                     <p class="stars">
-                                                <span>
-                                                    <a class="star-1" href="#">1</a>
-                                                    <a class="star-2" href="#">2</a>
-                                                    <a class="star-3" href="#">3</a>
-                                                    <a class="star-4" href="#">4</a>
-                                                    <a class="star-5" href="#">5</a>
-                                                </span>
+                                                        <span>
+                                                            <a class="star-1" href="#">1</a>
+                                                            <a class="star-2" href="#">2</a>
+                                                            <a class="star-3" href="#">3</a>
+                                                            <a class="star-4" href="#">4</a>
+                                                            <a class="star-5" href="#">5</a>
+                                                        </span>
                                                     </p>
                                                 </div>
                                                 <div class="col-12 form-group">

@@ -7,5 +7,6 @@ urlpatterns = [
     path('sandwiches/', SandwichListView.as_view(), name='sandwich_list'),
     path('sandwiches/<int:pk>/', SandwichDetailView.as_view(), name='sandwich_detail'),
     path('shop', Shop.as_view(), name='shop'),
-    path('comment/<int:pizza_id>/', CommentCreateView.as_view(), name='comment_create'),
+    path('pizza/<int:pizza_id>/comment/', CommentCreateView.as_view(), name='pizza_comment_create'),
+    path('sandwich/<int:sandwich_id>/comment/', CommentCreateView.as_view(), name='sandwich_comment_create'),
 ]
