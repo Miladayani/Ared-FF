@@ -22,24 +22,25 @@ class Service(TemplateView):
 
 
 class ServiceDetails(TemplateView):
-    template_name = 'pages/servicedetails.html'
-
-
-class Chef(TemplateView):
-    template_name = 'pages/chef.html'
-
-
-class ChefDetails(TemplateView):
-    template_name = 'pages/chefdetails.html'
-
-
-class Reservation(TemplateView):
-    template_name = 'pages/reservation.html'
-
-
-class Gallery(TemplateView):
-    template_name = 'pages/gallery.html'
+    template_name = 'pages/service_detail.html'
 
 
 class ErrorPage(TemplateView):
     template_name = 'pages/error.html'
+
+# class Chef(TemplateView):
+#     template_name = 'pages/chef.html'
+#
+#
+# class ChefDetails(TemplateView):
+#     template_name = 'pages/chefdetails.html'
+#
+#
+# class Reservation(TemplateView):
+#     template_name = 'pages/reservation.html'
+#
+#
+# class Gallery(TemplateView):
+#     template_name = 'pages/gallery.html'
+
+

@@ -1,3 +1,4 @@
+{% load static %}
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
         href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -295,7 +296,7 @@ Product Lightbox
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="home-restaurant-shop.html"><img src="assets/img/logo-white.svg"
+                            <a href="{% url 'home' %}"><img src="{% static 'img/logo-white.svg' %}"
                                                                      alt="Restar"></a>
                         </div>
                     </div>
@@ -303,24 +304,23 @@ Product Lightbox
                         <nav class="main-menu d-none d-lg-inline-block">
                             <ul>
                                 <li class="menu-item-has-children">
-                                    <a href="home-restaurant-shop.html">Home</a>
+                                    <a href="{% url 'home' %}">Home</a>
                                     <ul class="sub-menu">
-                                        <li><a href="home-restaurant-shop.html">Restaurant Shop</a></li>
-                                        <li><a href="home-fast-food.html">Home Fast Food</a></li>
-                                        <li><a href="home-restaurant.html">Home Restaurant</a></li>
+                                        <li><a href="{% url 'home' %}">Restaurant Shop</a></li>
+                                        <li><a href="{% url 'home2' %}">Home Fast Food</a></li>
+                                        <li><a href="{% url 'home3' %}">Home Restaurant</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Pages</a>
+                                    <a href="{% url 'aboutus' %}">Pages</a>
                                     <ul class="sub-menu">
-                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="{% url 'aboutus' %}">About Us</a></li>
                                         <li><a href="service.html">Service</a></li>
                                         <li><a href="service-details.html">Service Details</a></li>
                                         <li><a href="team.html">Chef</a></li>
                                         <li><a href="team-details.html">Chef Details</a></li>
                                         <li><a href="reservation.html">Reservation</a></li>
                                         <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="error.html">Error Page</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
