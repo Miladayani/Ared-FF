@@ -1,0 +1,261 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+    Chefs Detail
+{% endblock %}
+
+{% block content %}
+    <body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content"><!--==============================
+    Breadcumb
+============================== -->
+            <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+                <div class="container">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">Chef Details</h1>
+                        <ul class="breadcumb-menu">
+                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li>Chef Details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--==============================
+Team Area  
+==============================-->
+            <section class="space">
+                <div class="container">
+                    <div class="row gy-40">
+                        <div class="col-xl-6">
+                            <div class="about-card-img">
+                                <img src="assets/img/team/team_details.jpg" alt="team image">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 align-self-center">
+                            <div class="about-card">
+                                <h2 class="mb-2 sec-title title-ani2">Harry Callum</h2>
+                                <p class="box-desig title-ani2">Master Chef</p>
+                                <p class="text-ani">Food is the foundation of true happiness. Lorem ipsum dolor sit amet, consectetuer adipiscing elit aenean commodo.</p>
+                                <p class="mb-30 text-ani">We see our customers as invited guests to a party, and we are the hosts. It’s our job every day to make every important aspect of the customer experience a little bit better. Donec quam felis, ultricies nec, pellentesque eu.</p>
+                                <div class="box-info text-ani">
+                                    <div class="box-icon">
+                                        <i class="far fa-phone"></i>
+                                    </div>
+                                    <a href="tel:+16325643654">+163 2564 3654</a>
+                                </div>
+                                <div class="box-info text-ani">
+                                    <div class="box-icon">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <a href="mailto:harrycallum@gmail.com">harrycallum@gmail.com</a>
+                                </div>
+                                <h4 class="box-title text-ani">Social Media:</h4>
+                                <div class="th-social multi-social text-ani">
+                                    <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                    <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                                    <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                    <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="mb-4 mt-5 pt-lg-4 title-ani2">About Me</h3>
+                    <p class="mb-25 text-ani">A firm believer in the transformative power of food, Chef [Chef's Name] blends traditional techniques with innovative flair. Every dish that graces your table is a testament to a culinary philosophy rooted in fresh, locally sourced ingredients and a dedication to flavor perfection. Chef harry callum has honed their skills in some of the finest kitchens around the world, bringing an international flair to our menu. From mastering the art of delicate pastries to commanding the grill with finesse, their culinary expertise ensures a diverse and memorable dining experience.</p>
+                    <p class="mb-0 text-ani">Immerse yourself in Chef harry callum's Name]'s signature creations, each dish meticulously crafted to tantalize your taste buds. From the first bite to the last, you'll discover a symphony of flavors that reflects Chef harry callum's commitment to culinary excellence.</p>
+                    <div class="row mt-5 pt-lg-4">
+                        <div class="col-xl-6 mb-40 mb-xl-0">
+                            <h3 class="mb-4 mt-n2 title-ani2">Signature Dishes</h3>
+                            <div class="row gy-30">
+                                <div class="col-sm-4 col-6">
+                                    <img src="assets/img/gallery/team_gallery_1.jpg" alt="image" class="w-100">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <img src="assets/img/gallery/team_gallery_2.jpg" alt="image" class="w-100">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <img src="assets/img/gallery/team_gallery_3.jpg" alt="image" class="w-100">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <img src="assets/img/gallery/team_gallery_4.jpg" alt="image" class="w-100">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <img src="assets/img/gallery/team_gallery_5.jpg" alt="image" class="w-100">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <img src="assets/img/gallery/team_gallery_6.jpg" alt="image" class="w-100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <form action="mail.php" method="POST" class="team-form input-white">
+                                <h2 class="form-title title-ani2">Contact Now</h2>
+                                <p class="form-text text-ani">Crafted cocktails and beverage menus, Reservations for guests</p>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name">
+                                        <i class="fal fa-user"></i>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number">
+                                        <i class="fal fa-phone"></i>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <input type="text" class="date-pick form-control" name="date" id="date-pick" placeholder="Date">
+                                        <i class="fal fa-calendar"></i>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <input type="text" class="time-pick form-control" name="time" id="time-pick" placeholder="Time">
+                                        <i class="fal fa-clock"></i>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <input type="text" class="form-control" name="people" id="people" placeholder="Total Person">
+                                        <i class="fal fa-user-group"></i>
+                                    </div>
+                                </div>
+                                <button class="th-btn w-100">Reservation Now</button>
+                                <p class="form-messages mb-0 mt-3"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--==============================
+	Footer Area
+==============================-->
+            <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer_bg_1.jpg">
+                <div class="widget-area">
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget footer-widget">
+                                    <div class="th-widget-about">
+                                        <div class="about-logo">
+                                            <a href="home-restaurant-shop.html"><img src="assets/img/logo-footer.svg" alt="Restar"></a>
+                                        </div>
+                                        <p class="about-text">We believe that great food shouldn't break the bank. That's why we offer affordable options without compromising on taste.</p>
+                                        <div class="th-social">
+                                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget widget_nav_menu footer-widget">
+                                    <h3 class="widget_title">Quick Links</h3>
+                                    <div class="menu-all-pages-container">
+                                        <ul class="menu">
+                                            <li><a href="team.html">Team Member</a></li>
+                                            <li><a href="about.html">Testimonials</a></li>
+                                            <li><a href="about.html">Company History</a></li>
+                                            <li><a href="contact.html">Need a Career?</a></li>
+                                            <li><a href="faq.html">FAQs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget widget_nav_menu footer-widget">
+                                    <h3 class="widget_title">Food Menu</h3>
+                                    <div class="menu-all-pages-container">
+                                        <ul class="menu">
+                                            <li><a href="shop.html">White Castle</a></li>
+                                            <li><a href="shop.html">Beef Sandwich</a></li>
+                                            <li><a href="shop.html">Cherry Limeade</a></li>
+                                            <li><a href="shop.html">Sandwich</a></li>
+                                            <li><a href="shop.html">Pumpkin Spice</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="col-md-6 col-xl-auto">
+                                <div class="widget footer-widget">
+                                    <h3 class="widget_title">Get In Touch</h3>
+                                    <div class="th-widget-contact">
+                                        <div class="info-box">
+                                            <h4 class="box-title">Address Location</h4>
+                                            <div class="box-content">
+                                                <div class="box-icon">
+                                                    <i class="fas fa-location-dot"></i>
+                                                </div>
+                                                <p class="box-text">138 MacArthur Ave, USA</p>
+                                            </div>
+                                        </div>
+                                        <div class="info-box">
+                                            <h4 class="box-title">Phone Number</h4>
+                                            <div class="box-content">
+                                                <div class="box-icon">
+                                                    <i class="fas fa-phone"></i>
+                                                </div>
+                                                <p class="box-text"><a href="tel:+16326543564">+(163)-2654-3564</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="info-box">
+                                            <h4 class="box-title">Email address</h4>
+                                            <div class="box-content">
+                                                <div class="box-icon">
+                                                    <i class="fas fa-envelope"></i>
+                                                </div>
+                                                <p class="box-text"><a href="mailto:info@restar.com">info@restar.com</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-wrap">
+                    <div class="container">
+                        <div class="row gx-1 gy-2 align-items-center">
+                            <div class="col-md-7">
+                                <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2024 <a href="home-restaurant-shop.html">Restar</a>. All Rights Reserved.</p>
+                            </div>
+                            <div class="col-md-5 text-center text-md-end">
+                                <div class="footer-links">
+                                    <ul>
+                                        <li><a href="about.html">Terms & Condition</a></li>
+                                        <li><a href="about.html">Privacy & Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!--********************************
+			Code End  Here 
+	******************************** -->
+
+            <!-- Smooth scroller -->
+        </div>
+    </div>
+
+
+
+    <!-- Scroll To Top -->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+</body>
+{% endblock %}

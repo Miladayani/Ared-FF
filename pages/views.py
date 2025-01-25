@@ -28,19 +28,16 @@ class ServiceDetail(TemplateView):
 class ErrorPage(TemplateView):
     template_name = 'pages/error.html'
 
-# class Chef(TemplateView):
-#     template_name = 'pages/chef.html'
-#
-#
-# class ChefDetails(TemplateView):
-#     template_name = 'pages/chefdetails.html'
-#
-#
-# class Reservation(TemplateView):
-#     template_name = 'pages/reservation.html'
-#
-#
-# class Gallery(TemplateView):
-#     template_name = 'pages/gallery.html'
+
+class Chef(TemplateView):
+    template_name = 'pages/chef.html'
+
+
+class ChefsDetail(TemplateView):
+    template_name = 'pages/chefs_detail.html'
+
+
+class Gallery(TemplateView):
+    template_name = 'pages/gallery.html'
 
 
