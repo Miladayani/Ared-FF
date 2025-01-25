@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block content %}
     <body>
@@ -300,7 +301,7 @@ Menu Area
             <section class="space">
                 <div class="container">
                     <div class="title-area text-center">
-                        <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg"
+                        <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}"
                                                       alt="Icon">Our Menu</span>
                         <h2 class="sec-title title-ani">Our Delicious Foods</h2>
                     </div>
@@ -316,9 +317,9 @@ Menu Area
                             <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
                                 <div class="menu-card">
                                     <div class="box-shape"></div>
-                                    <h3 class="box-title"><a href="shop-details.html">{{ food.title }}</a></h3>
+                                    <h3 class="box-title"><a href="{{ food.get_absolute_url }}">{{ food.title }}</a></h3>
                                     <div class="box-img">
-                                        <img src="assets/img/product/menu_card_1.jpg" alt="Food">
+                                        <img src="{{ food.image.url }}" alt="Food">
                                     </div>
                                     <p class="box-text">{{ food.short_description|truncatechars:25 }}</p>
                                     <h4 class="box-price">{{ food.price }}</h4>

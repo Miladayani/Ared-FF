@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load comment_tags %}
 
 {% block page_title %}
 {% endblock %}
@@ -359,7 +360,7 @@ Product Lightbox
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="product-big-img transparent-img">
-                                <div class="img"><img src="assets/img/product/product_1_5.png" alt="Product Image">
+                                <div class="img"><img src="{{ pizza.image.url }}" alt="Product Image">
                                 </div>
                             </div>
                         </div>
@@ -374,7 +375,7 @@ Product Lightbox
                                             style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span
                                             class="rating">1</span> customer rating</span></div>
                                     <a href="shop-details.html" class="woocommerce-review-link">(<span
-                                            class="count">4</span> customer reviews)</a>
+                                            class="count">{{ pizza.comments.all|only_active_comments|length }}</span> customer reviews)</a>
                                 </div>
                                 <p class="text">{{ pizza.short_description|truncatechars:60 }}.</p>
                                 <div class="mt-2 link-inherit">
