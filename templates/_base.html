@@ -61,6 +61,8 @@
 </head>
 <body>
 
+{% include 'header.html' %}
+
 {% block content %}
 {% endblock %}
 
@@ -92,30 +94,6 @@ All Js File
 
 <!-- Main Js File -->
 <script src="{% static 'js/main.js' %}"></script>
-{##}
-{#<script>#}
-{#    document.addEventListener('DOMContentLoaded', function () {#}
-{#        const buttons = document.querySelectorAll('.tab-menu button');#}
-{#        const items = document.querySelectorAll('.filter-active .col-xl-3');#}
-{##}
-{#        buttons.forEach((button) => {#}
-{#            button.addEventListener('click', () => {#}
-{#                const filter = button.getAttribute('data-filter');#}
-{##}
-{#                buttons.forEach((btn) => btn.classList.remove('active'));#}
-{#                button.classList.add('active');#}
-{##}
-{#                items.forEach((item) => {#}
-{#                    if (filter === '*' || item.classList.contains(filter.substring(1))) {#}
-{#                        item.style.display = 'block';#}
-{#                    } else {#}
-{#                        item.style.display = 'none';#}
-{#                    }#}
-{#                });#}
-{#            });#}
-{#        });#}
-{#    });#}
-{#</script>#}
 
 </body>
 </html>
