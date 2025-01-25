@@ -21,7 +21,7 @@ class Service(TemplateView):
     template_name = 'pages/service.html'
 
 
-class ServiceDetails(TemplateView):
+class ServiceDetail(TemplateView):
     template_name = 'pages/service_detail.html'
 
 
