@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'pages',
     'foods',
     'blogs',
+    'contacts',
 
 ]
 
