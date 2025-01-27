@@ -41,3 +41,6 @@ class Gallery(TemplateView):
     template_name = 'pages/gallery.html'
 
 
+class WishList(TemplateView):
+    template_name = 'pages/wishlist.html'
+
