@@ -1,3 +1,5 @@
+{% load static %}
+
 <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer_bg_1.jpg">
     <div class="widget-area">
         <div class="container">
@@ -6,7 +8,7 @@
                     <div class="widget footer-widget">
                         <div class="th-widget-about">
                             <div class="about-logo">
-                                <a href="home-restaurant-shop.html"><img src="assets/img/logo-footer.svg"
+                                <a href="{% url 'home' %}"><img src="{% static 'img/logo-footer.svg' %}"
                                                                          alt="Restar"></a>
                             </div>
                             <p class="about-text">We believe that great food shouldn't break the bank.
