@@ -1,0 +1,159 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+    Cart Detail
+{% endblock %}
+
+{% block content %}
+    <body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content"><!--==============================
+    Breadcumb
+============================== -->
+            <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+                <div class="container">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">Cart Page</h1>
+                        <ul class="breadcumb-menu">
+                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li>Cart Page</li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--==============================
+Cart Area
+==============================-->
+            <div class="th-cart-wrapper  space-top space-extra-bottom">
+                {% if cart %}
+
+                    <div class="container">
+                        <div class="woocommerce-notices-wrapper">
+                            <div class="woocommerce-message">Shipping costs updated.</div>
+                        </div>
+                        <table class="cart_table">
+                            <thead>
+                            <tr>
+                                <th class="cart-col-image">Image</th>
+                                <th class="cart-col-productname">Product Name</th>
+                                <th class="cart-col-price">Price</th>
+                                <th class="cart-col-quantity">Quantity</th>
+                                <th class="cart-col-total">Total</th>
+                                <th class="cart-col-remove">Remove</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in cart %}
+                                <tr class="cart_item">
+                                    <td data-title="Product">
+                                        <a class="cart-productimage" href="{{ item.product_obj.get_absolute_url }}"><img
+                                                width="91"
+                                                height="91"
+                                                src="{{ item.product_obj.image.url }}"
+                                                alt="Image">
+                                        </a>
+                                    </td>
+                                    <td data-title="Name">
+                                        <a class="cart-productname" href="{{ item.product_obj.get_absolute_url }}">
+                                            {{ item.product_obj.title }}
+                                        </a>
+                                    </td>
+                                    <td data-title="Price">
+                                        <span class="amount"><bdi>{{ item.product_obj.price }}<span>T</span></bdi></span>
+                                    </td>
+                                    <td data-title="Quantity">
+                                        <form method="POST"
+                                              action="{% url 'cart:cart_add' item.model_name item.product_obj.id %}">
+                                            {% csrf_token %}
+                                            <div class="quantity">
+                                                <button class="quantity-minus qty-btn"><i class="far fa-minus"></i>
+                                                </button>
+                                                <input type="number"
+                                                       class="qty-input"
+                                                       name="quantity"
+                                                       value="{{ item.quantity }}"
+                                                       min="1"
+                                                       max="99">
+                                                <button class="quantity-plus qty-btn"><i class="far fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            {{ item.product_update_quantity_form.inplace }}
+                                            <button type="submit" class="th-btn">Update cart</button>
+                                        </form>
+                                    </td>
+                                    <td data-title="Total">
+                                        <span class="amount"><bdi>{{ item.total_price }}<span>T</span></bdi></span>
+                                    </td>
+
+                                    <td data-title="Remove">
+                                        <a href="{% url 'cart:cart_remove' model_name=item.model_name product_id=item.product_obj.id %}"
+                                           class="remove">
+                                            <i class="fal fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                            <tr>
+                                <td colspan="6" class="actions">
+
+                                    <a href="{% url 'shop' %}" class="th-btn">Continue Shopping</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row justify-content-end">
+                            <div class="col-md-8 col-lg-7 col-xl-6">
+                                <h2 class="h4 summary-title">Cart Totals</h2>
+                                <table class="cart_totals">
+                                    <tbody>
+                                    <tr class="shipping">
+                                        <td data-title="Shipping and Handling">
+                                            <ul class="woocommerce-shipping-methods list-unstyled">
+                                            </ul>
+                                            <p class="woocommerce-shipping-destination">
+                                                Shipping options will be updated during checkout.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr class="order-total">
+                                        <td>Order Total</td>
+                                        <td data-title="Total">
+                                            <strong><span class="amount"><bdi>{{ cart.get_total_price }}</bdi><span>T</span></span></strong>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="wc-proceed-to-checkout mb-30">
+                                    <a href="checkout.html" class="th-btn">Proceed to checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>'Cart is Empty! please add foods to the cart'</p>
+                    <a href="{% url 'shop' %}">List Of Foods</a>
+                {% endif %}
+            </div>
+
+            {% include 'footer.html' %}
+
+            <!--********************************
+			Code End  Here
+	******************************** -->
+
+            <!-- Smooth scroller -->
+        </div>
+    </div>
+
+
+    <!-- Scroll To Top -->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                  style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    </body>
+{% endblock %}

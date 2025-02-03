@@ -26,5 +26,6 @@ urlpatterns = [
     path('foods/', include('foods.urls')),
     path('blogs/', include('blogs.urls')),
     path('contacts/', include('contacts.urls')),
+    path('cart/', include('cart.urls')),
     path('rosetta/', include('rosetta.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

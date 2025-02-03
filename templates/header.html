@@ -288,6 +288,7 @@ Product Lightbox
 </div><!--==============================
 	Header Area
 ==============================-->
+
 <header class="th-header header-layout3 ">
     <div class="sticky-wrapper">
         <!-- Main Menu Area -->
@@ -297,7 +298,7 @@ Product Lightbox
                     <div class="col-auto">
                         <div class="header-logo">
                             <a href="{% url 'home' %}"><img src="{% static 'img/logo-white.svg' %}"
-                                                                     alt="Restar"></a>
+                                                            alt="Restar"></a>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -332,9 +333,9 @@ Product Lightbox
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Cart</a>
+                                    <a href="{% url 'cart:cart_detail' %}">Cart</a>
                                     <ul class="sub-menu">
-                                        <li><a href="cart.html">Cart Page</a></li>
+                                        <li><a href="{% url 'cart:cart_detail' %}">Cart Page</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
                                         <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                                     </ul>
@@ -378,4 +379,12 @@ Product Lightbox
             </div>
         </div>
     </div>
+    
+            {% if messages %}
+            <div class="container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
 </header>

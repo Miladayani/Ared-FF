@@ -42,7 +42,8 @@
                                             style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span
                                             class="rating">1</span> customer rating</span></div>
                                     <a href="shop-details.html" class="woocommerce-review-link">(<span
-                                            class="count">{{ pizza.comments.all|only_active_comments|length }}</span> customer reviews)</a>
+                                            class="count">{{ pizza.comments.all|only_active_comments|length }}</span>
+                                        customer reviews)</a>
                                 </div>
                                 <p class="text">{{ pizza.short_description|truncatechars:60 }}.</p>
                                 <div class="mt-2 link-inherit">
@@ -51,17 +52,22 @@
                                         <span class="stock in-stock"><i class="far fa-check-square me-2 ms-1"></i>In Stock</span>
                                     </p>
                                 </div>
-                                <div class="actions">
-                                    <div class="quantity">
-                                        <input type="number" class="qty-input" step="1" min="1" max="100"
-                                               name="quantity" value="1" title="Qty">
-                                        <button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
-                                        <button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i>
-                                        </button>
+                                <form action="{% url 'cart:cart_add' 'pizza' pizza.id %}" method="POST">
+                                    {% csrf_token %}
+
+                                    <div class="actions">
+                                        <div class="quantity">
+                                            <input type="number" class="qty-input" step="1" min="1" max="31"
+                                                   name="quantity" value="1" title="Qty">
+                                            <button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i>
+                                            </button>
+                                            <button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i>
+                                            </button>
+                                        </div>
+                                        <button class="th-btn">Add to Cart</button>
+                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
                                     </div>
-                                    <button class="th-btn">Add to Cart</button>
-                                    <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                </div>
+                                </form>
                                 <div class="product_meta">
                                     <span class="sku_wrapper">SKU: <span class="sku">Salmon-Beef-Stack</span></span>
                                     <span class="posted_in">Category: <a href="shop.html">Dinner Food</a></span>
@@ -426,7 +432,7 @@
                 </div>
             </section>
 
-        {% include 'footer.html' %}
+            {% include 'footer.html' %}
 
             <!--********************************
 			Code End  Here
