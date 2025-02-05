@@ -96,7 +96,7 @@ Product Lightbox
                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
                     {% for item in cart %}
                         <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="{{ item.product_obj.get_absolute_url }}" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
+                            <a href="{% url 'cart:cart_remove' model_name=item.model_name product_id=item.product_obj.id %}" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
                             <a href="{{ item.product_obj.get_absolute_url }}"><img src="{{ item.product_obj.image.url }}" alt="Cart Image">{{ item.product_obj.title }}</a>
                             <span class="quantity">{{ item.quantity }} ×
                                     <span class="woocommerce-Price-amount amount">

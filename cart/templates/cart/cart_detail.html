@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load humanize %}
 
 {% block page_title %}
     Cart Detail
@@ -58,7 +59,7 @@ Cart Area
                                         </a>
                                     </td>
                                     <td data-title="Price">
-                                        <span class="amount"><bdi>{{ item.product_obj.price }}<span>T</span></bdi></span>
+                                        <span class="amount"><bdi>{{ item.product_obj.price|intcomma }}<span>T</span></bdi></span>
                                     </td>
                                     <td data-title="Quantity">
                                         <form method="POST"
@@ -81,7 +82,7 @@ Cart Area
                                         </form>
                                     </td>
                                     <td data-title="Total">
-                                        <span class="amount"><bdi>{{ item.total_price }}<span>T</span></bdi></span>
+                                        <span class="amount"><bdi>{{ item.total_price|intcomma }}<span>T</span></bdi></span>
                                     </td>
 
                                     <td data-title="Remove">
@@ -120,7 +121,7 @@ Cart Area
                                     <tr class="order-total">
                                         <td>Order Total</td>
                                         <td data-title="Total">
-                                            <strong><span class="amount"><bdi>{{ cart.get_total_price }}</bdi><span>T</span></span></strong>
+                                            <strong><span class="amount"><bdi>{{ cart.get_total_price|intcomma }}</bdi><span>T</span></span></strong>
                                         </td>
                                     </tr>
                                     </tfoot>

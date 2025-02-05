@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load humanize %}
 {% load static %}
 
 {% block content %}
@@ -46,7 +47,7 @@ Menu Area
                                             <div class="box-content">
                                                 <p class="box-text">{{ pizza.short_description|truncatechars:60 }}</p>
                                                 <div class="box-line"></div>
-                                                <h4 class="box-price">{{ pizza.price }}</h4>
+                                                <h4 class="box-price">{{ pizza.price|intcomma }}</h4>
                                             </div>
                                         </div>
                                     </div>

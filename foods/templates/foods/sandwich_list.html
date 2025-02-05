@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load humanize %}
 {% load static %}
 
 {% block content %}
@@ -45,7 +46,7 @@ Menu Area
                                         <img src="{{ food.image.url }}" alt="Food">
                                     </div>
                                     <p class="box-text">{{ food.short_description|truncatechars:25 }}</p>
-                                    <h4 class="box-price">{{ food.price }}</h4>
+                                    <h4 class="box-price">{{ food.price|intcomma }}</h4>
                                 </div>
                             </div>
                         {% endfor %}
