@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     # third party libraries
+    'phonenumber_field',
     'django_countries',
     'cities_light',
     'jalali_date',
