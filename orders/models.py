@@ -5,6 +5,8 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
 from cities_light.models import City
 
+from foods.models import Pizza, Sandwich
+
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -21,3 +23,17 @@ class Order(models.Model):
 
     datetime_created = models.DateTimeField('Created', auto_now_add=True, blank=False)
     datetime_modified = models.DateTimeField('Modified', auto_now=True)
+
+    def __str__(self):
+        return f'Order {self.id}'
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, related_name='order_items')
+    sandwich = models.ForeignKey(Sandwich, on_delete=models.CASCADE, related_name='order_items')
+    quantity = models.PositiveIntegerField(default=1)
+    price = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'OrderItem {self.id} or order {self.order.id}'
