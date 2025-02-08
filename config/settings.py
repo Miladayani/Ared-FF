@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     # third party libraries
+    'django_countries',
+    'cities_light',
     'jalali_date',
     'crispy_forms',
     'crispy_bootstrap5',
@@ -58,6 +60,7 @@ INSTALLED_APPS = [
     'blogs',
     'contacts',
     'cart',
+    'orders',
 
 ]
 
@@ -189,3 +192,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 # media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# cities light
+CITIES_LIGHT_TRANSLATION_LANGUAGES = ['fa', 'en']
+CITIES_LIGHT_INCLUDE_COUNTRIES = ['IR', 'US']
