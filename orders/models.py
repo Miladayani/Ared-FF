@@ -30,10 +30,10 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
-    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, related_name='order_items')
-    sandwich = models.ForeignKey(Sandwich, on_delete=models.CASCADE, related_name='order_items')
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, related_name='order_items', null=True, blank=True)
+    sandwich = models.ForeignKey(Sandwich, on_delete=models.CASCADE, related_name='order_items', null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
-    price = models.PositiveIntegerField()
+    # price = models.PositiveIntegerField()
 
     def __str__(self):
         return f'OrderItem {self.id} or order {self.order.id}'

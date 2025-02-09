@@ -1,0 +1,170 @@
+{% extends '_base.html' %}
+{% load humanize %}
+
+{% block page_title %}
+    Order
+{% endblock %}
+
+{% block content %}
+    <body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content"><!--==============================
+    Breadcumb
+============================== -->
+            <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+                <div class="container">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">Checkout</h1>
+                        <ul class="breadcumb-menu">
+                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li>Checkout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--==============================
+Checkout Arae
+==============================-->
+            <div class="th-checkout-wrapper space-top space-extra-bottom">
+                <div class="container">
+                    <form action="#" class="woocommerce-checkout mt-40">
+                        <div class="row ">
+                            <div class="col-lg-6">
+                                <h2 class="h4">Billing Details</h2>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="First Name">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="Country">
+                                    </div>
+                                    <div class="col-12 form-group">
+                                        <input type="text" class="form-control" placeholder="Town / City">
+                                    </div>
+                                    <div class="col-12 form-group">
+                                        <input type="text" class="form-control" placeholder="Address">
+                                    </div>
+                                    <div class="col-12 form-group">
+                                        <input type="text" class="form-control" placeholder="Phone number">
+                                    </div>
+                                    <div class="col-12 form-group">
+                                        <textarea cols="20" rows="5" class="form-control"
+                                                  placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <h4 class="mt-4 pt-lg-2">Your Order</h4>
+                        <table class="cart_table mb-20">
+                            <thead>
+                            <tr>
+                                <th class="cart-col-image">Image</th>
+                                <th class="cart-col-productname">Product Name</th>
+                                <th class="cart-col-price">Price</th>
+                                <th class="cart-col-quantity">Quantity</th>
+                                <th class="cart-col-total">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in cart %}
+                                <tr class="cart_item">
+                                    <td data-title="Product">
+                                        <a class="cart-productimage" href="{{ item.product_obj.get_absolute_url }}"><img width="91" height="91"
+                                                                                                   src="{{ item.product_obj.image.url }}"
+                                                                                                   alt="Image"></a>
+                                    </td>
+                                    <td data-title="Name">
+                                        <a class="cart-productname" href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.title }}</a>
+                                    </td>
+                                    <td data-title="Price">
+                                        <span class="amount"><bdi>{{ item.product_obj.price|intcomma }}</bdi></span><span>T</span>
+                                    </td>
+                                    <td data-title="Quantity">
+                                        <strong class="product-quantity">{{ item.quantity }}</strong>
+                                    </td>
+                                    <td data-title="Total">
+                                        <span class="amount"><bdi>{{ item.total_price|intcomma }}</bdi></span><span>T</span>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot class="checkout-ordertable">
+                            <tr class="cart-subtotal">
+                                <th>Subtotal</th>
+                                <td data-title="Subtotal" colspan="4"><span class="woocommerce-Price-amount amount"><bdi><span
+                                        class="woocommerce-Price-currencySymbol"></span>{{ cart.get_total_price|intcomma }}</bdi></span></td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    <div class="mt-lg-3 mb-30">
+                        <div class="woocommerce-checkout-payment">
+                            <ul class="wc_payment_methods payment_methods methods">
+                                <li class="wc_payment_method payment_method_bacs">
+                                    <input id="payment_method_bacs" type="radio" class="input-radio"
+                                           name="payment_method" value="bacs" checked="checked">
+                                    <label for="payment_method_bacs">Direct bank transfer</label>
+                                    <div class="payment_box payment_method_bacs">
+                                        <p>Make your payment directly into our bank account. Please use your Order ID as
+                                            the payment reference. Your order will not be shipped until the funds have
+                                            cleared in our account.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wc_payment_method payment_method_cheque">
+                                    <input id="payment_method_cheque" type="radio" class="input-radio"
+                                           name="payment_method" value="cheque">
+                                    <label for="payment_method_cheque">Cheque Payment</label>
+                                    <div class="payment_box payment_method_cheque">
+                                        <p>Please send a check to Store Name, Store Street, Store Town, Store State /
+                                            County, Store Postcode.</p>
+                                    </div>
+                                </li>
+                                <li class="wc_payment_method payment_method_cod">
+                                    <input id="payment_method_cod" type="radio" class="input-radio"
+                                           name="payment_method">
+                                    <label for="payment_method_cod">Credit Cart</label>
+                                    <div class="payment_box payment_method_cod">
+                                        <p>Pay with cash upon delivery.</p>
+                                    </div>
+                                </li>
+                                <li class="wc_payment_method payment_method_paypal">
+                                    <input id="payment_method_paypal" type="radio" class="input-radio"
+                                           name="payment_method" value="paypal">
+                                    <label for="payment_method_paypal">ZarinPal</label>
+                                    <div class="payment_box payment_method_paypal">
+                                        <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
+                                            account.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="form-row place-order">
+                                <button type="submit" class="th-btn">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include 'footer.html' %}
+
+            <!--********************************
+			Code End  Here 
+	******************************** -->
+
+            <!-- Smooth scroller -->
+        </div>
+    </div>
+
+
+    <!-- Scroll To Top -->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                  style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    </body>
+{% endblock %}
