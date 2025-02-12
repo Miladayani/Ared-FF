@@ -113,7 +113,7 @@ Product Lightbox
                 </p>
                 <p class="woocommerce-mini-cart__buttons buttons">
                     <a href="{% url 'cart:cart_detail' %}" class="th-btn wc-forward">View cart</a>
-                    <a href="checkout.html" class="th-btn checkout wc-forward">Checkout</a>
+                    <a href="{% url 'order_create' %}" class="th-btn checkout wc-forward">Checkout</a>
                 </p>
             </div>
         </div>

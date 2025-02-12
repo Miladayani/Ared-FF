@@ -26,79 +26,97 @@ Checkout Arae
 ==============================-->
             <div class="th-checkout-wrapper space-top space-extra-bottom">
                 <div class="container">
-                    <form action="#" class="woocommerce-checkout mt-40">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                {{ form.errors }}
+                            </div>
+                        {% endif %}
                         <div class="row ">
                             <div class="col-lg-6">
                                 <h2 class="h4">Billing Details</h2>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <input type="text" class="form-control" placeholder="First Name">
+                                        <input type="text" class="form-control" name="first_name"
+                                               placeholder="First Name">
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name">
+                                        <input type="text" class="form-control" name="last_name"
+                                               placeholder="Last Name">
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <input type="text" class="form-control" placeholder="Country">
+                                        <lable for="id_country">Country</lable>
+                                        {{ form.country }}  <!-- اینجا ویجت انتخاب کشور نمایش داده می‌شود -->
                                     </div>
                                     <div class="col-12 form-group">
-                                        <input type="text" class="form-control" placeholder="Town / City">
+                                        <lable for="id_city">City / Town</lable>
+                                        {{ form.city }}  <!-- اینجا لیست شهرها نمایش داده می‌شود -->
                                     </div>
                                     <div class="col-12 form-group">
-                                        <input type="text" class="form-control" placeholder="Address">
+                                        <input type="text" class="form-control" name="address" placeholder="Address">
                                     </div>
                                     <div class="col-12 form-group">
-                                        <input type="text" class="form-control" placeholder="Phone number">
+                                        <input type="text" class="form-control" name="phone_number"
+                                               placeholder="Phone number">
                                     </div>
                                     <div class="col-12 form-group">
                                         <textarea cols="20" rows="5" class="form-control"
+                                                  name="order_note"
                                                   placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="form-row place-order">
+                            <button type="submit" class="th-btn">Checkout</button>
+                        </div>
                     </form>
                     <h4 class="mt-4 pt-lg-2">Your Order</h4>
-                        <table class="cart_table mb-20">
-                            <thead>
-                            <tr>
-                                <th class="cart-col-image">Image</th>
-                                <th class="cart-col-productname">Product Name</th>
-                                <th class="cart-col-price">Price</th>
-                                <th class="cart-col-quantity">Quantity</th>
-                                <th class="cart-col-total">Total</th>
+                    <table class="cart_table mb-20">
+                        <thead>
+                        <tr>
+                            <th class="cart-col-image">Image</th>
+                            <th class="cart-col-productname">Product Name</th>
+                            <th class="cart-col-price">Price</th>
+                            <th class="cart-col-quantity">Quantity</th>
+                            <th class="cart-col-total">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in cart %}
+                            <tr class="cart_item">
+                                <td data-title="Product">
+                                    <a class="cart-productimage" href="{{ item.product_obj.get_absolute_url }}"><img
+                                            width="91" height="91"
+                                            src="{{ item.product_obj.image.url }}"
+                                            alt="Image"></a>
+                                </td>
+                                <td data-title="Name">
+                                    <a class="cart-productname"
+                                       href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.title }}</a>
+                                </td>
+                                <td data-title="Price">
+                                    <span class="amount"><bdi>{{ item.product_obj.price|intcomma }}</bdi></span><span>T</span>
+                                </td>
+                                <td data-title="Quantity">
+                                    <strong class="product-quantity">{{ item.quantity }}</strong>
+                                </td>
+                                <td data-title="Total">
+                                    <span class="amount"><bdi>{{ item.total_price|intcomma }}</bdi></span><span>T</span>
+                                </td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            {% for item in cart %}
-                                <tr class="cart_item">
-                                    <td data-title="Product">
-                                        <a class="cart-productimage" href="{{ item.product_obj.get_absolute_url }}"><img width="91" height="91"
-                                                                                                   src="{{ item.product_obj.image.url }}"
-                                                                                                   alt="Image"></a>
-                                    </td>
-                                    <td data-title="Name">
-                                        <a class="cart-productname" href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.title }}</a>
-                                    </td>
-                                    <td data-title="Price">
-                                        <span class="amount"><bdi>{{ item.product_obj.price|intcomma }}</bdi></span><span>T</span>
-                                    </td>
-                                    <td data-title="Quantity">
-                                        <strong class="product-quantity">{{ item.quantity }}</strong>
-                                    </td>
-                                    <td data-title="Total">
-                                        <span class="amount"><bdi>{{ item.total_price|intcomma }}</bdi></span><span>T</span>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                            <tfoot class="checkout-ordertable">
-                            <tr class="cart-subtotal">
-                                <th>Subtotal</th>
-                                <td data-title="Subtotal" colspan="4"><span class="woocommerce-Price-amount amount"><bdi><span
-                                        class="woocommerce-Price-currencySymbol"></span>{{ cart.get_total_price|intcomma }}</bdi></span></td>
-                            </tr>
-                            </tfoot>
-                        </table>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot class="checkout-ordertable">
+                        <tr class="cart-subtotal">
+                            <th>Subtotal</th>
+                            <td data-title="Subtotal" colspan="4"><span class="woocommerce-Price-amount amount"><bdi><span
+                                    class="woocommerce-Price-currencySymbol"></span>{{ cart.get_total_price|intcomma }}</bdi></span>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
                     <div class="mt-lg-3 mb-30">
                         <div class="woocommerce-checkout-payment">
                             <ul class="wc_payment_methods payment_methods methods">
@@ -140,9 +158,6 @@ Checkout Arae
                                     </div>
                                 </li>
                             </ul>
-                            <div class="form-row place-order">
-                                <button type="submit" class="th-btn">Checkout</button>
-                            </div>
                         </div>
                     </div>
                 </div>

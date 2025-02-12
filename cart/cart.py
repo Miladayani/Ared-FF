@@ -20,13 +20,16 @@ class Cart:
         self.cart = cart
 
     def add(self, product, quantity=1, replace_current_quantity=False):
-        """ اضافه کردن محصول بدون ذخیره آبجکت مدل """
         model_name = product.__class__.__name__.lower()
         key = f"{model_name}_{product.id}"
 
         if key not in self.cart:
-            self.cart[key] = {'quantity': 0, 'price': str(product.price), 'product_id': product.id,
-                              'model_name': model_name}
+            self.cart[key] = {
+                'quantity': 0,
+                'price': str(product.price),  # قیمت به عنوان رشته ذخیره شود
+                'product_id': product.id,
+                'model_name': model_name,
+            }
 
         if replace_current_quantity:
             self.cart[key]['quantity'] = quantity
@@ -34,8 +37,25 @@ class Cart:
             self.cart[key]['quantity'] += quantity
 
         messages.success(self.request, 'Product successfully added to Cart.')
-
         self.save()
+
+    # def add(self, product, quantity=1, replace_current_quantity=False):
+    #     """ اضافه کردن محصول بدون ذخیره آبجکت مدل """
+    #     model_name = product.__class__.__name__.lower()
+    #     key = f"{model_name}_{product.id}"
+    #
+    #     if key not in self.cart:
+    #         self.cart[key] = {'quantity': 0, 'price': str(product.price), 'product_id': product.id,
+    #                           'model_name': model_name}
+    #
+    #     if replace_current_quantity:
+    #         self.cart[key]['quantity'] = quantity
+    #     else:
+    #         self.cart[key]['quantity'] += quantity
+    #
+    #     messages.success(self.request, 'Product successfully added to Cart.')
+    #
+    #     self.save()
 
     def remove(self, product_id):
         """
@@ -47,7 +67,11 @@ class Cart:
             self.save()
 
     def save(self):
-        """ ذخیره اطلاعات در سشن به‌صورت JSON-سریالایز‌شده """
+        # حذف product_obj قبل از ذخیره‌سازی در سشن
+        for item in self.cart.values():
+            if 'product_obj' in item:
+                del item['product_obj']
+
         self.session['cart'] = json.dumps(self.cart)  # تبدیل دیکشنری به JSON
         self.session.modified = True
 
@@ -72,7 +96,7 @@ class Cart:
                 continue
 
         for key, item in cart.items():
-            item['product_obj'] = products.get(key, None)  # مقداردهی درون حلقه، نه ذخیره در سبد خرید
+            item['product_obj'] = products.get(key, None)  # این فقط برای استفاده موقت است
             item['total_price'] = item['product_obj'].price * item['quantity'] if item['product_obj'] else 0
             yield item
 
@@ -83,11 +107,9 @@ class Cart:
         return sum(item['quantity'] for item in self.cart.values())
 
     def clear(self):
-        """
-        پاک کردن تمامی محتویات سبد خرید.
-        """
-        del self.session['cart']
-        self.save()
+        """ پاک کردن کل سبد خرید از سشن """
+        self.session['cart'] = {}  # سبد خرید را خالی کن
+        self.session.modified = True  # اعلام تغییر در سشن
 
     def get_total_price(self):
         """
