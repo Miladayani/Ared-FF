@@ -13,7 +13,7 @@
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">Food Menu 1</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Food Menu 1</li>
                         </ul>
                     </div>
@@ -38,7 +38,7 @@ Menu Area
                                         <div class="box-img">
                                             <img src="{{ pizza.image.url }}" alt="Food">
                                             <div class="actions">
-                                                <a href="cart.html" class="icon-btn"><i
+                                                <a href="{% url 'cart:cart_detail' %}" class="icon-btn"><i
                                                         class="far fa-cart-plus"></i></a>
                                             </div>
                                         </div>
@@ -57,7 +57,7 @@ Menu Area
                     </div>
                     <div class="mt-5 text-center">
                         <div class="btn-group justify-content-center">
-                            <a href="shop.html" class="th-btn">View More Food</a>
+                            <a href="{% url 'shop' %}" class="th-btn">View More Food</a>
                             <a href="reservation.html" class="th-btn style-border">Book A Table</a>
                         </div>
                     </div>
@@ -239,79 +239,59 @@ Testimonial Area
             <!--==============================
 Brand Area
 ==============================-->
-            <div class="space-bottom">
-                <div class="container brand-container">
+            <div class="space">
+                <div class="container">
                     <div class="swiper th-slider" id="brandSlider1"
-                         data-slider-options='{"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"7"}}}'>
+                         data-slider-options='{"spaceBetween":45,"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"5"}}}'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                         </div>

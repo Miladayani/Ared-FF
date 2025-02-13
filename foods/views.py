@@ -41,6 +41,13 @@ class Shop(ListView):
     def get_queryset(self):
         return list(Pizza.objects.all()) + list(Sandwich.objects.all())
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pizza_count'] = Pizza.objects.count()
+        context['sandwich_count'] = Sandwich.objects.count()
+        context['total_count'] = context['pizza_count'] + context['sandwich_count']
+        return context
+
 
 class CommentCreateView(CreateView):
     model = Comment

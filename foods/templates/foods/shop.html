@@ -14,7 +14,7 @@
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">Shop</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Shop</li>
                         </ul>
                     </div>
@@ -28,7 +28,7 @@ Product Area
                     <div class="th-sort-bar">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-md">
-                                <p class="woocommerce-result-count">Showing 1–12 of 16 results</p>
+                                <p class="woocommerce-result-count">Showing 1–4 of {{ total_count }} results</p>
                             </div>
 
                             <div class="col-md-auto">
@@ -55,8 +55,8 @@ Product Area
                                         <div class="actions">
                                             <a href="#QuickView" class="icon-btn popup-content"><i
                                                     class="far fa-eye"></i></a>
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                            <a href="{% url 'cart:cart_detail' %}" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                            <a href="{% url 'wishlist' %}" class="icon-btn"><i class="far fa-heart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
