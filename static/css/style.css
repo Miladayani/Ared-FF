@@ -16887,4 +16887,20 @@ span.select2-selection.select2-selection--single:focus {
   }
 }
 
+#food-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.food-item {
+    width: 200px;
+    text-align: center;
+}
+
+.food-item img {
+    width: 100%;
+    height: auto;
+}
+
 /*# sourceMappingURL=style.css.map */

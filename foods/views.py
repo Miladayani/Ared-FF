@@ -1,7 +1,9 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import reverse
 
+from django.conf import settings
 from .forms import CommentForm
 from .models import Pizza, Sandwich, Comment
 
@@ -74,18 +76,30 @@ class CommentCreateView(CreateView):
             return reverse('sandwich_detail', args=[self.kwargs['sandwich_id']])
 
 
-# class CommentCreateView(CreateView):
-#     model = Comment
-#     form_class = CommentForm
-#
-#     def form_valid(self, form):
-#         obj = form.save(commit=False)
-#         obj.author = self.request.user
-#
-#         pizza_id = int(self.kwargs['pizza_id'])
-#         pizza = get_object_or_404(Pizza, id=pizza_id)
-#         obj.pizza = pizza
-#
-#         return super().form_valid(form)
+def filter_foods(request):
+    food_type = request.GET.get('type', 'all')
 
+    if food_type == 'pizzas':
+        foods = list(Pizza.objects.values('id', 'title', 'price', 'image'))
+        for food in foods:
+            food['url'] = reverse('pizza_detail', args=[food['id']])  # لینک جزئیات پیتزا
+            food['image'] = request.build_absolute_uri('/media/pizza/pizza_cover/' + food['image'].split('/')[-1])
+    elif food_type == 'sandwiches':
+        foods = list(Sandwich.objects.values('id', 'title', 'price', 'image'))
+        for food in foods:
+            food['url'] = reverse('sandwich_detail', args=[food['id']])  # لینک جزئیات ساندویچ
+            food['image'] = request.build_absolute_uri('/media/sandwich/sandwich_cover/' + food['image'].split('/')[-1])
+    else:
+        pizzas = list(Pizza.objects.values('id', 'title', 'price', 'image'))
+        for food in pizzas:
+            food['url'] = reverse('pizza_detail', args=[food['id']])
+            food['image'] = request.build_absolute_uri('/media/pizza/pizza_cover/' + food['image'].split('/')[-1])
 
+        sandwiches = list(Sandwich.objects.values('id', 'title', 'price', 'image'))
+        for food in sandwiches:
+            food['url'] = reverse('sandwich_detail', args=[food['id']])
+            food['image'] = request.build_absolute_uri('/media/sandwich/sandwich_cover/' + food['image'].split('/')[-1])
+
+        foods = pizzas + sandwiches
+
+    return JsonResponse(foods, safe=False)

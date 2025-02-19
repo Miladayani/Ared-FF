@@ -119,3 +119,8 @@ class Cart:
             int(item['product_obj'].price) * item['quantity']
             for item in self.cart.values() if item['product_obj']
         )
+
+    def is_empty(self):
+        if self.cart:
+            return False
+        return True

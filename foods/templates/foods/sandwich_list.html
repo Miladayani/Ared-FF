@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block content %}
-{#    <body>#}
+    <body>
+
     <div id="smooth-wrapper">
         <div id="smooth-content"><!--==============================
     Breadcumb
@@ -13,7 +14,7 @@
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">Food Menu 2</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="{% url 'shop' %}">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Food Menu 2</li>
                         </ul>
                     </div>
@@ -30,23 +31,24 @@ Menu Area
                         <h2 class="sec-title title-ani">Our Delicious Foods</h2>
                     </div>
                     <div class="tab-menu1 filter-menu-active">
-                        <button data-filter="*" class="th-btn style-border btn-sm active" type="button">All Foods
-                        </button>
-                        <button data-filter=".cat1" class="th-btn style-border btn-sm" type="button">Pizzas</button>
-                        <button data-filter=".cat2" class="th-btn style-border btn-sm" type="button">Sandwiches</button>
+                        <button class="th-btn style-border btn-sm" id="all">All Foods</button>
+                        <button class="th-btn style-border btn-sm" id="sandwiches">Sandwiches</button>
+                        <button class="th-btn style-border btn-sm" id="pizzas">Pizzas</button>
                     </div>
-                    <div class="row gy-30 filter-active">
+                    <div id="food-list" class="food-container">
                         {% for food in all_foods %}
-
-                            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
-                                <div class="menu-card">
-                                    <div class="box-shape"></div>
-                                    <h3 class="box-title"><a href="{{ food.get_absolute_url }}">{{ food.title }}</a></h3>
-                                    <div class="box-img">
-                                        <img src="{{ food.image.url }}" alt="Food">
+                            <div class="row gy-30 filter-active">
+                                <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
+                                    <div class="menu-card">
+                                        <div class="box-shape"></div>
+                                        <h3 class="box-title"><a href="{{ food.get_absolute_url }}">{{ food.title }}</a>
+                                        </h3>
+                                        <div class="box-img">
+                                            <img src="{{ food.image.url }}" alt="Food">
+                                        </div>
+                                        <p class="box-text">A taste you’ll remember.</p>
+                                        <h4 class="box-price">{{ food.price }}</h4>
                                     </div>
-                                    <p class="box-text">{{ food.short_description|truncatechars:25 }}</p>
-                                    <h4 class="box-price">{{ food.price|intcomma }}</h4>
                                 </div>
                             </div>
                         {% endfor %}
@@ -54,7 +56,6 @@ Menu Area
                     <div class="mt-5 text-center">
                         <div class="btn-group justify-content-center">
                             <a href="{% url 'shop' %}" class="th-btn">View More Food</a>
-                            <a href="reservation.html" class="th-btn style-border">Book A Table</a>
                         </div>
                     </div>
                 </div>
@@ -295,7 +296,7 @@ Brand Area
                 </div>
             </div>
 
-        {% include 'footer.html' %}
+            {% include 'footer.html' %}
 
             <!--********************************
 			Code End  Here
@@ -313,6 +314,8 @@ Brand Area
                   style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
         </svg>
     </div>
-{#    </body>#}
+
+    <!-- Main Js File -->
+    </body>
 
 {% endblock %}

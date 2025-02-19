@@ -58,6 +58,39 @@
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+    <style>
+        /* استایل برای نمایش محصولات کنار هم و در وسط صفحه */
+        .food-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* فاصله بین محصولات */
+            justify-content: center; /* محتوا را در وسط صفحه قرار می‌دهد */
+            padding: 20px; /* فاصله از لبه‌های صفحه */
+        }
+        .food-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px; /* عرض هر محصول */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای زیبایی */
+            border-radius: 8px; /* گوشه‌های گرد */
+        }
+        .food-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* گوشه‌های گرد برای عکس */
+        }
+        .food-item h3 {
+            margin: 10px 0; /* فاصله بین عنوان و قیمت */
+            font-size: 18px;
+        }
+        .food-item p {
+            margin: 5px 0; /* فاصله بین قیمت و سایر عناصر */
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -94,6 +127,7 @@ All Js File
 
 <!-- Main Js File -->
 <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>

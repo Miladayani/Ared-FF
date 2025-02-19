@@ -1,3 +1,4 @@
+{% load humanize %}
 {% load static %}
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
@@ -100,7 +101,7 @@ Product Lightbox
                             <a href="{{ item.product_obj.get_absolute_url }}"><img src="{{ item.product_obj.image.url }}" alt="Cart Image">{{ item.product_obj.title }}</a>
                             <span class="quantity">{{ item.quantity }} ×
                                     <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol"></span>{{ item.product_obj.price }}</span><span>T</span>
+                                        <span class="woocommerce-Price-currencySymbol"></span>{{ item.product_obj.price|intcomma }}</span><span>T</span>
                             </span>
                         </li>
                     {% endfor %}
@@ -109,11 +110,13 @@ Product Lightbox
                 <p class="woocommerce-mini-cart__total total">
                     <strong>Subtotal:</strong>
                     <span class="woocommerce-Price-amount amount">
-                            <span class="woocommerce-Price-currencySymbol">$</span>{{ cart.get_total_price }}</span><span>T</span>
+                            <span class="woocommerce-Price-currencySymbol">$</span>{{ cart.get_total_price|intcomma }}</span><span>T</span>
                 </p>
                 <p class="woocommerce-mini-cart__buttons buttons">
                     <a href="{% url 'cart:cart_detail' %}" class="th-btn wc-forward">View cart</a>
-                    <a href="{% url 'order_create' %}" class="th-btn checkout wc-forward">Checkout</a>
+                    {% if not cart.is_empty %}
+                        <a href="{% url 'order_create' %}" class="th-btn checkout wc-forward">Checkout</a>
+                    {% endif %} 
                 </p>
             </div>
         </div>
