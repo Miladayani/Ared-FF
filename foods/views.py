@@ -2,8 +2,9 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import reverse
+from itertools import chain
+from django.core.paginator import Paginator
 
-from django.conf import settings
 from .forms import CommentForm
 from .models import Pizza, Sandwich, Comment
 
@@ -37,18 +38,12 @@ class SandwichDetailView(DetailView):
 
 
 class Shop(ListView):
+    paginate_by = 6
     template_name = 'foods/shop.html'
     context_object_name = 'shop'
 
     def get_queryset(self):
         return list(Pizza.objects.all()) + list(Sandwich.objects.all())
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['pizza_count'] = Pizza.objects.count()
-        context['sandwich_count'] = Sandwich.objects.count()
-        context['total_count'] = context['pizza_count'] + context['sandwich_count']
-        return context
 
 
 class CommentCreateView(CreateView):

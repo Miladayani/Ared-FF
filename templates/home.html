@@ -428,42 +428,14 @@ Product Area
                                                       alt="Icon">Our Menu</span>
                         <h2 class="sec-title">Our Popular Foods Item</h2>
                     </div>
-                    <div class="text-ani">
-                        <div class="tab-menu1 filter-menu-active">
-                            <button data-filter="*" class="th-btn style-border btn-sm active" type="button">All Foods
-                            </button>
-                            <button data-filter=".cat2" class="th-btn style-border btn-sm" type="button">Sandwich
-                            </button>
-                            <button data-filter=".cat3" class="th-btn style-border btn-sm" type="button">Pizza</button>
-                        </div>
+                    <div class="tab-menu1 filter-menu-active">
+                        <button class="th-btn style-border btn-sm" id="all">All Foods</button>
+                        <button class="th-btn style-border btn-sm" id="sandwiches">Sandwiches</button>
+                        <button class="th-btn style-border btn-sm" id="pizzas">Pizzas</button>
                     </div>
-                    <div class="row gy-40 filter-active">
-                        {% for food in all_foods %}
-                            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
-                                <div class="th-product product-grid">
-                                    <div class="product-img transparent-img">
-                                        <img src="assets/img/product/product_1_1.png" alt="Product Image">
-                                        <span class="product-tag">-25%</span>
-                                        <div class="actions">
-                                            <a href="#QuickView" class="icon-btn popup-content"><i
-                                                    class="far fa-eye"></i></a>
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="product-content">
-                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 4">
-                                                            <span>Rated <strong class="rating">4.00</strong> out of 5 based on <span
-                                                                    class="rating">1</span> customer rating</span>
-                                        </div>
-                                        <h3 class="product-title"><a href="shop-details.html">{{ food.title }}</a></h3>
-                                        <span class="price">$24.00<del>$32.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        {% endfor %}
+                
+                    <div id="food-list" class="food-container">
+                        
                     </div>
                 </div>
             </section>
@@ -566,14 +538,14 @@ Menu Area
 
                                     <div class="menu-list">
                                         <div class="box-img">
-                                            <img src="assets/img/product/menu_thumb_1.png" alt="Food">
+                                            <img src="{{ pizza.image.url }}" alt="Food">
                                             <div class="actions">
                                                 <a href="cart.html" class="icon-btn"><i
                                                         class="far fa-cart-plus"></i></a>
                                             </div>
                                         </div>
                                         <div class="media-body">
-                                            <h3 class="box-title"><a href="shop-details.html">{{ pizza.title }}</a></h3>
+                                            <h3 class="box-title"><a href="{{ pizza.get_absolute_url }}">{{ pizza.title }}</a></h3>
                                             <div class="box-content">
                                                 <p class="box-text">{{ pizza.short_description|truncatechars:60 }}</p>
                                                 <div class="box-line"></div>
@@ -590,14 +562,14 @@ Menu Area
 
                                     <div class="menu-list">
                                         <div class="box-img">
-                                            <img src="assets/img/product/menu_thumb_7.png" alt="Food">
+                                            <img src="{{ sandwich.image.url }}" alt="Food">
                                             <div class="actions">
                                                 <a href="cart.html" class="icon-btn"><i
                                                         class="far fa-cart-plus"></i></a>
                                             </div>
                                         </div>
                                         <div class="media-body">
-                                            <h3 class="box-title"><a href="shop-details.html">{{ sandwich.title }}</a>
+                                            <h3 class="box-title"><a href="{{ sandwich.get_absolute_url }}">{{ sandwich.title }}</a>
                                             </h3>
                                             <div class="box-content">
                                                 <p class="box-text">{{ sandwich.short_description|truncatechars:60 }}</p>

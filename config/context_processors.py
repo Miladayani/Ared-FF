@@ -1,10 +1,21 @@
 from itertools import chain
+
+from django.core.paginator import Paginator
+
 from foods.models import Pizza, Sandwich
 
 
 def global_products(request):
     pizzas = Pizza.objects.filter(active=True, size='1')
     sandwiches = Sandwich.objects.all()
-    all_foods = list(chain(pizzas, sandwiches))
+    all_foods = list(chain(pizzas, sandwiches))  # ترکیب دو مدل
 
-    return {'pizzas': pizzas, 'sandwiches': sandwiches, 'all_foods': all_foods}
+    # اعمال pagination
+    paginator = Paginator(all_foods, 8)  # ۸ محصول در هر صفحه
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return {
+        'page_obj': page_obj,  # صفحه‌بندی شده
+        'total_count': len(all_foods)  # تعداد کل محصولات
+    }

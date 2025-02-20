@@ -36,22 +36,7 @@ Menu Area
                         <button class="th-btn style-border btn-sm" id="pizzas">Pizzas</button>
                     </div>
                     <div id="food-list" class="food-container">
-                        {% for food in all_foods %}
-                            <div class="row gy-30 filter-active">
-                                <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
-                                    <div class="menu-card">
-                                        <div class="box-shape"></div>
-                                        <h3 class="box-title"><a href="{{ food.get_absolute_url }}">{{ food.title }}</a>
-                                        </h3>
-                                        <div class="box-img">
-                                            <img src="{{ food.image.url }}" alt="Food">
-                                        </div>
-                                        <p class="box-text">A taste you’ll remember.</p>
-                                        <h4 class="box-price">{{ food.price }}</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
+
                     </div>
                     <div class="mt-5 text-center">
                         <div class="btn-group justify-content-center">
