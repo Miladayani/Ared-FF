@@ -57,8 +57,18 @@
     <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
+        /* استایل کلی برای صفحه */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
         /* استایل برای نمایش محصولات کنار هم و در وسط صفحه */
         .food-container {
             display: flex;
@@ -67,27 +77,70 @@
             justify-content: center; /* محتوا را در وسط صفحه قرار می‌دهد */
             padding: 20px; /* فاصله از لبه‌های صفحه */
         }
+
+        /* استایل برای هر کارت محصول */
         .food-item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 200px; /* عرض هر محصول */
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            width: 220px; /* عرض هر محصول */
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای زیبایی */
-            border-radius: 8px; /* گوشه‌های گرد */
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* سایه زیبا */
+            border-radius: 10px; /* گوشه‌های گرد */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* افکت hover */
         }
+
+        /* افکت hover برای کارت‌ها */
+        .food-item:hover {
+            transform: translateY(-5px); /* حرکت به بالا */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* سایه بیشتر */
+        }
+
+        /* استایل برای عکس محصول */
         .food-item img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px; /* گوشه‌های گرد برای عکس */
+            border-radius: 10px; /* گوشه‌های گرد برای عکس */
+            margin-bottom: 10px; /* فاصله از متن زیرین */
         }
+
+        /* استایل برای عنوان محصول */
         .food-item h3 {
             margin: 10px 0; /* فاصله بین عنوان و قیمت */
             font-size: 18px;
+            color: #333;
         }
+
+        /* استایل برای قیمت محصول */
         .food-item p {
             margin: 5px 0; /* فاصله بین قیمت و سایر عناصر */
             font-size: 16px;
-            color: #333;
+            color: #e67e22; /* رنگ نارنجی برای قیمت */
+            font-weight: bold;
+        }
+
+        /* استایل برای دکمه‌ها */
+        .food-item a {
+            text-decoration: none; /* حذف زیرخط لینک */
+            color: inherit; /* رنگ متن را از والد به ارث می‌برد */
+        }
+
+        /* استایل برای دکمه‌های فیلتر */
+        #all, #sandwiches, #pizzas {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e67e22; /* رنگ نارنجی */
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* افکت hover برای دکمه‌ها */
+        #all:hover, #sandwiches:hover, #pizzas:hover {
+            background-color: #d35400; /* رنگ نارنجی تیره */
         }
     </style>
 

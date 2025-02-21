@@ -97,15 +97,18 @@
                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
                     {% for item in cart %}
                         <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="{% url 'cart:cart_remove' model_name=item.model_name product_id=item.product_obj.id %}" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="{{ item.product_obj.get_absolute_url }}"><img src="{{ item.product_obj.image.url }}" alt="Cart Image">{{ item.product_obj.title }}</a>
+                            <a href="{% url 'cart:cart_remove' model_name=item.model_name product_id=item.product_obj.id %}"
+                               class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
+                            <a href="{{ item.product_obj.get_absolute_url }}"><img
+                                    src="{{ item.product_obj.image.url }}" alt="Cart Image">{{ item.product_obj.title }}
+                            </a>
                             <span class="quantity">{{ item.quantity }} ×
                                     <span class="woocommerce-Price-amount amount">
                                         <span class="woocommerce-Price-currencySymbol"></span>{{ item.product_obj.price|intcomma }}</span><span>T</span>
                             </span>
                         </li>
                     {% endfor %}
-                    
+
                 </ul>
                 <p class="woocommerce-mini-cart__total total">
                     <strong>Subtotal:</strong>
@@ -116,7 +119,7 @@
                     <a href="{% url 'cart:cart_detail' %}" class="th-btn wc-forward">View cart</a>
                     {% if not cart.is_empty %}
                         <a href="{% url 'order_create' %}" class="th-btn checkout wc-forward">Checkout</a>
-                    {% endif %} 
+                    {% endif %}
                 </p>
             </div>
         </div>
@@ -326,10 +329,13 @@
                     </div>
                     <div class="col-auto">
                         <div class="header-button">
-                            <form class="header-search">
-                                <input type="text" placeholder="Enter Keyword">
+                            <form class="header-search" id="search-form">
+                                <input type="text" id="search-input" placeholder="Enter Keyword">
                                 <button type="submit"><i class="far fa-search"></i></button>
                             </form>
+                            <div id="search-results"></div> <!-- اینجا نتایج نمایش داده می‌شه -->
+
+
                             <button type="button" class="icon-btn sideMenuToggler">
                                 <span class="badge">{{ cart|length }}</span>
                                 <i class="far fa-cart-shopping"></i>
@@ -351,11 +357,11 @@
         </div>
     </div>
 
-            {% if messages %}
-            <div class="container">
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-            </div>
-        {% endif %}
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </header>

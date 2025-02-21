@@ -16903,4 +16903,66 @@ span.select2-selection.select2-selection--single:focus {
     height: auto;
 }
 
+#search-form {
+    margin: 0;
+    padding: 0;
+}
+
+#search-input {
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#search-results {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 300px;
+    z-index: 1000;
+    top: 100%;
+    margin-top: 5px;
+}
+
+/* حل مشکل نمایش خط سفید */
+#search-results:empty {
+    display: none !important;
+}
+
+#search-results ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#search-results li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+    margin: 0;
+}
+
+#search-results li:last-child {
+    border-bottom: none;
+}
+
+#search-results li:hover {
+    background-color: #f9f9f9;
+}
+
+#search-results strong {
+    color: #333;
+    font-weight: bold;
+}
+
+#search-results p {
+    margin: 0;
+    color: #777;
+}
+
 /*# sourceMappingURL=style.css.map */

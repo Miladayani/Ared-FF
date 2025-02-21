@@ -98,3 +98,29 @@ def filter_foods(request):
         foods = pizzas + sandwiches
 
     return JsonResponse(foods, safe=False)
+
+
+def search(request):
+    query = request.GET.get('q', '')
+    results = []
+
+    if query:
+        # جستجو در مدل Pizza
+        pizzas = Pizza.objects.filter(title__icontains=query).values('id', 'title')
+        for pizza in pizzas:
+            results.append({
+                'type': 'Pizza',
+                'id': pizza['id'],
+                'title': pizza['title']
+            })
+
+        # جستجو در مدل Sandwich
+        sandwiches = Sandwich.objects.filter(title__icontains=query).values('id', 'title')
+        for sandwich in sandwiches:
+            results.append({
+                'type': 'Sandwich',
+                'id': sandwich['id'],
+                'title': sandwich['title']
+            })
+
+    return JsonResponse({'results': results})
