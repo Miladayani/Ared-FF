@@ -1,4 +1,5 @@
 // static/js/script.js
+console.log("script.js ins loaded and running! ")
 $(document).ready(function () {
     function loadFoods(type) {
         $.ajax({
@@ -44,9 +45,9 @@ $(document).ready(function () {
     loadFoods('all');
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     // وقتی فرم جستجو submit شد
-    $('#search-form').on('submit', function(e) {
+    $('#search-form').on('submit', function (e) {
         e.preventDefault(); // جلوگیری از ارسال سنتی فرم
 
         var query = $('#search-input').val(); // گرفتن مقدار وارد شده توسط کاربر
@@ -59,11 +60,11 @@ $(document).ready(function() {
             data: {
                 'q': query
             },
-            success: function(response) {
+            success: function (response) {
                 console.log('Search results:', response); // نمایش نتایج در کنسول (برای دیباگ)
                 displayResults(response.results); // نمایش نتایج
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.error('AJAX error:', error); // نمایش خطا در کنسول (برای دیباگ)
             }
         });
@@ -75,7 +76,7 @@ $(document).ready(function() {
 
         if (results.length > 0) {
             resultsHtml += '<ul>';
-            results.forEach(function(result) {
+            results.forEach(function (result) {
                 resultsHtml += '<li>';
                 resultsHtml += '<strong>' + result.type + ':</strong> ' + result.title; // نمایش نوع و نام نتیجه
                 resultsHtml += '</li>';
@@ -88,3 +89,126 @@ $(document).ready(function() {
         $('#search-results').html(resultsHtml); // نمایش نتایج در div مربوطه
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listeners for plus and minus buttons
+    document.querySelectorAll('.quantity-plus, .quantity-minus').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const productId = this.getAttribute('data-product-id');
+            const modelName = this.getAttribute('data-model-name');
+
+            // 🟢 لاگ بگیر برای چک کردن مقدار‌ها
+            console.log("Product Id:", productId);
+            console.log("Model Name:", modelName);
+
+            if (!productId || !modelName) {
+                console.error("Missing productId or modelName!");
+                return;
+            }
+
+            const action = this.classList.contains('quantity-plus') ? 'increase' : 'decrease';
+            updateCart(productId, modelName, action);
+        });
+    });
+});
+
+// Function to get CSRF token from cookies
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// Function to send AJAX request and update the cart
+function updateCart(productId, modelName, action) {
+    console.log(`Fetching URL: /cart/update/${modelName}/${productId}/`);  // لاگ مسیر
+
+    fetch(`/cart/update/${modelName}/${productId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({ action: action })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            // به‌روزرسانی مقدار تعداد محصول در صفحه
+            const quantityInput = document.querySelector(`.qty-input[data-product-id="${productId}"]`);
+            if (quantityInput) {
+                quantityInput.value = data.new_quantity;
+            }
+
+            // به‌روزرسانی مجموع قیمت هر محصول
+            updateTotalPrice(productId, data.new_quantity, data.price);
+
+            // به‌روزرسانی تعداد کل محصولات در سبد خرید
+            updateCartTotalQuantity(data.cart);
+
+            // به‌روزرسانی مجموع کل قیمت سبد خرید
+            updateCartTotalPrice(data.cart);
+
+            // به‌روزرسانی قیمت نهایی (order_total)
+            updateOrderTotal(data.order_total);
+        }
+    })
+    .catch(error => console.error("Error in fetch:", error));
+}
+
+// تابع برای به‌روزرسانی مجموع قیمت هر محصول
+function updateTotalPrice(productId, newQuantity, price) {
+    const totalPriceElement = document.querySelector(`.total-price[data-product-id="${productId}"]`);
+    if (totalPriceElement) {
+        const totalPrice = newQuantity * price;
+        totalPriceElement.textContent = `${totalPrice.toLocaleString()} T`;  // اضافه کردن کاما
+    }
+}
+
+// تابع برای به‌روزرسانی تعداد کل محصولات در سبد خرید
+function updateCartTotalQuantity(cart) {
+    const totalQuantityElement = document.querySelector('.cart-total-quantity');
+    if (totalQuantityElement) {
+        let totalQuantity = 0;
+        for (const key in cart) {
+            totalQuantity += cart[key].quantity;
+        }
+        totalQuantityElement.textContent = totalQuantity;
+    }
+}
+
+// تابع برای به‌روزرسانی مجموع کل قیمت سبد خرید
+function updateCartTotalPrice(cart) {
+    const totalPriceElement = document.querySelector('.cart-total-price');
+    if (totalPriceElement) {
+        let totalPrice = 0;
+        for (const key in cart) {
+            totalPrice += cart[key].quantity * cart[key].price;
+        }
+        totalPriceElement.textContent = `${totalPrice.toLocaleString()} T`;  // اضافه کردن کاما
+    }
+}
+
+// تابع برای به‌روزرسانی قیمت نهایی (order_total)
+function updateOrderTotal(orderTotal) {
+    const orderTotalElement = document.querySelector('.order-total');
+    if (orderTotalElement) {
+        orderTotalElement.textContent = `${orderTotal.toLocaleString()} T`;  // اضافه کردن کاما
+    }
+}

@@ -62,27 +62,30 @@ Cart Area
                                         <span class="amount"><bdi>{{ item.product_obj.price|intcomma }}<span>T</span></bdi></span>
                                     </td>
                                     <td data-title="Quantity">
-                                        <form method="POST"
-                                              action="{% url 'cart:cart_add' item.model_name item.product_obj.id %}">
-                                            {% csrf_token %}
-                                            <div class="quantity">
-                                                <button class="quantity-minus qty-btn"><i class="far fa-minus"></i>
-                                                </button>
-                                                <input type="number"
-                                                       class="qty-input"
-                                                       name="quantity"
-                                                       value="{{ item.quantity }}"
-                                                       min="1"
-                                                       max="99">
-                                                <button class="quantity-plus qty-btn"><i class="far fa-plus"></i>
-                                                </button>
-                                            </div>
-                                            {{ item.product_update_quantity_form.inplace }}
-                                            <button type="submit" class="th-btn">Update cart</button>
-                                        </form>
+                                        <div class="quantity">
+                                            <button class="quantity-minus qty-btn"
+                                                    data-product-id="{{ item.product_obj.id }}"
+                                                    data-model-name="{{ item.model_name }}">
+                                                <i class="far fa-minus"></i>
+                                            </button>
+                                            <input type="number"
+                                                   class="qty-input"
+                                                   name="quantity"
+                                                   value="{{ item.quantity }}"
+                                                   min="1"
+                                                   max="99">
+                                            <button class="quantity-plus qty-btn"
+                                                    data-product-id="{{ item.product_obj.id }}"
+                                                    data-model-name="{{ item.model_name }}">
+                                                <i class="far fa-plus"></i>
+                                            </button>
+                                        </div>
                                     </td>
                                     <td data-title="Total">
-                                        <span class="amount"><bdi>{{ item.total_price|intcomma }}<span>T</span></bdi></span>
+                                        <span class="total-price" data-product-id="{{ item.product_obj.id }}">
+                                            {{ item.total_price|intcomma }}
+                                            <span>T</span>
+                                        </span>
                                     </td>
 
                                     <td data-title="Remove">
@@ -121,7 +124,11 @@ Cart Area
                                     <tr class="order-total">
                                         <td>Order Total</td>
                                         <td data-title="Total">
-                                            <strong><span class="amount"><bdi>{{ cart.get_total_price|intcomma }}</bdi><span>T</span></span></strong>
+                                            <strong>
+                                                <span class="order-total">{{ cart.get_total_price|intcomma }}
+                                                    <span>T</span>
+                                                </span>
+                                            </strong>
                                         </td>
                                     </tr>
                                     </tfoot>
