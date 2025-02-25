@@ -29,5 +29,5 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('order/', include('orders.urls')),
     path('rosetta/', include('rosetta.urls')),
-    # path("__debug__/", include("debug_toolbar.urls")),
+    path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
