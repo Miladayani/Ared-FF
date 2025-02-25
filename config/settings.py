@@ -147,11 +147,18 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# send Email
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'miladayani526@gmail.com'  # your email
+EMAIL_HOST_PASSWORD = 'stgkwfsvvizoiclq'  # App Password
 
-# Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
+# Internationalization
 LANGUAGE_CODE = 'en-us'
 # LANGUAGE_CODE = 'fa'
 LANGUAGES = (

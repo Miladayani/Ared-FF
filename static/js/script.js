@@ -212,3 +212,31 @@ function updateOrderTotal(orderTotal) {
         orderTotalElement.textContent = `${orderTotal.toLocaleString()} T`;  // اضافه کردن کاما
     }
 }
+
+$(document).ready(function() {
+    $('.ajax-contact').on('submit', function(e) {
+        e.preventDefault();  // جلوگیری از ارسال معمولی فرم
+        var form = $(this);
+        $.ajax({
+            url: form.attr('action'),
+            type: form.attr('method'),
+            data: form.serialize(),
+            success: function(response) {
+                // پردازش پاسخ JSON
+                if (response.status === 'success') {
+                    form.find('.form-messages').html('<div class="alert alert-success">' + response.message + '</div>');
+                } else {
+                    form.find('.form-messages').html('<div class="alert alert-danger">' + response.message + '</div>');
+                }
+            },
+            error: function(xhr, status, error) {
+                // نمایش خطا اگر مشکلی پیش اومد
+                var errorMessage = 'خطا در ارسال پیام!';
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                }
+                form.find('.form-messages').html('<div class="alert alert-danger">' + errorMessage + '</div>');
+            }
+        });
+    });
+});
