@@ -43,7 +43,16 @@ class Shop(ListView):
     context_object_name = 'shop'
 
     def get_queryset(self):
-        return list(Pizza.objects.all()) + list(Sandwich.objects.all())
+        pizzas = Pizza.objects.all()
+        sandwiches = Sandwich.objects.all()
+
+        # اضافه کردن model_name به هر آیتم
+        for pizza in pizzas:
+            pizza.model_name = "Pizza"
+        for sandwich in sandwiches:
+            sandwich.model_name = "Sandwich"
+
+        return list(pizzas) + list(sandwiches)
 
 
 class CommentCreateView(CreateView):
@@ -124,3 +133,20 @@ def search(request):
             })
 
     return JsonResponse({'results': results})
+
+
+def get_product_details(request, model_name, product_id):
+    if model_name == 'Pizza':
+        product = Pizza.objects.get(id=product_id)
+    elif model_name == 'Sandwich':
+        product = Sandwich.objects.get(id=product_id)
+    else:
+        return JsonResponse({'error': 'Invalid model name'}, status=400)
+
+    data = {
+        'title': product.title,
+        'price': product.price,
+        'description': product.description,
+        'image_url': product.image.url,
+    }
+    return JsonResponse(data)

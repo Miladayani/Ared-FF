@@ -16965,4 +16965,174 @@ span.select2-selection.select2-selection--single:focus {
     color: #777;
 }
 
+/* استایل کلی مودال */
+#QuickView {
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff); /* گرادیانت سفید */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* سایه بیشتر */
+    position: relative;
+    border: 1px solid #e0e0e0; /* حاشیه نازک */
+    animation: fadeIn 0.5s ease-in-out; /* انیمیشن fadeIn */
+}
+
+/* انیمیشن fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* استایل تصویر محصول */
+#QuickView .product-big-img {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#QuickView .product-big-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* سایه برای تصویر */
+}
+
+/* استایل عنوان محصول */
+#QuickView .product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    display: block; /* عنوان در یک خط جدا */
+}
+
+/* استایل قیمت محصول */
+#QuickView .price {
+    font-size: 20px;
+    color: #e67e22;
+    margin-bottom: 15px;
+    display: block; /* قیمت در یک خط جدا */
+}
+
+#QuickView .price del {
+    color: #999;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#QuickView .price .current-price {
+    font-weight: bold;
+}
+
+/* استایل توضیحات محصول */
+#QuickView .text {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* استایل دکمه‌ها */
+#QuickView .actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#QuickView .th-btn {
+    background: #e67e22; /* رنگ نارنجی */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+#QuickView .th-btn:hover {
+    background: #d35400; /* رنگ نارنجی تیره */
+}
+
+#QuickView .icon-btn {
+    background: #e67e22; /* رنگ نارنجی */
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#QuickView .icon-btn:hover {
+    background: #d35400; /* رنگ نارنجی تیره */
+}
+
+/* استایل دکمه بستن */
+#QuickView .mfp-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#QuickView .mfp-close:hover {
+    color: #e67e22; /* رنگ نارنجی */
+}
+
+/* استایل متا اطلاعات محصول */
+#QuickView .product-meta {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+#QuickView .product-meta p {
+    margin-bottom: 10px;
+}
+
+#QuickView .product-meta strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* انیمیشن‌های مودال */
+.mfp-zoom-in.mfp-ready .mfp-content {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.mfp-zoom-in.mfp-removing .mfp-content {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.mfp-zoom-in.mfp-bg {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.mfp-zoom-in.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-zoom-in.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

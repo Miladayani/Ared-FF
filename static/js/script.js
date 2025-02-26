@@ -1,5 +1,4 @@
 // static/js/script.js
-console.log("script.js ins loaded and running! ")
 $(document).ready(function () {
     function loadFoods(type) {
         $.ajax({
@@ -240,3 +239,83 @@ $(document).ready(function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.quick-view').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            var modelName = this.getAttribute('data-model-name');
+            var productId = this.getAttribute('data-product-id');
+
+            fetch(`/foods/product/${modelName}/${productId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    // فرمت قیمت با کاما
+                    data.price = new Intl.NumberFormat().format(data.price);
+
+                    // پر کردن مودال با اطلاعات محصول
+                    document.querySelector('#QuickView .product-title').textContent = data.title;
+                    document.querySelector('#QuickView .price .current-price').textContent = `${data.price}`;
+                    document.querySelector('#QuickView .text').textContent = data.description;
+                    document.querySelector('#QuickView .img img').src = data.image_url;
+
+                    // نمایش مودال
+                    $.magnificPopup.open({
+                        items: {
+                            src: '#QuickView',
+                            type: 'inline'
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('❌ AJAX Error:', error);
+                    alert("There was an error loading the product details.");
+                });
+        });
+    });
+});
+// document.addEventListener('DOMContentLoaded', function() {
+//     console.log("✅ script.js is loaded and running!");
+//
+//     document.querySelectorAll('.quick-view').forEach(function(link) {
+//         link.addEventListener('click', function(event) {
+//             event.preventDefault();
+//             var modelName = this.getAttribute('data-model-name');
+//             var productId = this.getAttribute('data-product-id');
+//
+//             console.log("🔄 Updating cart...");
+//             console.log("Product ID:", productId);
+//             console.log("Model Name:", modelName);
+//
+//             // بررسی مقدار قبل از ارسال درخواست
+//             if (!modelName || !productId) {
+//                 console.error("❌ modelName یا productId مقدار ندارد!", modelName, productId);
+//                 return;
+//             }
+//
+//             // ارسال درخواست AJAX
+//             fetch(`/foods/product/${modelName}/${productId}/`)
+//                 .then(response => response.json())
+//                 .then(data => {
+//                     console.log("✅ Data received:", data);
+//
+//                     document.querySelector('#QuickView .product-title').textContent = data.title;
+//                     document.querySelector('#QuickView .price').textContent = data.price;
+//                     document.querySelector('#QuickView .text').textContent = data.description;
+//                     document.querySelector('#QuickView .img img').src = data.image_url;
+//
+//                     console.log("🟢 Opening popup with src: #QuickView");
+//                     $.magnificPopup.open({
+//                         items: {
+//                             src: '#QuickView',
+//                             type: 'inline'
+//                         }
+//                     });
+//                 })
+//                 .catch(error => {
+//                     console.error('❌ AJAX Error:', error);
+//                     alert("There was an error loading the product details.");
+//                 });
+//         });
+//     });
+// });
