@@ -55,8 +55,13 @@ Product Area
                                                data-product-id="{{ item.id }}">
                                                 <i class="far fa-eye"></i>
                                             </a>
-                                            <a href="{% url 'cart:cart_detail' %}" class="icon-btn"><i
-                                                    class="far fa-cart-plus"></i></a>
+                                            <form action="{% url 'cart:cart_add' item.model_name item.id %}"
+                                                  method="POST" class="icon-btn-form">
+                                                {% csrf_token %}
+                                                <button type="submit" class="icon-btn">
+                                                    <i class="far fa-cart-plus"></i>
+                                                </button>
+                                            </form>
                                             <a href="{% url 'wishlist' %}" class="icon-btn"><i class="far fa-heart"></i></a>
                                         </div>
                                     </div>

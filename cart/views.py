@@ -3,8 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from django.apps import apps
-from django.http import JsonResponse
-
+from django.http import JsonResponse, HttpResponseRedirect
 
 from .cart import Cart
 from .forms import AddToCartProductForm
@@ -27,17 +26,34 @@ def add_to_cart_view(request, product_id, model_name):
     cart = Cart(request)
 
     # دریافت مدل به‌صورت داینامیک
-    model = apps.get_model(app_label='foods', model_name=model_name)
-    product = get_object_or_404(model, id=product_id)
+    try:
+        model = apps.get_model(app_label='foods', model_name=model_name)
+        product = get_object_or_404(model, id=product_id)
+    except LookupError:
+        # اگر مدل پیدا نشد، کاربر رو به صفحه‌ای دیگه هدایت کن
+        return redirect('shop')
 
-    form = AddToCartProductForm(request.POST)
+    # افزودن محصول به سبد خرید (به صورت پیش‌فرض ۱ عدد اضافه می‌شه)
+    cart.add(product, quantity=1)
 
-    if form.is_valid():
-        cleaned_data = form.cleaned_data
-        quantity = cleaned_data['quantity']
-        cart.add(product, quantity, replace_current_quantity=cleaned_data['inplace'])
-
-    return redirect('sandwich_list')
+    # هدایت کاربر به صفحه‌ای مناسب (مثلاً صفحه سبد خرید یا صفحه محصولات)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  # یا هر URL دیگه‌ای که مناسب باشه
+# @require_POST
+# def add_to_cart_view(request, product_id, model_name):
+#     cart = Cart(request)
+#
+#     # دریافت مدل به‌صورت داینامیک
+#     model = apps.get_model(app_label='foods', model_name=model_name)
+#     product = get_object_or_404(model, id=product_id)
+#
+#     form = AddToCartProductForm(request.POST)
+#
+#     if form.is_valid():
+#         cleaned_data = form.cleaned_data
+#         quantity = cleaned_data['quantity']
+#         cart.add(product, quantity, replace_current_quantity=cleaned_data['inplace'])
+#
+#     return redirect('sandwich_list')
 
 
 def remove_from_cart_view(request, model_name, product_id):
