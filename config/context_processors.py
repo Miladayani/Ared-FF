@@ -19,3 +19,15 @@ def global_products(request):
         'page_obj': page_obj,  # صفحه‌بندی شده
         'total_count': len(all_foods)  # تعداد کل محصولات
     }
+
+
+def food_counts(request):
+    pizza_count = Pizza.objects.count()
+    sandwich_count = Sandwich.objects.count()
+    all_food_count = pizza_count + sandwich_count
+
+    return {
+        'pizza_count': pizza_count,
+        'sandwich_count': sandwich_count,
+        'all_food_count': all_food_count,
+    }

@@ -274,48 +274,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-// document.addEventListener('DOMContentLoaded', function() {
-//     console.log("✅ script.js is loaded and running!");
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     const sortingSelect = document.getElementById('sorting-select');
 //
-//     document.querySelectorAll('.quick-view').forEach(function(link) {
-//         link.addEventListener('click', function(event) {
-//             event.preventDefault();
-//             var modelName = this.getAttribute('data-model-name');
-//             var productId = this.getAttribute('data-product-id');
+//     if (sortingSelect) {
+//         sortingSelect.addEventListener('change', function () {
+//             const selectedValue = this.value;
 //
-//             console.log("🔄 Updating cart...");
-//             console.log("Product ID:", productId);
-//             console.log("Model Name:", modelName);
-//
-//             // بررسی مقدار قبل از ارسال درخواست
-//             if (!modelName || !productId) {
-//                 console.error("❌ modelName یا productId مقدار ندارد!", modelName, productId);
-//                 return;
-//             }
+//             // ساخت URL با پارامتر مرتب‌سازی
+//             const url = new URL(window.location.href);
+//             url.searchParams.set('orderby', selectedValue);
 //
 //             // ارسال درخواست AJAX
-//             fetch(`/foods/product/${modelName}/${productId}/`)
-//                 .then(response => response.json())
+//             fetch(url, {
+//                 method: 'GET',
+//                 headers: {
+//                     'X-Requested-With': 'XMLHttpRequest',
+//                 },
+//             })
+//                 .then(response => {
+//                     if (!response.ok) {
+//                         throw new Error('Network response was not ok');
+//                     }
+//                     return response.text();
+//                 })
 //                 .then(data => {
-//                     console.log("✅ Data received:", data);
+//                     // استخراج بخش product-list از پاسخ سرور
+//                     const parser = new DOMParser();
+//                     const doc = parser.parseFromString(data, 'text/html');
+//                     const newProductList = doc.getElementById('product-list');
 //
-//                     document.querySelector('#QuickView .product-title').textContent = data.title;
-//                     document.querySelector('#QuickView .price').textContent = data.price;
-//                     document.querySelector('#QuickView .text').textContent = data.description;
-//                     document.querySelector('#QuickView .img img').src = data.image_url;
-//
-//                     console.log("🟢 Opening popup with src: #QuickView");
-//                     $.magnificPopup.open({
-//                         items: {
-//                             src: '#QuickView',
-//                             type: 'inline'
-//                         }
-//                     });
+//                     if (newProductList) {
+//                         document.getElementById('product-list').innerHTML = newProductList.innerHTML;
+//                     } else {
+//                         console.error('New product list not found in response!');
+//                     }
 //                 })
 //                 .catch(error => {
-//                     console.error('❌ AJAX Error:', error);
-//                     alert("There was an error loading the product details.");
+//                     console.error('Error during fetch:', error);
 //                 });
 //         });
-//     });
+//     } else {
+//         console.error('Sorting select element not found!');
+//     }
 // });

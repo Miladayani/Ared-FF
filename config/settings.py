@@ -101,6 +101,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # Custom Context Processors
                 'config.context_processors.global_products',
+                'config.context_processors.food_counts',
                 'cart.context_processors.cart',
             ],
         },
