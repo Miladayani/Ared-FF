@@ -56,28 +56,28 @@ class Shop(ListView):
         for sandwich in sandwiches:
             sandwich.model_name = "Sandwich"
 
-    #     # ترکیب لیست‌ها
-    #     products = list(pizzas) + list(sandwiches)
-    #
-    #     # مرتب‌سازی بر اساس پارامتر دریافتی
-    #     if order_by == 'date':
-    #         products.sort(key=lambda x: x.date_created)
-    #     elif order_by == 'newest':  # گزینه جدید
-    #         products.sort(key=lambda x: x.date_created, reverse=True)
-    #     elif order_by == 'price':
-    #         products.sort(key=lambda x: x.price)
-    #     elif order_by == 'price-desc':
-    #         products.sort(key=lambda x: x.price, reverse=True)
-    #
-    #     return products
-    #
-    # def get(self, request, *args, **kwargs):
-    #     # اگر درخواست AJAX باشد، کل صفحه را بازگردانید
-    #     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-    #         self.object_list = self.get_queryset()
-    #         context = self.get_context_data()
-    #         return render(request, self.template_name, context)
-    #     return super().get(request, *args, **kwargs)
+        # ترکیب لیست‌ها
+        products = list(pizzas) + list(sandwiches)
+
+        # مرتب‌سازی بر اساس پارامتر دریافتی
+        if order_by == 'date':
+            products.sort(key=lambda x: x.date_created)
+        elif order_by == 'newest':  # گزینه جدید
+            products.sort(key=lambda x: x.date_created, reverse=True)
+        elif order_by == 'price':
+            products.sort(key=lambda x: x.price)
+        elif order_by == 'price-desc':
+            products.sort(key=lambda x: x.price, reverse=True)
+
+        return products
+
+    def get(self, request, *args, **kwargs):
+        # اگر درخواست AJAX باشد، کل صفحه را بازگردانید
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            self.object_list = self.get_queryset()
+            context = self.get_context_data()
+            return render(request, self.template_name, context)
+        return super().get(request, *args, **kwargs)
 
 
 class CommentCreateView(CreateView):

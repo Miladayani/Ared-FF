@@ -275,47 +275,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     const sortingSelect = document.getElementById('sorting-select');
-//
-//     if (sortingSelect) {
-//         sortingSelect.addEventListener('change', function () {
-//             const selectedValue = this.value;
-//
-//             // ساخت URL با پارامتر مرتب‌سازی
-//             const url = new URL(window.location.href);
-//             url.searchParams.set('orderby', selectedValue);
-//
-//             // ارسال درخواست AJAX
-//             fetch(url, {
-//                 method: 'GET',
-//                 headers: {
-//                     'X-Requested-With': 'XMLHttpRequest',
-//                 },
-//             })
-//                 .then(response => {
-//                     if (!response.ok) {
-//                         throw new Error('Network response was not ok');
-//                     }
-//                     return response.text();
-//                 })
-//                 .then(data => {
-//                     // استخراج بخش product-list از پاسخ سرور
-//                     const parser = new DOMParser();
-//                     const doc = parser.parseFromString(data, 'text/html');
-//                     const newProductList = doc.getElementById('product-list');
-//
-//                     if (newProductList) {
-//                         document.getElementById('product-list').innerHTML = newProductList.innerHTML;
-//                     } else {
-//                         console.error('New product list not found in response!');
-//                     }
-//                 })
-//                 .catch(error => {
-//                     console.error('Error during fetch:', error);
-//                 });
-//         });
-//     } else {
-//         console.error('Sorting select element not found!');
-//     }
-// });
+document.addEventListener('DOMContentLoaded', function () {
+    const sortingSelect = document.getElementById('sorting-select');
+
+    if (sortingSelect) {
+        sortingSelect.addEventListener('change', function () {
+            const selectedValue = this.value;
+
+            // ساخت URL با پارامتر مرتب‌سازی
+            const url = new URL(window.location.href);
+            url.searchParams.set('orderby', selectedValue);
+
+            // ارسال درخواست AJAX
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // استخراج بخش product-list از پاسخ سرور
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const newProductList = doc.getElementById('product-list');
+
+                    if (newProductList) {
+                        document.getElementById('product-list').innerHTML = newProductList.innerHTML;
+                    } else {
+                        console.error('New product list not found in response!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during fetch:', error);
+                });
+        });
+    } else {
+        console.error('Sorting select element not found!');
+    }
+});
