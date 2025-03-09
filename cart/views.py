@@ -7,11 +7,20 @@ from django.http import JsonResponse, HttpResponseRedirect
 
 from .cart import Cart
 from .forms import AddToCartProductForm
+from foods.models import Pizza, Sandwich
 
 
 def cart_detail_view(request):
     cart = Cart(request)
 
+    # حذف محصولاتی که دیگه توی دیتابیس وجود ندارن
+    for item in list(cart):  # تبدیل به لیست برای تغییر روی دیکشنری اصلی
+        product = item['product_obj']  # تغییر از 'product' به 'product_obj'
+        if (isinstance(product, Pizza) and not Pizza.objects.filter(id=product.id).exists()) or \
+           (isinstance(product, Sandwich) and not Sandwich.objects.filter(id=product.id).exists()):
+            cart.remove(product)
+
+    # اضافه کردن فرم آپدیت مقدار محصول
     for item in cart:
         item['product_update_quantity_form'] = AddToCartProductForm(initial={
             'quantity': item['quantity'],

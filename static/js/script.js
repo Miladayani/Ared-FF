@@ -89,10 +89,10 @@ $(document).ready(function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Event listeners for plus and minus buttons
-    document.querySelectorAll('.quantity-plus, .quantity-minus').forEach(function(button) {
-        button.addEventListener('click', function(event) {
+    document.querySelectorAll('.quantity-plus, .quantity-minus').forEach(function (button) {
+        button.addEventListener('click', function (event) {
             event.preventDefault();
 
             const productId = this.getAttribute('data-product-id');
@@ -139,36 +139,36 @@ function updateCart(productId, modelName, action) {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('csrftoken')
         },
-        body: JSON.stringify({ action: action })
+        body: JSON.stringify({action: action})
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            // به‌روزرسانی مقدار تعداد محصول در صفحه
-            const quantityInput = document.querySelector(`.qty-input[data-product-id="${productId}"]`);
-            if (quantityInput) {
-                quantityInput.value = data.new_quantity;
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // به‌روزرسانی مقدار تعداد محصول در صفحه
+                const quantityInput = document.querySelector(`.qty-input[data-product-id="${productId}"]`);
+                if (quantityInput) {
+                    quantityInput.value = data.new_quantity;
+                }
 
-            // به‌روزرسانی مجموع قیمت هر محصول
-            updateTotalPrice(productId, data.new_quantity, data.price);
+                // به‌روزرسانی مجموع قیمت هر محصول
+                updateTotalPrice(productId, data.new_quantity, data.price);
 
-            // به‌روزرسانی تعداد کل محصولات در سبد خرید
-            updateCartTotalQuantity(data.cart);
+                // به‌روزرسانی تعداد کل محصولات در سبد خرید
+                updateCartTotalQuantity(data.cart);
 
-            // به‌روزرسانی مجموع کل قیمت سبد خرید
-            updateCartTotalPrice(data.cart);
+                // به‌روزرسانی مجموع کل قیمت سبد خرید
+                updateCartTotalPrice(data.cart);
 
-            // به‌روزرسانی قیمت نهایی (order_total)
-            updateOrderTotal(data.order_total);
-        }
-    })
-    .catch(error => console.error("Error in fetch:", error));
+                // به‌روزرسانی قیمت نهایی (order_total)
+                updateOrderTotal(data.order_total);
+            }
+        })
+        .catch(error => console.error("Error in fetch:", error));
 }
 
 // تابع برای به‌روزرسانی مجموع قیمت هر محصول
@@ -212,15 +212,15 @@ function updateOrderTotal(orderTotal) {
     }
 }
 
-$(document).ready(function() {
-    $('.ajax-contact').on('submit', function(e) {
+$(document).ready(function () {
+    $('.ajax-contact').on('submit', function (e) {
         e.preventDefault();  // جلوگیری از ارسال معمولی فرم
         var form = $(this);
         $.ajax({
             url: form.attr('action'),
             type: form.attr('method'),
             data: form.serialize(),
-            success: function(response) {
+            success: function (response) {
                 // پردازش پاسخ JSON
                 if (response.status === 'success') {
                     form.find('.form-messages').html('<div class="alert alert-success">' + response.message + '</div>');
@@ -228,7 +228,7 @@ $(document).ready(function() {
                     form.find('.form-messages').html('<div class="alert alert-danger">' + response.message + '</div>');
                 }
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 // نمایش خطا اگر مشکلی پیش اومد
                 var errorMessage = 'خطا در ارسال پیام!';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
@@ -240,9 +240,9 @@ $(document).ready(function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.quick-view').forEach(function(link) {
-        link.addEventListener('click', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.quick-view').forEach(function (link) {
+        link.addEventListener('click', function (event) {
             event.preventDefault();
             var modelName = this.getAttribute('data-model-name');
             var productId = this.getAttribute('data-product-id');
@@ -318,4 +318,54 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.error('Sorting select element not found!');
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const commentForm = document.getElementById("comment-form");
+    const ratingInput = commentForm.querySelector("input[name='rating']");
+    const stars = commentForm.querySelectorAll(".custom-stars .star");
+
+    // مدیریت انتخاب ستاره‌ها فقط برای فرم ارسال جدید
+    stars.forEach(star => {
+        star.addEventListener("click", function (e) {
+            e.preventDefault();
+            const value = this.getAttribute("data-rating");
+
+            ratingInput.value = value; // مقدار صحیح در input ثبت شود
+
+            // حذف active از همه ستاره‌های فرم
+            stars.forEach(s => s.classList.remove("active"));
+
+            // اضافه کردن active به ستاره‌های انتخاب‌شده
+            for (let i = 0; i < value; i++) {
+                stars[i].classList.add("active");
+            }
+        });
+    });
+
+    // تنظیم نمایش ستاره‌ها برای هر کامنت ثبت‌شده
+    document.querySelectorAll(".review").forEach(review => {
+        let rating = parseInt(review.getAttribute("data-rating"), 10);
+        let starsContainer = review.querySelector(".custom-stars");
+
+        if (!starsContainer) {
+            console.error("No .custom-stars found in:", review);
+            return;
+        }
+
+        starsContainer.innerHTML = ""; // حذف ستاره‌های قبلی و ایجاد مجدد
+
+        for (let i = 1; i <= 5; i++) {
+            let star = document.createElement("span");
+            star.classList.add("star");
+            star.setAttribute("data-rating", i);
+            star.innerHTML = "&#9733;";
+
+            if (i <= rating) {
+                star.classList.add("active");
+            }
+
+            starsContainer.appendChild(star);
+        }
+    });
 });

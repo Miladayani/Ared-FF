@@ -17135,4 +17135,32 @@ span.select2-selection.select2-selection--single:focus {
     opacity: 0;
 }
 
+.comment-content {
+    position: relative; /* برای تنظیم موقعیت نسبی */
+}
+
+.comment-content .custom-stars,
+.comment-content .text {
+    margin-top: -10px; /* متن کامنت و ستاره‌ها را کمی بالاتر ببرید */
+}
+
+.custom-stars {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end; /* ستاره‌ها به سمت راست برن */
+}
+
+.custom-stars .star {
+    cursor: pointer;
+    color: #ccc;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.custom-stars .star.active {
+    color: gold; /* رنگ ستاره‌های فعال */
+}
+
+
+
 /*# sourceMappingURL=style.css.map */

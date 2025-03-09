@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import reverse
 from itertools import chain
@@ -21,7 +21,7 @@ class PizzaDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['pizza'] = get_object_or_404(Pizza, id=self.kwargs['pk'])
+        # context['pizza'] = get_object_or_404(Pizza, id=self.kwargs['pk'])
         return context
 
 
@@ -88,21 +88,42 @@ class CommentCreateView(CreateView):
         obj = form.save(commit=False)
         obj.author = self.request.user
 
-        # بررسی وجود pizza_id یا sandwich_id در kwargs
         if 'pizza_id' in self.kwargs:
             obj.pizza = get_object_or_404(Pizza, id=self.kwargs['pizza_id'])
         elif 'sandwich_id' in self.kwargs:
             obj.sandwich = get_object_or_404(Sandwich, id=self.kwargs['sandwich_id'])
 
         obj.save()
-        return super().form_valid(form)
+        return redirect(self.get_success_url())  # بعد از ثبت، صفحه رفرش می‌شود
 
     def get_success_url(self):
-        # برگشت به صفحه جزئیات مدل صحیح
         if 'pizza_id' in self.kwargs:
-            return reverse('pizza_detail', args=[self.kwargs['pizza_id']])
+            return self.request.path
         elif 'sandwich_id' in self.kwargs:
-            return reverse('sandwich_detail', args=[self.kwargs['sandwich_id']])
+            return self.request.path
+
+    def get_template_names(self):
+        """بر اساس نوع محصول، قالب مناسب را انتخاب می‌کند"""
+        if 'pizza_id' in self.kwargs:
+            return ['foods/pizza_detail.html']
+        elif 'sandwich_id' in self.kwargs:
+            return ['foods/sandwich_detail.html']
+        return super().get_template_names()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        if 'pizza_id' in self.kwargs:
+            pizza = get_object_or_404(Pizza, id=self.kwargs['pizza_id'])
+            context['pizza'] = pizza  # اضافه کردن pizza به context
+            context['comments'] = pizza.comments.filter(active=True)
+
+        elif 'sandwich_id' in self.kwargs:
+            sandwich = get_object_or_404(Sandwich, id=self.kwargs['sandwich_id'])
+            context['sandwich'] = sandwich
+            context['comments'] = sandwich.comments.filter(active=True)
+
+        return context
 
 
 def filter_foods(request):
