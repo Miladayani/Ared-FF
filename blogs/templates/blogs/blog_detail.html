@@ -160,38 +160,20 @@
                         </div>
                         <div class="col-xxl-4 col-lg-5">
                             <aside class="sidebar-area">
-                                <div class="widget widget_search  ">
-                                    <form class="search-form">
-                                        <input type="text" placeholder="Enter Keyword">
-                                        <button type="submit"><i class="far fa-search"></i></button>
-                                    </form>
-                                </div>
                                 <div class="widget widget_categories  ">
                                     <h3 class="widget_title">Categories</h3>
                                     <ul>
                                         <li>
-                                            <a href="blog.html">Breakfast</a>
-                                            <span>(8)</span>
+                                            <a href="{% url 'sandwich_list' %}">Sandwich</a>
+                                            <span>({{ sandwich_count }})</span>
                                         </li>
                                         <li>
-                                            <a href="blog.html">Dinner</a>
-                                            <span>(10)</span>
+                                            <a href="{% url 'pizza_list' %}">Pizza</a>
+                                            <span>({{ pizza_count }})</span>
                                         </li>
                                         <li>
-                                            <a href="blog.html">Restaurant</a>
-                                            <span>(12)</span>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html">Fast Foods</a>
-                                            <span>(6)</span>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html">Lunch</a>
-                                            <span>(8)</span>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html">Burger</a>
-                                            <span>(11)</span>
+                                            <a href="{% url 'shop' %}">All Food</a>
+                                            <span>({{ all_food_count }})</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -231,17 +213,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="widget widget_tag_cloud  ">
-                                    <h3 class="widget_title">Popular Tags</h3>
-                                    <div class="tagcloud">
-                                        <a href="blog.html">Breakfast</a>
-                                        <a href="blog.html">Lunch</a>
-                                        <a href="blog.html">Restaurant</a>
-                                        <a href="blog.html">Burger</a>
-                                        <a href="blog.html">Dinner</a>
-                                        <a href="blog.html">Chicken</a>
                                     </div>
                                 </div>
                             </aside>

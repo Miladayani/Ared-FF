@@ -73,10 +73,10 @@
                                     </form>
                                 {% endif %}
                                 <div class="product_meta">
-                                    <span class="sku_wrapper">SKU: <span class="sku">Salmon-Beef-Stack</span></span>
-                                    <span class="posted_in">Category: <a href="shop.html">Dinner Food</a></span>
-                                    <span>Tags: <a href="shop.html">Lunch</a><a href="shop.html">Dinner</a><a
-                                            href="shop.html">Food</a></span>
+                                    <span class="posted_in">Category: <a href="{% url 'shop' %}">Dinner/Lunch Food</a></span>
+                                    <span>Tags: <a href="{% url 'shop' %}">Lunch</a>
+                                    <a href="{% url 'shop' %}">Dinner</a>
+                                        <a href="{% url 'shop' %}">Food</a></span>
                                 </div>
                             </div>
                         </div>
