@@ -135,7 +135,6 @@
                                         <h3 class="blog-inner-title ">Add a review</h3>
                                     </div>
                                     {% if user.is_authenticated %}
-                                        <p>Debug: Pizza Id Is: {{ pizza.id }}</p>
                                         <form method="POST" id="comment-form"
                                               action="{% url 'pizza_comment_create' pizza.id %}">
                                             {% csrf_token %}

@@ -122,7 +122,6 @@ class CommentCreateView(CreateView):
             sandwich = get_object_or_404(Sandwich, id=self.kwargs['sandwich_id'])
             context['sandwich'] = sandwich
             context['comments'] = sandwich.comments.filter(active=True)
-
         return context
 
 

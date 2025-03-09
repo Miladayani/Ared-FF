@@ -44,7 +44,7 @@
                                             style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span
                                             class="rating">1</span> customer rating</span></div>
                                     <a href="shop-details.html" class="woocommerce-review-link">(<span
-                                            class="count">{{ sandwich.comments.all|only_active_comments|length }}</span>
+                                            class="count">{{ sandwich.comments.all|length }}</span>
                                         customer reviews)</a>
                                 </div>
                                 <p class="text">{{ sandwich.description|truncatechars:60 }}.</p>
@@ -54,22 +54,24 @@
                                         <span class="stock in-stock"><i class="far fa-check-square me-2 ms-1"></i>In Stock</span>
                                     </p>
                                 </div>
-                                <form action="{% url 'cart:cart_add' 'sandwich' sandwich.id %}" method="POST">
-                                    {% csrf_token %}
+                                {% if sandwich %}
+                                    <form action="{% url 'cart:cart_add' 'sandwich' sandwich.id %}" method="POST">
+                                        {% csrf_token %}
 
-                                    <div class="actions">
-                                        <div class="quantity">
-                                            <input type="number" class="qty-input" step="1" min="1" max="31"
-                                                   name="quantity" value="1" title="Qty">
-                                            <button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i>
-                                            </button>
-                                            <button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i>
-                                            </button>
+                                        <div class="actions">
+                                            <div class="quantity">
+                                                <input type="number" class="qty-input" step="1" min="1" max="31"
+                                                       name="quantity" value="1" title="Qty">
+                                                <button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i>
+                                                </button>
+                                                <button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            <button class="th-btn">Add to Cart</button>
+                                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
                                         </div>
-                                        <button class="th-btn">Add to Cart</button>
-                                        <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </form>
+                                    </form>
+                                {% endif %}
                                 <div class="product_meta">
                                     <span class="sku_wrapper">SKU: <span class="sku">Salmon-Beef-Stack</span></span>
                                     <span class="posted_in">Category: <a href="shop.html">Dinner Food</a></span>
@@ -97,9 +99,9 @@
                              aria-labelledby="reviews-tab">
                             <div class="woocommerce-Reviews">
                                 <div class="th-comments-wrap ">
-                                    <ul class="comment-list">
+                                    <ul id="comment-list">
                                         {% for comment in sandwich.comments.all %}
-                                            <li class="review th-comment-item">
+                                            <li class="review th-comment-item" data-rating="{{ comment.rating }}">
                                                 <div class="th-post-comment">
                                                     <div class="comment-avater">
                                                         {% if comment.author.profile_picture %}
@@ -109,20 +111,22 @@
                                                     </div>
                                                     <div class="comment-content">
                                                         <h4 class="name">{{ comment.author.username }}</h4>
-                                                        <span class="commented-on"><i
-                                                                class="fal fa-calendar"></i>{{ comment.date_created|to_jalali:'%Y/%m/%d' }}</span>
-                                                        <div class="star-rating" role="img"
-                                                             aria-label="Rated 5.00 out of 5">
-                                                        <span style="width:100%">Rated <strong
-                                                                class="rating">5.00</strong> out of 5 based on <span
-                                                                class="rating">1</span> customer rating</span>
+                                                        <span class="commented-on">
+                                                            <i class="fal fa-calendar"></i>
+                                                            {{ comment.date_created|date:"Y/m/d" }}
+                                                        </span>
+                                                        <div class="custom-stars">
+                                                            {% for i in "12345" %}
+                                                                <span class="star {% if comment.rating|add:0 >= forloop.counter %}active{% endif %}">
+                                                                    &#9733;
+                                                                </span>
+                                                            {% endfor %}
                                                         </div>
                                                         <p class="text">{{ comment.body }}</p>
                                                     </div>
                                                 </div>
                                             </li>
                                         {% endfor %}
-
                                     </ul>
                                 </div> <!-- Comment Form -->
 
@@ -131,52 +135,47 @@
                                         <h3 class="blog-inner-title ">Add a review</h3>
                                     </div>
                                     {% if user.is_authenticated %}
-                                        <form method="POST" enctype="multipart/form-data"
+                                        <form method="POST" id="comment-form"
                                               action="{% url 'sandwich_comment_create' sandwich.id %}">
                                             {% csrf_token %}
-                                            <div class="row">
-                                                <div class="form-group rating-select d-flex align-items-center">
-                                                    <label>Your Rating</label>
-                                                    <p class="stars">
-                                                <span>
-                                                    <a class="star-1" href="#">1</a>
-                                                    <a class="star-2" href="#">2</a>
-                                                    <a class="star-3" href="#">3</a>
-                                                    <a class="star-4" href="#">4</a>
-                                                    <a class="star-5" href="#">5</a>
-                                                </span>
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 form-group">
-                                                    <textarea placeholder="Write a Message"
-                                                              class="form-control" name="body"></textarea>
-                                                    <i class="text-title far fa-pencil-alt"></i>
-                                                </div>
-                                                {#                                                <div class="col-md-6 form-group">#}
-                                                {#                                                    <input type="text" placeholder="Your Name" class="form-control">#}
-                                                {#                                                    <i class="text-title far fa-user"></i>#}
-                                                {#                                                </div>#}
-                                                <div class="col-md-6 form-group">
-                                                    <input type="text" placeholder="Your Email" class="form-control"
-                                                           name="email">
-                                                    <i class="text-title far fa-envelope"></i>
-                                                </div>
-                                                <div class="col-12 form-group">
-                                                    <input id="reviewcheck" name="reviewcheck" type="checkbox">
-                                                    <label for="reviewcheck">Save my name, email, and website in this
-                                                        browser
-                                                        for the next time I comment.<span
-                                                                class="checkmark"></span></label>
-                                                </div>
-                                                <div class="col-12 form-group mb-0">
-                                                    <button class="th-btn">Post Review</button>
-                                                </div>
+                                            <div class="form-group rating-select d-flex align-items-center">
+                                                <label>Your Rating</label>
+                                                <p class="custom-stars">
+                                                    <span>
+                                                        <span class="star" data-rating="1">&#9733;</span>
+                                                        <span class="star" data-rating="2">&#9733;</span>
+                                                        <span class="star" data-rating="3">&#9733;</span>
+                                                        <span class="star" data-rating="4">&#9733;</span>
+                                                        <span class="star" data-rating="5">&#9733;</span>
+                                                    </span>
+                                                </p>
+                                                <input type="hidden" name="rating" value="0">
+                                                <!-- مقدار rating را اینجا ارسال می‌کنیم -->
                                             </div>
-
+                                            <div class="col-12 form-group">
+                                                <textarea placeholder="Write a Message" class="form-control"
+                                                          name="body"></textarea>
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" placeholder="Your Email" class="form-control"
+                                                       name="email">
+                                                <i class="text-title far fa-envelope"></i>
+                                            </div>
+                                            <br>
+                                            <div class="col-12 form-group">
+                                                <input id="reviewcheck" name="reviewcheck" type="checkbox">
+                                                <label for="reviewcheck">Save my name, email, and website in this
+                                                    browser
+                                                    for the next time I comment.<span
+                                                            class="checkmark"></span></label>
+                                            </div>
+                                            <div class="col-12 form-group mb-0">
+                                                <button type="submit" class="th-btn">Post Review</button>
+                                            </div>
                                         </form>
                                     {% else %}
-                                        <p> "If you want to leave a comment, please log in." <a
-                                                href="{% url 'account_login' %}">Login</a></p>
+                                        <p>If you want to leave a comment, please <a href="{% url 'account_login' %}">login</a>.
+                                        </p>
                                     {% endif %}
 
                                 </div>
