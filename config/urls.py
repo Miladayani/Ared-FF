@@ -22,7 +22,7 @@ from pages.views import ErrorPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('no_access/', ErrorPage.as_view(), name='no_access'),
+    path('no_access/', ErrorPage.as_view(), name='no_access'),
     path('', include('pages.urls')),
     path('accounts/', include('allauth.urls')),
     path('foods/', include('foods.urls')),

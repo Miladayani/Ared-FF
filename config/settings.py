@@ -81,7 +81,7 @@ MIDDLEWARE = [
     # Add the account middleware:
     "allauth.account.middleware.AccountMiddleware",
     # add no access url admin
-    # 'config.middleware.AdminAccessRestrictionMiddleware',  # مسیر دقیق فایل middleware.py
+    'config.middleware.AdminAccessRestrictionMiddleware',  # مسیر دقیق فایل middleware.py
 ]
 
 INTERNAL_IPS = [
