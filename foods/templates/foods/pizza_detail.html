@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 {% load comment_tags %}
 {% load jalali_tags %}
 {% load humanize %}
@@ -108,6 +109,9 @@
                                                         {% if comment.author.profile_picture %}
                                                             <img src="{{ comment.author.profile_picture.url }}"
                                                                  alt="Comment Author">
+                                                        {% else %}
+                                                            <img src="{% static 'img/gallery/default-profile.png' %}"
+                                                                 alt="Default Profile">
                                                         {% endif %}
                                                     </div>
                                                     <div class="comment-content">
