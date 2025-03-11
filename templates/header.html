@@ -327,12 +327,7 @@
                                     +0991-730-3269</a></h3>
                                 <p class="box-text">Contact us for reservation</p>
                             </div>
-
-                            <!-- دکمه منو -->
-                            <button type="button" class="square-btn sideMenuInfo">
-                                <i class="fal fa-bars"></i>
-                            </button>
-
+                        
                             <!-- دکمه منو برای موبایل -->
                             <button type="button" class="th-menu-toggle d-block d-lg-none">
                                 <i class="far fa-bars"></i>
@@ -342,6 +337,22 @@
                             <button id="dark-mode-toggle" class="icon-btn">
                                 <i class="fas fa-sun"></i> <!-- آیکون خورشید پیش‌فرض -->
                             </button>
+                            <!-- آیکون وضعیت ورود -->
+                            {% if user.is_authenticated %}
+                                <span class="icon-btn">
+                                    <i class="fas fa-user"></i> <!-- آیکون کاربر لاگین شده -->
+                                </span>
+                            {% else %}
+                                <a href="{% url 'account_login' %}" class="icon-btn">
+                                    <i class="fas fa-sign-in-alt"></i> <!-- آیکون ورود -->
+                                </a>
+                            {% endif %}
+                        
+                            <!-- دکمه منو -->
+                            <button type="button" class="square-btn sideMenuInfo">
+                                <i class="fal fa-bars"></i>
+                            </button>
+                        
                         </div>
                     </div>
                 </div>

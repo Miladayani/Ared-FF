@@ -17214,4 +17214,10 @@ body.dark-mode {
     transition: background 0.3s;
 }
 
+.icon-btn i.fa-user,
+.icon-btn i.fa-sign-in-alt {
+    font-size: 24px;
+    color: white;
+}
+
 /*# sourceMappingURL=style.css.map */
