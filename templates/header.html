@@ -53,11 +53,11 @@
                         <button class="th-btn">Add to Cart</button>
                         <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
                     </div>
-{#                    <div class="product-meta">#}
-{#                        <p><strong>SKU:</strong> <span class="sku"></span></p>#}
-{#                        <p><strong>Category:</strong> <span class="category"></span></p>#}
-{#                        <p><strong>Tags:</strong> <span class="tags"></span></p>#}
-{#                    </div>#}
+                    {#                    <div class="product-meta">#}
+                    {#                        <p><strong>SKU:</strong> <span class="sku"></span></p>#}
+                    {#                        <p><strong>Category:</strong> <span class="category"></span></p>#}
+                    {#                        <p><strong>Tags:</strong> <span class="tags"></span></p>#}
+                    {#                    </div>#}
                 </div>
             </div>
         </div>
@@ -253,6 +253,7 @@
                                                             alt="Restar"></a>
                         </div>
                     </div>
+
                     <div class="col-auto">
                         <nav class="main-menu d-none d-lg-inline-block">
                             <ul>
@@ -307,27 +308,40 @@
                     </div>
                     <div class="col-auto">
                         <div class="header-button">
+                            <!-- فرم جستجو -->
                             <form class="header-search" id="search-form">
                                 <input type="text" id="search-input" placeholder="Enter Keyword">
                                 <button type="submit"><i class="far fa-search"></i></button>
                             </form>
                             <div id="search-results"></div> <!-- اینجا نتایج نمایش داده می‌شه -->
 
-
+                            <!-- دکمه سبد خرید -->
                             <button type="button" class="icon-btn sideMenuToggler">
                                 <span class="badge">{{ cart|length }}</span>
                                 <i class="far fa-cart-shopping"></i>
                             </button>
+
+                            <!-- اطلاعات تماس -->
                             <div class="header-call">
                                 <h3 class="box-title"><a href="tel:+09917303269"><span class="icon"></span>
                                     +0991-730-3269</a></h3>
                                 <p class="box-text">Contact us for reservation</p>
                             </div>
+
+                            <!-- دکمه منو -->
                             <button type="button" class="square-btn sideMenuInfo">
                                 <i class="fal fa-bars"></i>
                             </button>
-                            <button type="button" class="th-menu-toggle d-block d-lg-none"><i
-                                    class="far fa-bars"></i></button>
+
+                            <!-- دکمه منو برای موبایل -->
+                            <button type="button" class="th-menu-toggle d-block d-lg-none">
+                                <i class="far fa-bars"></i>
+                            </button>
+
+                            <!-- دکمه تغییر تم -->
+                            <button id="dark-mode-toggle" class="icon-btn">
+                                <i class="fas fa-sun"></i> <!-- آیکون خورشید پیش‌فرض -->
+                            </button>
                         </div>
                     </div>
                 </div>

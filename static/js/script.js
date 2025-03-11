@@ -369,3 +369,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const icon = toggleButton.querySelector('i'); // گرفتن آیکون داخل دکمه
+    const body = document.body;
+
+    // بررسی وضعیت دارک مود از LocalStorage
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        body.classList.add('dark-mode');
+        icon.classList.replace('fa-sun', 'fa-moon'); // تغییر آیکون به ماه
+    }
+
+    toggleButton.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('dark-mode', 'enabled');
+            icon.classList.replace('fa-sun', 'fa-moon'); // تغییر به ماه
+        } else {
+            localStorage.setItem('dark-mode', 'disabled');
+            icon.classList.replace('fa-moon', 'fa-sun'); // تغییر به خورشید
+        }
+    });
+});

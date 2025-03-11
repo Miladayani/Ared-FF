@@ -17161,5 +17161,57 @@ span.select2-selection.select2-selection--single:focus {
     color: gold; /* رنگ ستاره‌های فعال */
 }
 
+/* تنظیم کلی دکمه‌های هدر */
+.header-button {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important; /* فاصله بین دکمه‌ها */
+}
+
+/* تنظیم اندازه و جایگاه دکمه تغییر تم */
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #f39c12; /* رنگ نارنجی */
+    margin-left: auto; /* دکمه را به سمت راست هدر ببرد */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* دایره‌ای کردن دکمه */
+    transition: background 0.3s;
+}
+
+/* حالت روشن (پیش‌فرض سایت) */
+body {
+    background-color: #ffffff; /* سفید */
+    color: #000000; /* متن سیاه */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s;
+}
+
+/* حالت سرمه‌ای (به‌جای دارک مود) */
+body.dark-mode {
+    background-color: #0f1a30; /* سرمه‌ای تیره‌تر */
+    color: #f39c12; /* متن نارنجی */
+}
+
+/* جلوگیری از بهم‌ریختگی دکمه‌ها */
+.icon-btn,
+.square-btn,
+.th-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
 
 /*# sourceMappingURL=style.css.map */
