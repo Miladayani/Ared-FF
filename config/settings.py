@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rosetta',
+    'debug_toolbar',
 
     # apps
     'accounts',
@@ -62,7 +63,8 @@ INSTALLED_APPS = [
     'contacts',
     'cart',
     'orders',
-    'debug_toolbar',
+    'payment',
+
 
 ]
 

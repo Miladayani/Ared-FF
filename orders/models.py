@@ -18,7 +18,7 @@ class Order(models.Model):
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    phone_number = PhoneNumberField(null=False, blank=False, unique=True)
+    phone_number = PhoneNumberField(null=False, blank=False)
     order_note = models.CharField(max_length=500, blank=True)
 
     zarinpal_authority = models.CharField(max_length=100, blank=True)

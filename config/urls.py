@@ -30,7 +30,7 @@ urlpatterns = [
     path('contacts/', include('contacts.urls')),
     path('cart/', include('cart.urls')),
     path('order/', include('orders.urls')),
-    path('payment/', include('payment.urls')),
+    path('payment/', include('payment.urls', namespace='payment')),
     path('rosetta/', include('rosetta.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
