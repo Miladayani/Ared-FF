@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}
     Home Restaurant
@@ -17,7 +18,8 @@ Hero Area
                      data-slider-options='{"effect":"fade","autoHeight":true}'>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="hero-inner" data-bg-src="assets/img/hero/hero_bg_1_1.jpg">
+                            <div class="hero-inner"
+                                 data-bg-src="{% static 'img/hero/scrambled-eggs-meat-with-fried-potatoes-toast.jpg' %}">
                                 <div class="container">
                                     <div class="hero-style1">
                                         <span class="hero-subtitle" data-ani="slideinup" data-ani-delay="0.2s">Its Quick & Amusing!</span>
@@ -28,8 +30,8 @@ Hero Area
                                                   data-ani-delay="0.5s">Palate</span>
                                         </h1>
                                         <div class="btn-group" data-ani="slideinup" data-ani-delay="0.7s">
-                                            <a href="reservation.html" class="th-btn style3">Reservation</a>
-                                            <a href="shop.html" class="th-btn style-border border-four">View Food
+                                            <a href="#" class="th-btn style3">Reservation</a>
+                                            <a href="{% url 'shop' %}" class="th-btn style-border border-four">View Food
                                                 Menu</a>
                                         </div>
                                     </div>
@@ -89,38 +91,39 @@ Contact Info Area
 About Area  
 ==============================-->
             <div class="overflow-hidden space" id="about-sec">
-                <div class="shape-mockup jump" data-top="10%" data-right="0"><img src="assets/img/shape/flower_2.png"
-                                                                                  alt="shape" data-speed="1.1"></div>
+                <div class="shape-mockup jump" data-top="10%" data-right="0"><img
+                        src="{% static 'img/shape/flower_2.png' %}"
+                        alt="shape" data-speed="1.1"></div>
                 <div class="shape-mockup jump" data-bottom="10%" data-right="20%"><img
-                        src="assets/img/shape/garlic_1.png" alt="shape" data-speed="1.12"></div>
+                        src="{% static 'img/shape/garlic_1.png' %}" alt="shape" data-speed="1.12"></div>
                 <div class="container">
                     <div class="title-area text-center">
                         <div class="title-ani">
                             <span class="sub-title ms-auto me-auto">About Us Restaurant</span>
                         </div>
                         <h2 class="sec-title title-ani">Restar A Culinary Oasis for Those Who <br>
-                            <img class="d-none d-sm-inline-block" src="assets/img/normal/title_img_1.png" alt="icon">
+                            <img class="d-none d-sm-inline-block" src="{% static 'img/normal/p-i.png' %}" alt="icon">
                             Seek the Extraordinary <img class="d-none d-sm-inline-block"
-                                                        src="assets/img/normal/title_img_2.png" alt="icon">
+                                                        src="{% static 'img/normal/p-i2.png' %}" alt="icon">
                         </h2>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-xl-6 mb-40 mb-xl-0">
                             <div class="img-box1">
                                 <div class="shape1">
-                                    <img src="assets/img/shape/leaf-1.png" alt="shape">
+                                    <img src="{% static 'img/shape/leaf-1.png' %}" alt="shape">
                                 </div>
                                 <div class="shape2">
-                                    <img src="assets/img/shape/leaf-2.png" alt="shape">
+                                    <img src="{% static 'img/shape/leaf-2.png' %}" alt="shape">
                                 </div>
                                 <div class="shape3">
-                                    <img class="gspin" src="assets/img/shape/flower_8.png" alt="shape">
+                                    <img class="gspin" src="{% static 'img/shape/flower_8.png' %}" alt="shape">
                                 </div>
                                 <div class="img1">
-                                    <img src="assets/img/normal/about_1_1.jpg" alt="Image" data-speed="0.9">
+                                    <img src="{% static 'img/normal/puff (1).jpg' %}" alt="Image" data-speed="0.9">
                                 </div>
                                 <div class="img2">
-                                    <img src="assets/img/normal/about_1_2.jpg" alt="Image" data-speed="1.12">
+                                    <img src="{% static 'img/normal/puff2 (1).jpg' %}" alt="Image" data-speed="1.12">
                                 </div>
                             </div>
                         </div>
@@ -145,154 +148,12 @@ About Area
                                     </div>
                                 </div>
                                 <h4 class="box-title text-ani">JOSEFINE</h4>
-                                <img class="text-ani" src="assets/img/shape/sign.png" alt="sign">
+                                <img class="text-ani" src="{% static 'img/shape/sign.png' %}" alt="sign">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <!--==============================
-Category Area  
-==============================-->
-            <section class="space" data-bg-src="assets/img/bg/category_bg_1.jpg">
-                <div class="container">
-                    <div class="title-area text-center">
-                        <div class="title-ani">
-                            <span class="sub-title ms-auto me-auto">Food Category</span>
-                        </div>
-                        <h2 class="sec-title title-ani">Delicious Food Category</h2>
-                    </div>
-                    <div class="slider-area">
-                        <div class="swiper th-slider has-shadow" id="catSlider1"
-                             data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"4"}}}'>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_1.png" alt="Image">
-                                            <div class="box-price">$22</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Breakfast Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1.08">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_2.png" alt="Image">
-                                            <div class="box-price">$32</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Lunch Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_3.png" alt="Image">
-                                            <div class="box-price">$42</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Dinner Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1.08">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_4.png" alt="Image">
-                                            <div class="box-price">$22</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Desert Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_1.png" alt="Image">
-                                            <div class="box-price">$22</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Breakfast Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1.08">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_2.png" alt="Image">
-                                            <div class="box-price">$32</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Lunch Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_3.png" alt="Image">
-                                            <div class="box-price">$42</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Dinner Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="category-card" data-speed="1.08">
-                                        <div class="box-img">
-                                            <img src="assets/img/normal/category_card_4.png" alt="Image">
-                                            <div class="box-price">$22</div>
-                                        </div>
-                                        <div class="box-content">
-                                            <h3 class="box-title"><a href="shop.html">Desert Foods</a></h3>
-                                            <p class="box-text">From crispy and golden fries to mouthwatering burgers
-                                                and wraps, our menu offers</p>
-                                            <a href="shop.html" class="th-btn btn-sm style-border">View Menu</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
             <!--==============================
 Counter Area  
 ==============================-->
@@ -332,7 +193,7 @@ Schedule Area
 ==============================-->
             <div class="overflow-hidden space">
                 <div class="container">
-                    <div class="schedule-sec1" data-bg-src="assets/img/bg/square_pattern.png">
+                    <div class="schedule-sec1" data-bg-src="{% static 'img/bg/square_pattern.png' %}">
                         <div class="row align-items-center">
                             <div class="col-xl-7 mb-40 mb-xl-0">
                                 <div class="img-box3">
@@ -351,12 +212,13 @@ Schedule Area
                                         </span>
                                     </h3>
                                     <div class="img1">
-                                        <img src="assets/img/normal/schedule_1.jpg" alt="About" data-speed="auto">
+                                        <img src="{% static 'img/normal/high-angle-tasty-daiquiri-with-ice.jpg' %}"
+                                             alt="About" data-speed="auto">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-5">
-                                <div class="schedule-card" data-bg-src="assets/img/shape/flower_3.png"
+                                <div class="schedule-card" data-bg-src="{% static 'img/shape/flower_3.png' %}"
                                      data-speed="1.11">
                                     <div class="title-area text-center">
                                         <div class="title-ani">
@@ -364,7 +226,7 @@ Schedule Area
                                         </div>
                                         <h2 class="sec-title title-ani text-white">Our Opening Time</h2>
                                         <div class="mt-n1 title-ani">
-                                            <img src="assets/img/shape/line_1.svg" alt="shape">
+                                            <img src="{% static 'img/shape/line_1.svg' %}" alt="shape">
                                         </div>
                                     </div>
                                     <div class="schedule-list-wrap">
@@ -374,7 +236,7 @@ Schedule Area
                                             <h4 class="box-time">20:00</h4>
                                         </div>
                                         <div class="box-shape flipX">
-                                            <img src="assets/img/shape/dotted_1.svg" alt="shape">
+                                            <img src="{% static 'img/shape/dotted_1.svg' %}" alt="shape">
                                         </div>
                                         <div class="schedule-list flipX">
                                             <h3 class="box-title">Friday to Sunday</h3>
@@ -383,7 +245,7 @@ Schedule Area
                                         </div>
                                     </div>
                                     <div class="title-ani">
-                                        <a href="tel:+16365982547" class="th-btn style-border border-one">+163 6598
+                                        <a href="tel:+989917303269" class="th-btn style-border border-one">+163 6598
                                             2547</a>
                                     </div>
                                 </div>
@@ -406,122 +268,50 @@ Menu Area
                     <div class="row gy-40">
                         <div class="col-xl-2">
                             <div class="menu-img1">
-                                <img src="assets/img/normal/menu_1.jpg" alt="Image" data-speed="auto">
+                                <img src="{% static 'img/testimonial/meat-slices-bread-with-cucumber-tomato.jpg' %}"
+                                     alt="Image" data-speed="auto">
                             </div>
                         </div>
                         <div class="col-xl-8">
                             <div class="menu-list-area">
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_1.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                {% for sandwich in sandwiches %}
+                                    <div class="menu-list">
+                                        <div class="box-img">
+                                            <img src="{{ sandwich.image.url }}" alt="Food">
+                                            <div class="actions">
+                                                <form action="{% url 'cart:cart_add' sandwich.model_name|default:'Sandwich' sandwich.id %}"
+                                                      method="POST" class="icon-btn-form">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="icon-btn">
+                                                        <i class="far fa-cart-plus"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h3 class="box-title"><a
+                                                    href="{{ sandwich.get_absolute_url }}">{{ pizza.title }}</a></h3>
+                                            <div class="box-content">
+                                                <p class="box-text">{{ sandwich.short_description|truncatechars:60 }}</p>
+                                                <div class="box-line"></div>
+                                                <h4 class="box-price">{{ sandwich.price }}</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Grilled Salmon with Dil
-                                            Sauce</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$40</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_2.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Roast Beef with Vegetable</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$50</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_3.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Marrakesh Vegetarian Curry</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$30</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_4.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Spicy Vegan Potato Curry</a>
-                                        </h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$20</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_5.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">Apple Pie with Cream</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$45</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-list">
-                                    <div class="box-img">
-                                        <img src="assets/img/product/menu_thumb_6.png" alt="Food">
-                                        <div class="actions">
-                                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="box-title"><a href="shop-details.html">French Onion Soup</a></h3>
-                                        <div class="box-content">
-                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
-                                            <div class="box-line"></div>
-                                            <h4 class="box-price">$32</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
+
                             </div>
                         </div>
                         <div class="col-xl-2">
                             <div class="menu-img2">
-                                <img src="assets/img/normal/menu_2.jpg" alt="Image" data-speed="auto">
+                                <img src="{% static 'img/testimonial/philly-cheesesteak-sandwich.jpg' %}" alt="Image"
+                                     data-speed="auto">
                             </div>
                         </div>
                     </div>
                     <div class="mt-5 pt-xl-2 text-center">
                         <div class="text-ani">
-                            <a href="shop.html" class="th-btn style-border smoke-bg">View All Menu</a>
+                            <a href="{% url 'shop' %}" class="th-btn style-border smoke-bg">View All Menu</a>
                         </div>
                     </div>
                 </div>
@@ -529,7 +319,7 @@ Menu Area
             <!--==============================
 Contact Area   
 ==============================-->
-            <div class="bg-fixed space" data-bg-src="assets/img/bg/reservation_bg_1.jpg">
+            <div class="bg-fixed space" data-bg-src="{% static 'img/bg/grunge-style-blackboard-texture.jpg' %}">
                 <div class="container">
                     <div class="title-area text-center">
                         <div class="title-ani">
@@ -567,19 +357,20 @@ Testimonial Area
 ==============================-->
             <section class="overflow-hidden space" id="testi-sec">
                 <div class="shape-mockup jump-reverse" data-top="10%" data-right="0"><img data-speed="1.2"
-                                                                                          src="assets/img/shape/flower_4.png"
+                                                                                          src="{% static 'img/shape/flower_4.png' %}"
                                                                                           alt="shape"></div>
                 <div class="shape-mockup jump" data-bottom="5%" data-left="0"><img data-speed="1.1"
-                                                                                   src="assets/img/shape/garlic_2.png"
+                                                                                   src="{% static 'img/shape/garlic_2.png' %}"
                                                                                    alt="shape"></div>
                 <div class="container">
                     <div class="testi-card-area">
                         <div class="text-shape">
-                            <img class="gspin" src="assets/img/shape/text_1.svg" alt="shape">
+                            <img class="gspin" src="{% static 'img/shape/text_1.svg' %}" alt="shape">
                         </div>
                         <div class="testi-card-img flipX">
                             <div class="img1">
-                                <img src="assets/img/testimonial/testi_big_1.jpg" alt="Image">
+                                <img src="{% static 'img/testimonial/melting-cheddar-grilled-beef-burger-meal-generated-by-ai.jpg' %}"
+                                     alt="Image">
                             </div>
                             <div class="img-slider">
                                 <div class="swiper th-slider thumb-slider1 slider-tab" id="thumb-slider1"
@@ -587,32 +378,38 @@ Testimonial Area
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="tab-btn">
-                                                <img src="assets/img/testimonial/testi_1_1.jpg" alt="Image">
+                                                <img src="{% static 'img/testimonial/p-e-1-modified.png' %}"
+                                                     alt="Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tab-btn">
-                                                <img src="assets/img/testimonial/testi_1_2.jpg" alt="Image">
+                                                <img src="{% static 'img/testimonial/p-e-2-modified.png' %}"
+                                                     alt="Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tab-btn">
-                                                <img src="assets/img/testimonial/testi_1_3.jpg" alt="Image">
+                                                <img src="{% static 'img/testimonial/p-e-3-modified.png' %}"
+                                                     alt="Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tab-btn">
-                                                <img src="assets/img/testimonial/testi_1_4.jpg" alt="Image">
+                                                <img src="{% static 'img/testimonial/p-e-4-modified.png' %}"
+                                                     alt="Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tab-btn">
-                                                <img src="assets/img/testimonial/testi_1_5.jpg" alt="Image">
+                                                <img src="{% static 'img/testimonial/p-e-5-modified.png' %}"
+                                                     alt="Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tab-btn">
-                                                <img src="assets/img/testimonial/testi_1_6.jpg" alt="Image">
+                                                <img src="{% static 'img/testimonial/p-e-6-modified.png' %}"
+                                                     alt="Image">
                                             </div>
                                         </div>
                                     </div>
@@ -731,9 +528,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_1.jpg" alt="Team">
+                                            <img src="{% static 'img/team/1 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Avroko</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Avroko</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -742,9 +539,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_2.jpg" alt="Team">
+                                            <img src="{% static 'img/team/2 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Evan Mattew</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Evan Mattew</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -753,9 +550,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_3.jpg" alt="Team">
+                                            <img src="{% static 'img/team/3 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Diane Clarkson</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Diane Clarkson</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -764,9 +561,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_4.jpg" alt="Team">
+                                            <img src="{% static 'img/team/4 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Dan Rafalin</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Dan Rafalin</a></h3>
                                         <p class="box-desig">Assistant Chef</p>
                                     </div>
                                 </div>
@@ -775,9 +572,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_5.jpg" alt="Team">
+                                            <img src="{% static 'img/team/5 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Harry Callum</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Harry Callum</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -786,9 +583,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_6.jpg" alt="Team">
+                                            <img src="{% static 'img/team/6 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Jack Connor</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Jack Connor</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -797,9 +594,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_7.jpg" alt="Team">
+                                            <img src="{% static 'img/team/7 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Sophie Tracy</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Sophie Tracy</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -808,9 +605,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_8.jpg" alt="Team">
+                                            <img src="{% static 'img/team/8 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Ethan David</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Ethan David</a></h3>
                                         <p class="box-desig">Assistant Chef</p>
                                     </div>
                                 </div>
@@ -835,58 +632,53 @@ Gallery Area
                             <div class="swiper-slide">
                                 <div class="gallery-card">
                                     <div class="box-img">
-                                        <img src="assets/img/gallery/gallery_1_1.jpg" alt="gallery image">
-                                        <a href="assets/img/gallery/gallery_1_1.jpg" class="box-btn popup-image"><i
+                                        <img src="{% static 'img/gallery/galley_3_1 (1) (1) (1).jpg' %}" alt="gallery image">
+                                        <a href="{% static 'img/gallery/galley_3_1 (1) (1) (1).jpg' %}" class="box-btn popup-image"><i
                                                 class="fat fa-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="swiper-slide">
                                 <div class="gallery-card">
                                     <div class="box-img">
-                                        <img src="assets/img/gallery/gallery_1_2.jpg" alt="gallery image">
-                                        <a href="assets/img/gallery/gallery_1_2.jpg" class="box-btn popup-image"><i
+                                        <img src="{% static 'img/gallery/galley_3_1 (2) (1) (1).jpg' %}" alt="gallery image">
+                                        <a href="{% static 'img/gallery/galley_3_1 (2) (1) (1).jpg' %}" class="box-btn popup-image"><i
                                                 class="fat fa-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="swiper-slide">
                                 <div class="gallery-card">
                                     <div class="box-img">
-                                        <img src="assets/img/gallery/gallery_1_3.jpg" alt="gallery image">
-                                        <a href="assets/img/gallery/gallery_1_3.jpg" class="box-btn popup-image"><i
+                                        <img src="{% static 'img/gallery/galley_3_1 (3) (1) (1).jpg' %}" alt="gallery image">
+                                        <a href="{% static 'img/gallery/galley_3_1 (3) (1) (1).jpg' %}" class="box-btn popup-image"><i
                                                 class="fat fa-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="swiper-slide">
                                 <div class="gallery-card">
                                     <div class="box-img">
-                                        <img src="assets/img/gallery/gallery_1_4.jpg" alt="gallery image">
-                                        <a href="assets/img/gallery/gallery_1_4.jpg" class="box-btn popup-image"><i
+                                        <img src="{% static 'img/gallery/galley_3_1 (5) (1) (1).jpg' %}" alt="gallery image">
+                                        <a href="{% static 'img/gallery/galley_3_1 (5) (1) (1).jpg' %}" class="box-btn popup-image"><i
                                                 class="fat fa-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="swiper-slide">
                                 <div class="gallery-card">
                                     <div class="box-img">
-                                        <img src="assets/img/gallery/gallery_1_5.jpg" alt="gallery image">
-                                        <a href="assets/img/gallery/gallery_1_5.jpg" class="box-btn popup-image"><i
+                                        <img src="{% static 'img/gallery/galley_3_1 (5) (1) (1).jpg' %}" alt="gallery image">
+                                        <a href="{% static 'img/gallery/galley_3_1 (5) (1) (1).jpg' %}" class="box-btn popup-image"><i
                                                 class="fat fa-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="swiper-slide">
                                 <div class="gallery-card">
                                     <div class="box-img">
-                                        <img src="assets/img/gallery/gallery_1_6.jpg" alt="gallery image">
-                                        <a href="assets/img/gallery/gallery_1_6.jpg" class="box-btn popup-image"><i
+                                        <img src="{% static 'img/gallery/galley_3_1 (6) (1) (1).jpg' %}" alt="gallery image">
+                                        <a href="{% static 'img/gallery/galley_3_1 (6) (1) (1).jpg' %}" class="box-btn popup-image"><i
                                                 class="fat fa-plus"></i></a>
                                     </div>
                                 </div>
@@ -909,22 +701,9 @@ Blog Area
 ==============================-->
             <section class="space" id="blog-sec">
                 <div class="container">
-                    <div class="row justify-content-md-between justify-content-center align-items-end">
-                        <div class="col-md">
-                            <div class="title-area text-center text-md-start">
-                                <div class="title-ani">
-                                    <span class="sub-title me-auto ms-auto ms-md-0">Blog Post</span>
-                                </div>
-                                <h2 class="sec-title title-ani">Latest Event News & Blog</h2>
-                            </div>
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="sec-btn mt-n3 mt-md-0">
-                                <div class="text-ani">
-                                    <a href="blog.html" class="th-btn style-border">View All Post</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="title-area text-center">
+                        <span class="sub-title2">New & Blog</span>
+                        <h2 class="sec-title title-ani">Our Latest News & Blog</h2>
                     </div>
                     <div class="slider-area">
                         <div class="swiper th-slider has-shadow" id="blogSlider1"
@@ -933,16 +712,18 @@ Blog Area
                                 <div class="swiper-slide">
                                     <div class="blog-card">
                                         <div class="blog-img">
-                                            <img src="assets/img/blog/blog_1_1.jpg" alt="blog image">
+                                            <img src="{% static 'img/blog/c-s.jpg' %}" alt="blog image">
                                         </div>
                                         <div class="blog-content">
                                             <div class="blog-meta">
-                                                <a href="blog.html">April 15, 2024</a>
-                                                <a href="blog.html">RECHIPES</a>
+                                                <a href="{% url 'blog' %}">April 15, 2024</a>
+                                                <a href="{% url 'blog' %}">RECHIPES</a>
                                             </div>
-                                            <h3 class="box-title"><a href="blog-details.html">Classy Sauces To Make Meat
+                                            <h3 class="box-title"><a href="{% url 'blog_detail' %}">Classy Sauces To
+                                                Make Meat
                                                 Melt In Your Mouth</a></h3>
-                                            <a href="blog-details.html" class="th-btn btn-sm style-border">Read More</a>
+                                            <a href="{% url 'blog_detail' %}" class="th-btn btn-sm style-border">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -950,16 +731,18 @@ Blog Area
                                 <div class="swiper-slide">
                                     <div class="blog-card">
                                         <div class="blog-img">
-                                            <img src="assets/img/blog/blog_1_2.jpg" alt="blog image">
+                                            <img src="{% static 'img/blog/spa.jpg' %}" alt="blog image">
                                         </div>
                                         <div class="blog-content">
                                             <div class="blog-meta">
-                                                <a href="blog.html">April 16, 2024</a>
-                                                <a href="blog.html">RECHIPES</a>
+                                                <a href="{% url 'blog' %}">April 16, 2024</a>
+                                                <a href="{% url 'blog' %}">RECHIPES</a>
                                             </div>
-                                            <h3 class="box-title"><a href="blog-details.html">Stories Behind Our Most
+                                            <h3 class="box-title"><a href="{% url 'blog_detail' %}">Stories Behind Our
+                                                Most
                                                 Loved Recipes Foodies</a></h3>
-                                            <a href="blog-details.html" class="th-btn btn-sm style-border">Read More</a>
+                                            <a href="{% url 'blog_detail' %}" class="th-btn btn-sm style-border">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -967,16 +750,18 @@ Blog Area
                                 <div class="swiper-slide">
                                     <div class="blog-card">
                                         <div class="blog-img">
-                                            <img src="assets/img/blog/blog_1_3.jpg" alt="blog image">
+                                            <img src="{% static 'img/blog/r-s.jpg' %}" alt="blog image">
                                         </div>
                                         <div class="blog-content">
                                             <div class="blog-meta">
-                                                <a href="blog.html">April 17, 2024</a>
-                                                <a href="blog.html">RECHIPES</a>
+                                                <a href="{% url 'blog' %}">April 17, 2024</a>
+                                                <a href="{% url 'blog' %}">RECHIPES</a>
                                             </div>
-                                            <h3 class="box-title"><a href="blog-details.html">The Fresh Ingredients That
+                                            <h3 class="box-title"><a href="{% url 'blog_detail' %}">The Fresh
+                                                Ingredients That
                                                 Define Our Dishes</a></h3>
-                                            <a href="blog-details.html" class="th-btn btn-sm style-border">Read More</a>
+                                            <a href="{% url 'blog_detail' %}" class="th-btn btn-sm style-border">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -984,16 +769,18 @@ Blog Area
                                 <div class="swiper-slide">
                                     <div class="blog-card">
                                         <div class="blog-img">
-                                            <img src="assets/img/blog/blog_1_4.jpg" alt="blog image">
+                                            <img src="{% static 'img/blog/b-c.jpg' %}" alt="blog image">
                                         </div>
                                         <div class="blog-content">
                                             <div class="blog-meta">
-                                                <a href="blog.html">April 18, 2024</a>
-                                                <a href="blog.html">RECHIPES</a>
+                                                <a href="{% url 'blog' %}">April 18, 2024</a>
+                                                <a href="{% url 'blog' %}">RECHIPES</a>
                                             </div>
-                                            <h3 class="box-title"><a href="blog-details.html">Only Pure Ingredients Can
+                                            <h3 class="box-title"><a href="{% url 'blog_detail' %}">Only Pure
+                                                Ingredients Can
                                                 Increase Food Taste</a></h3>
-                                            <a href="blog-details.html" class="th-btn btn-sm style-border">Read More</a>
+                                            <a href="{% url 'blog_detail' %}" class="th-btn btn-sm style-border">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1001,16 +788,18 @@ Blog Area
                                 <div class="swiper-slide">
                                     <div class="blog-card">
                                         <div class="blog-img">
-                                            <img src="assets/img/blog/blog_1_5.jpg" alt="blog image">
+                                            <img src="{% static 'img/blog/r.jpg' %}" alt="blog image">
                                         </div>
                                         <div class="blog-content">
                                             <div class="blog-meta">
-                                                <a href="blog.html">April 19, 2024</a>
-                                                <a href="blog.html">RECHIPES</a>
+                                                <a href="{% url 'blog' %}">April 19, 2024</a>
+                                                <a href="{% url 'blog' %}">RECHIPES</a>
                                             </div>
-                                            <h3 class="box-title"><a href="blog-details.html">What Types of Massala Is
+                                            <h3 class="box-title"><a href="{% url 'blog_detail' %}">What Types of
+                                                Massala Is
                                                 The Best in Cooking</a></h3>
-                                            <a href="blog-details.html" class="th-btn btn-sm style-border">Read More</a>
+                                            <a href="{% url 'blog_detail' %}" class="th-btn btn-sm style-border">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1018,16 +807,18 @@ Blog Area
                                 <div class="swiper-slide">
                                     <div class="blog-card">
                                         <div class="blog-img">
-                                            <img src="assets/img/blog/blog_1_6.jpg" alt="blog image">
+                                            <img src="{% static 'img/blog/s.jpg' %}" alt="blog image">
                                         </div>
                                         <div class="blog-content">
                                             <div class="blog-meta">
-                                                <a href="blog.html">April 21, 2024</a>
-                                                <a href="blog.html">RECHIPES</a>
+                                                <a href="{% url 'blog' %}">April 17, 2024</a>
+                                                <a href="{% url 'blog' %}">RECHIPES</a>
                                             </div>
-                                            <h3 class="box-title"><a href="blog-details.html">Good Cook Always Use These
+                                            <h3 class="box-title"><a href="{% url 'blog_detail' %}">Good Cook Always Use
+                                                These
                                                 Types of Tricks</a></h3>
-                                            <a href="blog-details.html" class="th-btn btn-sm style-border">Read More</a>
+                                            <a href="{% url 'blog_detail' %}" class="th-btn btn-sm style-border">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1052,87 +843,67 @@ Brand Area
                         </div>
                         <h2 class="sec-title title-ani">10000+ Customer Trusted With Us</h2>
                         <div class="mt-n1 title-ani">
-                            <img src="assets/img/shape/line_1.svg" alt="shape">
+                            <img src="{% static 'img/shape/line_1.svg' %}" alt="shape">
                         </div>
                     </div>
                     <div class="swiper th-slider" id="brandSlider1"
                          data-slider-options='{"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"7"}}}'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             {% include 'footer.html' %}
 
             <!--********************************

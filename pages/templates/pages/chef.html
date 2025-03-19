@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}
     Chefs
@@ -15,7 +16,7 @@
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">Our Chef</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Our Chef</li>
                         </ul>
                     </div>
@@ -31,9 +32,9 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_1.jpg" alt="Team">
+                                    <img src="{% static 'img/team/1 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Avroko</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Avroko</a></h3>
                                 <p class="box-desig">Master Chef</p>
                             </div>
                         </div>
@@ -42,9 +43,9 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_2.jpg" alt="Team">
+                                    <img src="{% static 'img/team/2 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Evan Mattew</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Evan Mattew</a></h3>
                                 <p class="box-desig">Master Chef</p>
                             </div>
                         </div>
@@ -53,9 +54,9 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_3.jpg" alt="Team">
+                                    <img src="{% static 'img/team/3 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Diane Clarkson</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Diane Clarkson</a></h3>
                                 <p class="box-desig">Master Chef</p>
                             </div>
                         </div>
@@ -64,9 +65,9 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_4.jpg" alt="Team">
+                                    <img src="{% static 'img/team/4 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Dan Rafalin</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Dan Rafalin</a></h3>
                                 <p class="box-desig">Assistant Chef</p>
                             </div>
                         </div>
@@ -75,9 +76,9 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_5.jpg" alt="Team">
+                                    <img src="{% static 'img/team/5 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Harry Callum</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Harry Callum</a></h3>
                                 <p class="box-desig">Master Chef</p>
                             </div>
                         </div>
@@ -86,9 +87,9 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_6.jpg" alt="Team">
+                                    <img src="{% static 'img/team/6 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Jack Connor</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Jack Connor</a></h3>
                                 <p class="box-desig">Master Chef</p>
                             </div>
                         </div>
@@ -97,9 +98,9 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_7.jpg" alt="Team">
+                                    <img src="{% static 'img/team/7 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Sophie Tracy</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Sophie Tracy</a></h3>
                                 <p class="box-desig">Master Chef</p>
                             </div>
                         </div>
@@ -108,21 +109,13 @@ Team Area
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="th-team team-card">
                                 <div class="box-img">
-                                    <img src="assets/img/team/team_1_8.jpg" alt="Team">
+                                    <img src="{% static 'img/team/8 (1).jpg' %}" alt="Team">
                                 </div>
-                                <h3 class="box-title"><a href="team-details.html">Ethan David</a></h3>
+                                <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Ethan David</a></h3>
                                 <p class="box-desig">Assistant Chef</p>
                             </div>
                         </div>
 
-                    </div>
-                    <div class="th-pagination text-center pt-50">
-                        <ul>
-                            <li><a href="blog.html">1</a></li>
-                            <li><a href="blog.html">2</a></li>
-                            <li><a href="blog.html">3</a></li>
-                            <li><a href="blog.html"><i class="far fa-arrow-right"></i></a></li>
-                        </ul>
                     </div>
                 </div>
             </section>

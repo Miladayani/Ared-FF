@@ -17,7 +17,10 @@ def global_products(request):
 
     return {
         'page_obj': page_obj,  # صفحه‌بندی شده
-        'total_count': len(all_foods)  # تعداد کل محصولات
+        'total_count': len(all_foods),  # تعداد کل محصولات
+        'pizzas': pizzas,
+        'sandwiches': sandwiches,
+        'all_foods': all_foods,
     }
 
 

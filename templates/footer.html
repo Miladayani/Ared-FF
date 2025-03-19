@@ -1,6 +1,19 @@
 {% load static %}
 
-<footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer_bg_1.jpg">
+<footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer_bg_2.jpg">
+    <div class="container z-index-common">
+        <div class="newsletter-wrap">
+            <div class="newsletter-content">
+                <h2 class="sec-title title-ani2 text-white m-0">Subscribe for daily update</h2>
+            </div>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input class="form-control" type="email" placeholder="Email Address" required="">
+                </div>
+                <button type="submit" class="th-btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
     <div class="widget-area">
         <div class="container">
             <div class="row justify-content-between">
@@ -8,16 +21,18 @@
                     <div class="widget footer-widget">
                         <div class="th-widget-about">
                             <div class="about-logo">
-                                <a href="{% url 'home' %}"><img src="{% static 'img/logo-footer.svg' %}"
-                                                                         alt="Restar"></a>
+                                <a href="{% url 'home' %}"><img src="{% static 'img/logo-footer.svg' %}" alt="Restar"></a>
                             </div>
-                            <p class="about-text">We believe that great food shouldn't break the bank.
-                                That's why we offer affordable options without compromising on taste.</p>
-                            <div class="th-social">
-                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                            <p class="about-text">We believe that great food shouldn't break the bank. That's why we
+                                offer affordable options without compromising on taste.</p>
+                            <div class="info-box">
+                                <h4 class="box-title">Address Location</h4>
+                                <div class="box-content">
+                                    <div class="box-icon">
+                                        <i class="fas fa-location-dot"></i>
+                                    </div>
+                                    <p class="box-text">138 MacArthur Ave, USA</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,37 +70,20 @@
 
                 </div>
                 <div class="col-md-6 col-xl-auto">
-                    <div class="widget footer-widget">
-                        <h3 class="widget_title">Get In Touch</h3>
-                        <div class="th-widget-contact">
-                            <div class="info-box">
-                                <h4 class="box-title">Address Location</h4>
-                                <div class="box-content">
-                                    <div class="box-icon">
-                                        <i class="fas fa-location-dot"></i>
-                                    </div>
-                                    <p class="box-text">138 MacArthur Ave, USA</p>
-                                </div>
+                    <div class="widget widget_download footer-widget">
+                        <h4 class="widget_title">Install App</h4>
+                        <div class="th-download-widget">
+                            <p class="footer-text">From App Store or Google Play</p>
+                            <div class="btn-group">
+                                <a href="https://www.apple.com/app-store/" class="download-btn">
+                                    <img src="{% static 'img/icon/app_store_1.png' %}" alt="icon">
+                                </a>
+                                <a href="https://play.google.com/store/apps" class="download-btn">
+                                    <img src="{% static 'img/icon/app_store_2.png' %}" alt="icon">
+                                </a>
                             </div>
-                            <div class="info-box">
-                                <h4 class="box-title">Phone Number</h4>
-                                <div class="box-content">
-                                    <div class="box-icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <p class="box-text"><a href="tel:+16326543564">+(163)-2654-3564</a></p>
-                                </div>
-                            </div>
-                            <div class="info-box">
-                                <h4 class="box-title">Email address</h4>
-                                <div class="box-content">
-                                    <div class="box-icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <p class="box-text"><a href="mailto:info@restar.com">info@restar.com</a>
-                                    </p>
-                                </div>
-                            </div>
+                            <p class="mt-30 mb-3">24/7 Support Center</p>
+                            <h3 class="box-title"><a href="tel:+989917303269">+98 991-730-3269</a></h3>
                         </div>
                     </div>
                 </div>
@@ -97,7 +95,7 @@
             <div class="row gx-1 gy-2 align-items-center">
                 <div class="col-md-7">
                     <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2024 <a
-                            href="home-restaurant-shop.html">Restar</a>. All Rights Reserved.</p>
+                            href="{% url 'home' %}">Restar</a>. All Rights Reserved.</p>
                 </div>
                 <div class="col-md-5 text-center text-md-end">
                     <div class="footer-links">
