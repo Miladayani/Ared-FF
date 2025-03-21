@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}
     Service Detail
@@ -10,12 +11,12 @@
         <div id="smooth-content"><!--==============================
     Breadcumb
 ============================== -->
-            <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+            <div class="breadcumb-wrapper " data-bg-src="{% static 'img/bg/2148461707.jpg' %}">
                 <div class="container">
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">Service Details</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Service Details</li>
                         </ul>
                     </div>
@@ -30,7 +31,7 @@
                         <div class="col-xxl-8 col-lg-8">
                             <div class="page-single mb-30">
                                 <div class="page-img">
-                                    <img src="assets/img/service/service_details.jpg" alt="Service Image">
+                                    <img src="{% static 'img/service/side-view-pizza-with-slices-bell-pepper-pizza-slices-flour-board-cookware (1).jpg' %}" alt="Service Image">
                                 </div>
                                 <div class="page-content">
                                     <h2 class="sec-title title-ani page-title">100% Fresh Foods</h2>
@@ -42,7 +43,7 @@
 
                                     <div class="row mt-40 gx-40">
                                         <div class="col-md-6 mb-30">
-                                            <img class="w-100" src="assets/img/service/service_inner_1.jpg" alt="service">
+                                            <img class="w-100" src="{% static 'img/bg/frize.jpg' %}" alt="service">
                                         </div>
                                         <div class="col-md-6 mb-30 align-self-center">
                                             <p class="mb-4">We believe that great food shouldn't break the bank. That's why we offer affordable options without compromising on taste. Treat yourself without worrying about your wallet!</p>
@@ -144,7 +145,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="widget widget_banner  " data-bg-src="assets/img/bg/widget_banner.jpg">
+                                <div class="widget widget_banner  " data-bg-src="{% static 'img/bg/photo_2025-03-18_12-55-12.jpg' %}">
                                     <div class="widget-banner">
                                         <h3 class="box-title"><a href="tel:+16365896548">+163 6589 6548</a></h3>
                                         <p class="box-text">Monday – Friday: 7:00AM – 8:00PM <br> 24/7 Emergency Service</p>

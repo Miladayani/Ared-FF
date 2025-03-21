@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}
     About Us
@@ -10,12 +11,12 @@
         <div id="smooth-content"><!--==============================
     Breadcumb
 ============================== -->
-            <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+            <div class="breadcumb-wrapper " data-bg-src="{% static 'img/bg/2148461707.jpg' %}">
                 <div class="container">
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">About Us</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>About Us</li>
                         </ul>
                     </div>
@@ -27,20 +28,20 @@ Feature Area
             <section class="space-top">
                 <div class="container z-index-common">
                     <div class="title-area text-center">
-                        <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg" alt="Icon">Our Restaurant Services</span>
+                        <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}" alt="Icon">Our Restaurant Services</span>
                         <h2 class="sec-title title-ani">Our Commitment to Excellence</h2>
                     </div>
                     <div class="row gy-4">
                         <div class="col-xl-3 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_1.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_1.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Discount Voucher</a></h3>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Discount Voucher</a></h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the finest ingredients.</p>
                                     </div>
@@ -52,13 +53,13 @@ Feature Area
                         <div class="col-xl-3 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_2.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_2.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Original Recipes</a></h3>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Original Recipes</a></h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the finest ingredients.</p>
                                     </div>
@@ -70,13 +71,13 @@ Feature Area
                         <div class="col-xl-3 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_3.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_3.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">100% Fresh Foods</a></h3>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">100% Fresh Foods</a></h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the finest ingredients.</p>
                                     </div>
@@ -88,13 +89,13 @@ Feature Area
                         <div class="col-xl-3 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_4.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_4.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Serve On Table</a></h3>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Serve On Table</a></h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the finest ingredients.</p>
                                     </div>
@@ -110,32 +111,32 @@ Feature Area
 About Area  
 ==============================-->
             <div class="space" id="about-sec">
-                <div class="shape-mockup jump" data-top="10%" data-right="0"><img src="assets/img/shape/flower_6.png" alt="shape" data-speed="1.15"></div>
-                <div class="shape-mockup jump" data-bottom="10%" data-right="8%"><img src="assets/img/shape/garlic_1.png" alt="shape" data-speed="1.2"></div>
+                <div class="shape-mockup jump" data-top="10%" data-right="0"><img src="{% static 'img/shape/flower_6.png' %}" alt="shape" data-speed="1.15"></div>
+                <div class="shape-mockup jump" data-bottom="10%" data-right="8%"><img src="{% static 'img/shape/garlic_1.png' %}" alt="shape" data-speed="1.2"></div>
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-6 mb-40 mb-xl-0">
                             <div class="img-box8">
                                 <div class="shape1">
-                                    <img class="gspin" src="assets/img/shape/flower_8.png" alt="shape">
+                                    <img class="gspin" src="{% static 'img/shape/flower_8.png' %}" alt="shape">
                                 </div>
                                 <div class="img1">
-                                    <img src="assets/img/normal/about_5_1.jpg" alt="Why">
+                                    <img src="{% static 'img/normal/grilled-steak-rustic-wood-table-ready-eat-generated-by-ai (1).jpg' %}" alt="Why">
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="text-center ps-xxl-5">
                                 <div class="title-area mb-35">
-                                    <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg" alt="Icon">About Our Restaurant</span>
+                                    <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}" alt="Icon">About Our Restaurant</span>
                                     <h2 class="sec-title title-ani">A Gastronomic Haven for the Discerning Palate</h2>
                                     <div class="text-ani">
                                         <p class="sec-text">Indulge in a gourmet journey with menu that showcases a fusion of flavors. Our chefs use the finest ingredients to create dishes that are not just meals but unforgettable experiences.</p>
                                     </div>
                                 </div>
-                                <img class="mb-40" src="assets/img/shape/line_dotted_1.svg" alt="shape">
+                                <img class="mb-40" src="{% static 'img/shape/line_dotted_1.svg' %}" alt="shape">
                                 <h3 class="box-title">JOSEFINE</h3>
-                                <img src="assets/img/shape/sign.png" alt="shape">
+                                <img src="{% static 'img/shape/sign.png' %}" alt="shape">
                             </div>
                         </div>
                     </div>
@@ -147,7 +148,7 @@ Team Area
             <section class="bg-smoke space">
                 <div class="container z-index-common">
                     <div class="title-area text-center">
-                        <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg" alt="Icon">Our Expert Chef</span>
+                        <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}" alt="Icon">Our Expert Chef</span>
                         <h2 class="sec-title title-ani">Meet Our Professional Chefs</h2>
                     </div>
                     <div class="slider-area">
@@ -157,9 +158,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_1.jpg" alt="Team">
+                                            <img src="{% static 'img/team/1 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Avroko</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Avroko</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -168,9 +169,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_2.jpg" alt="Team">
+                                            <img src="{% static 'img/team/2 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Evan Mattew</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Evan Mattew</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -179,9 +180,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_3.jpg" alt="Team">
+                                            <img src="{% static 'img/team/3 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Diane Clarkson</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Diane Clarkson</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -190,9 +191,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_4.jpg" alt="Team">
+                                            <img src="{% static 'img/team/4 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Dan Rafalin</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Dan Rafalin</a></h3>
                                         <p class="box-desig">Assistant Chef</p>
                                     </div>
                                 </div>
@@ -201,9 +202,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_5.jpg" alt="Team">
+                                            <img src="{% static 'img/team/5 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Harry Callum</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Harry Callum</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -212,9 +213,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_6.jpg" alt="Team">
+                                            <img src="{% static 'img/team/6 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Jack Connor</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Jack Connor</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -223,9 +224,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_7.jpg" alt="Team">
+                                            <img src="{% static 'img/team/7 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Sophie Tracy</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Sophie Tracy</a></h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
@@ -234,9 +235,9 @@ Team Area
                                 <div class="swiper-slide">
                                     <div class="th-team team-card">
                                         <div class="box-img">
-                                            <img src="assets/img/team/team_1_8.jpg" alt="Team">
+                                            <img src="{% static 'img/team/8 (1).jpg' %}" alt="Team">
                                         </div>
-                                        <h3 class="box-title"><a href="team-details.html">Ethan David</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'chefs_detail' %}">Ethan David</a></h3>
                                         <p class="box-desig">Assistant Chef</p>
                                     </div>
                                 </div>
@@ -288,94 +289,122 @@ Testimonial Area
             <section class="overflow-hidden space" id="testi-sec">
                 <div class="container">
                     <div class="slider-area testi-grid-area">
-                        <div class="swiper th-slider thumb-slider2 slider-tab" id="thumb-slider2" data-slider-options='{"loop":true,"centeredSlides":true,"slideToClickedSlide":true,"watchSlidesVisibility":true,"watchSlidesProgress":true,"centeredSlidesBounds":true,"slidesPerView":3,"breakpoints":{"0":{"spaceBetween":30},"992":{"spaceBetween":80}}}'>
+                        <div class="swiper th-slider thumb-slider2 slider-tab" id="thumb-slider2"
+                             data-slider-options='{"loop":true,"centeredSlides":true,"slideToClickedSlide":true,"watchSlidesVisibility":true,"watchSlidesProgress":true,"centeredSlidesBounds":true,"slidesPerView":3,"breakpoints":{"0":{"spaceBetween":30},"992":{"spaceBetween":80}}}'>
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="tab-btn">
-                                        <img src="assets/img/testimonial/testi_3_1.jpg" alt="Image">
+                                        <img src="{% static 'img/testimonial/p-1-modified.png' %}" alt="Image">
                                         <span class="box-quote"></span>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="tab-btn">
-                                        <img src="assets/img/testimonial/testi_3_2.jpg" alt="Image">
+                                        <img src="{% static 'img/testimonial/p-2-modified.png' %}" alt="Image">
                                         <span class="box-quote"></span>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="tab-btn">
-                                        <img src="assets/img/testimonial/testi_3_3.jpg" alt="Image">
+                                        <img src="{% static 'img/testimonial/p-3-modified.png' %}" alt="Image">
                                         <span class="box-quote"></span>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="tab-btn">
-                                        <img src="assets/img/testimonial/testi_3_4.jpg" alt="Image">
+                                        <img src="{% static 'img/testimonial/p-4-modified.png' %}" alt="Image">
                                         <span class="box-quote"></span>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="tab-btn">
-                                        <img src="assets/img/testimonial/testi_3_5.jpg" alt="Image">
+                                        <img src="{% static 'img/testimonial/p-5-modified.png' %}" alt="Image">
                                         <span class="box-quote"></span>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="tab-btn">
-                                        <img src="assets/img/testimonial/testi_3_6.jpg" alt="Image">
+                                        <img src="{% static 'img/testimonial/p-6-modified.png' %}" alt="Image">
                                         <span class="box-quote"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper th-slider testi-grid-slider tab-view" id="testiSlider3" data-slider-options='{"thumbs":{"swiper":".thumb-slider2"}}'>
+                        <div class="swiper th-slider testi-grid-slider tab-view" id="testiSlider3"
+                             data-slider-options='{"thumbs":{"swiper":".thumb-slider2"}}'>
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="testi-grid">
-                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order. Enjoy your quick meal in a casual and friendly setting. our welcoming atmosphere makes every visit enjoyable.</p>
+                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and
+                                            wraps, our menu offers a variety of fast-food favorites. Each item is
+                                            crafted with quality ingredients to ensure a tasty experience with every
+                                            order. Enjoy your quick meal in a casual and friendly setting. our welcoming
+                                            atmosphere makes every visit enjoyable.</p>
                                         <h3 class="box-title">Alex Fernandes</h3>
                                         <p class="box-desig">Master Chef</p>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="testi-grid">
-                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order. Enjoy your quick meal in a casual and friendly setting. our welcoming atmosphere makes every visit enjoyable.</p>
+                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and
+                                            wraps, our menu offers a variety of fast-food favorites. Each item is
+                                            crafted with quality ingredients to ensure a tasty experience with every
+                                            order. Enjoy your quick meal in a casual and friendly setting. our welcoming
+                                            atmosphere makes every visit enjoyable.</p>
                                         <h3 class="box-title">Jasemin Jui</h3>
                                         <p class="box-desig">Customer</p>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="testi-grid">
-                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order. Enjoy your quick meal in a casual and friendly setting. our welcoming atmosphere makes every visit enjoyable.</p>
+                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and
+                                            wraps, our menu offers a variety of fast-food favorites. Each item is
+                                            crafted with quality ingredients to ensure a tasty experience with every
+                                            order. Enjoy your quick meal in a casual and friendly setting. our welcoming
+                                            atmosphere makes every visit enjoyable.</p>
                                         <h3 class="box-title">Martin Danial</h3>
                                         <p class="box-desig">Director</p>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="testi-grid">
-                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order. Enjoy your quick meal in a casual and friendly setting. our welcoming atmosphere makes every visit enjoyable.</p>
+                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and
+                                            wraps, our menu offers a variety of fast-food favorites. Each item is
+                                            crafted with quality ingredients to ensure a tasty experience with every
+                                            order. Enjoy your quick meal in a casual and friendly setting. our welcoming
+                                            atmosphere makes every visit enjoyable.</p>
                                         <h3 class="box-title">Fernandes John</h3>
                                         <p class="box-desig">Food Specialist</p>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="testi-grid">
-                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order. Enjoy your quick meal in a casual and friendly setting. our welcoming atmosphere makes every visit enjoyable.</p>
+                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and
+                                            wraps, our menu offers a variety of fast-food favorites. Each item is
+                                            crafted with quality ingredients to ensure a tasty experience with every
+                                            order. Enjoy your quick meal in a casual and friendly setting. our welcoming
+                                            atmosphere makes every visit enjoyable.</p>
                                         <h3 class="box-title">Termain Justin</h3>
                                         <p class="box-desig">Director</p>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="testi-grid">
-                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order. Enjoy your quick meal in a casual and friendly setting. our welcoming atmosphere makes every visit enjoyable.</p>
+                                        <p class="box-text">From crispy and golden fries to mouthwatering burgers and
+                                            wraps, our menu offers a variety of fast-food favorites. Each item is
+                                            crafted with quality ingredients to ensure a tasty experience with every
+                                            order. Enjoy your quick meal in a casual and friendly setting. our welcoming
+                                            atmosphere makes every visit enjoyable.</p>
                                         <h3 class="box-title">Rohan Ramdan</h3>
                                         <p class="box-desig">Food Specialist</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button data-slider-prev="#testiSlider3, #thumb-slider2" class="slider-arrow slider-prev"><span class="icon"></span></button>
-                        <button data-slider-next="#testiSlider3, #thumb-slider2" class="slider-arrow slider-next"><span class="icon"></span></button>
+                        <button data-slider-prev="#testiSlider3, #thumb-slider2" class="slider-arrow slider-prev"><span
+                                class="icon"></span></button>
+                        <button data-slider-next="#testiSlider3, #thumb-slider2" class="slider-arrow slider-next"><span
+                                class="icon"></span></button>
                     </div>
                 </div>
             </section>
@@ -385,22 +414,22 @@ History Area
             <div class="">
                 <div class="container">
                     <div class="th-video video-box1 flipY" data-pos-for="#story-sec" data-sec-pos="bottom-half">
-                        <img src="assets/img/normal/video_1.jpg" alt="video">
+                        <img src="{% static 'img/normal/2148016775 (1).jpg' %}" alt="video">
                         <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn style2 popup-video"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="space" id="story-sec" data-bg-src="assets/img/bg/square_pattern4.jpg">
+            <div class="space" id="story-sec" data-bg-src="{% static 'img/bg/square_pattern4.jpg' %}">
                 <div class="container">
                     <div class="title-area text-center">
-                        <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg" alt="Icon">About Story</span>
+                        <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}" alt="Icon">About Story</span>
                         <h2 class="sec-title title-ani text-white">About Our Journey Story</h2>
                     </div>
                     <div class="row story-box-row">
                         <div class="col-lg-3 col-sm-6">
                             <div class="story-box ">
-                                <div class="box-img" data-mask-src="assets/img/bg/story_bg_mask.png">
-                                    <img src="assets/img/normal/story_1_1.jpg" alt="image">
+                                <div class="box-img" data-mask-src="{% static 'img/bg/story_bg_mask.png' %}">
+                                    <img src="{% static 'img/blog/r-s.jpg' %}" alt="image">
                                 </div>
                                 <div class="box-content text-ani">
                                     <h3 class="box-title">January 2020</h3>
@@ -411,8 +440,8 @@ History Area
 
                         <div class="col-lg-3 col-sm-6">
                             <div class="story-box even">
-                                <div class="box-img" data-mask-src="assets/img/bg/story_bg_mask.png">
-                                    <img src="assets/img/normal/story_1_2.jpg" alt="image">
+                                <div class="box-img" data-mask-src="{% static 'img/bg/story_bg_mask.png' %}">
+                                    <img src="{% static 'img/hero/scrambled-eggs-meat-with-fried-potatoes-toast.jpg' %}" alt="image">
                                 </div>
                                 <div class="box-content text-ani">
                                     <h3 class="box-title">February 2021</h3>
@@ -423,8 +452,8 @@ History Area
 
                         <div class="col-lg-3 col-sm-6">
                             <div class="story-box ">
-                                <div class="box-img" data-mask-src="assets/img/bg/story_bg_mask.png">
-                                    <img src="assets/img/normal/story_1_3.jpg" alt="image">
+                                <div class="box-img" data-mask-src="{% static 'img/bg/story_bg_mask.png' %}">
+                                    <img src="{% static 'img/hero/b-s.jpg' %}" alt="image">
                                 </div>
                                 <div class="box-content text-ani">
                                     <h3 class="box-title">March 2022</h3>
@@ -435,8 +464,8 @@ History Area
 
                         <div class="col-lg-3 col-sm-6">
                             <div class="story-box even">
-                                <div class="box-img" data-mask-src="assets/img/bg/story_bg_mask.png">
-                                    <img src="assets/img/normal/story_1_4.jpg" alt="image">
+                                <div class="box-img" data-mask-src="{% static 'img/bg/story_bg_mask.png' %}">
+                                    <img src="{% static 'img/blog/spa.jpg' %}" alt="image">
                                 </div>
                                 <div class="box-content text-ani">
                                     <h3 class="box-title">April 2023</h3>
@@ -457,17 +486,14 @@ Delivery Area
                     <div class="row align-items-center flex-row-reverse">
                         <div class="col-xl-7 mb-25 mb-xl-0">
                             <div class="img-box7">
-                                <div class="shape1">
-                                    <img class="flipX" src="assets/img/normal/delivery_2.png" alt="shape">
-                                </div>
                                 <div class="img1 flipY">
-                                    <img src="assets/img/normal/delivery_1.png" alt="Why">
+                                    <img src="{% static 'img/normal/delivery_1.png' %}" alt="Why">
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-5 text-center text-xl-start">
                             <div class="title-area mb-35">
-                                <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg" alt="Icon">Food Delivery</span>
+                                <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}" alt="Icon">Food Delivery</span>
                                 <h2 class="sec-title">Where Good Food Meets Fast Delivery</h2>
                                 <div class="text-ani">
                                     <p class="sec-text">Indulge in a gourmet journey with a menu that showcases a fusion of flavors. Our chefs use the finest ingredients to create dishes that are not just meals but unforgettable experiences.</p>
@@ -501,78 +527,59 @@ Delivery Area
             <!--==============================
 Brand Area  
 ==============================-->
-            <div class="space-bottom">
-                <div class="container brand-container">
-                    <div class="swiper th-slider" id="brandSlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"7"}}}'>
+            <div class="space">
+                <div class="container">
+                    <div class="swiper th-slider" id="brandSlider1"
+                         data-slider-options='{"spaceBetween":45,"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"5"}}}'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                         </div>

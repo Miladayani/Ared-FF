@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}
     Service
@@ -10,12 +11,12 @@
         <div id="smooth-content"><!--==============================
     Breadcumb
 ============================== -->
-            <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+            <div class="breadcumb-wrapper " data-bg-src="{% static 'img/bg/2148461707.jpg' %}">
                 <div class="container">
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">Our Services</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Our Services</li>
                         </ul>
                     </div>
@@ -29,7 +30,7 @@ Feature Area
                     <div class="row justify-content-center">
                         <div class="col-xxl-7 col-xl-8 col-lg-7 col-md-9">
                             <div class="title-area text-center">
-                                <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg" alt="Icon">Our Restaurant Services</span>
+                                <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}" alt="Icon">Our Restaurant Services</span>
                                 <h2 class="sec-title title-ani">Restar Dedication to Exceptional Our Service</h2>
                             </div>
                         </div>
@@ -38,13 +39,13 @@ Feature Area
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_1.svg" alt="icon">
+                                    <img src="{% static '/img/icon/feature_box_1.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Discount Voucher</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Discount Voucher</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -58,13 +59,13 @@ Feature Area
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_2.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_2.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Original Recipes</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Original Recipes</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -78,13 +79,13 @@ Feature Area
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_3.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_3.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">100% Fresh Foods</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">100% Fresh Foods</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -98,13 +99,88 @@ Feature Area
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_4.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_4.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Serve On Table</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Serve On Table</a>
+                                    </h3>
+                                    <div class="text-ani">
+                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
+                                            finest ingredients.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="feature-box">
+                                <div class="box-shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
+                                </div>
+                                <div class="box-icon">
+                                    <img src="{% static 'img/icon/feature_box_5.svg' %}" alt="icon">
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Dine-In Service</a>
+                                    </h3>
+                                    <div class="text-ani">
+                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
+                                            finest ingredients.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="feature-box">
+                                <div class="box-shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
+                                </div>
+                                <div class="box-icon">
+                                    <img src="{% static 'img/icon/feature_box_6.svg' %}" alt="icon">
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Takeout & Delivery</a>
+                                    </h3>
+                                    <div class="text-ani">
+                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
+                                            finest ingredients.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="feature-box">
+                                <div class="box-shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
+                                </div>
+                                <div class="box-icon">
+                                    <img src="{% static 'img/icon/feature_box_7.svg' %}" alt="icon">
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Catering</a></h3>
+                                    <div class="text-ani">
+                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
+                                            finest ingredients.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="feature-box">
+                                <div class="box-shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
+                                </div>
+                                <div class="box-icon">
+                                    <img src="{% static 'img/icon/feature_box_8.svg' %}" alt="icon">
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Private Dining</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -118,13 +194,13 @@ Feature Area
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_5.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_9.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Dine-In Service</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Online Ordering</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -138,13 +214,13 @@ Feature Area
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_6.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_10.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Takeout & Delivery</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Special Events</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -158,32 +234,13 @@ Feature Area
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_7.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_11.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Catering</a></h3>
-                                    <div class="text-ani">
-                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
-                                            finest ingredients.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="feature-box">
-                                <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
-                                </div>
-                                <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_8.svg" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Private Dining</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Food Testing Event</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -193,77 +250,16 @@ Feature Area
                             </div>
                         </div>
 
-
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="feature-box">
                                 <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
+                                    <img src="{% static 'img/shape/flower_7.png' %}" alt="shape">
                                 </div>
                                 <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_9.svg" alt="icon">
+                                    <img src="{% static 'img/icon/feature_box_12.svg' %}" alt="icon">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Online Ordering</a>
-                                    </h3>
-                                    <div class="text-ani">
-                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
-                                            finest ingredients.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="feature-box">
-                                <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
-                                </div>
-                                <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_10.svg" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Special Events</a>
-                                    </h3>
-                                    <div class="text-ani">
-                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
-                                            finest ingredients.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="feature-box">
-                                <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
-                                </div>
-                                <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_11.svg" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Food Testing Event</a>
-                                    </h3>
-                                    <div class="text-ani">
-                                        <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
-                                            finest ingredients.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="feature-box">
-                                <div class="box-shape">
-                                    <img src="assets/img/shape/flower_7.png" alt="shape">
-                                </div>
-                                <div class="box-icon">
-                                    <img src="assets/img/icon/feature_box_12.svg" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="box-title text-ani"><a href="service-details.html">Food Donations</a>
+                                    <h3 class="box-title text-ani"><a href="{% url 'service_detail' %}">Food Donations</a>
                                     </h3>
                                     <div class="text-ani">
                                         <p class="box-text">Indulge in a gourmet journey with a menu Our chefs use the
@@ -280,7 +276,7 @@ Feature Area
             <!--==============================
 Cta Area  
 ==============================-->
-            <section class="space" data-bg-src="assets/img/bg/cta_bg_1.jpg">
+            <section class="space" data-bg-src="{% static 'img/bg/grunge-style-blackboard-texture.jpg' %}">
                 <div class="container z-index-common">
                     <div class="row justify-content-end">
                         <div class="col-xxl-6 col-xl-7 col-lg-6 col-md-8 text-center">
@@ -290,8 +286,9 @@ Cta Area
                             </div>
                             <div class="text-ani">
                                 <div class="btn-group justify-content-center">
-                                    <a href="shop.html" class="th-btn style3">Get A Offer</a>
-                                    <a href="contact.html" class="th-btn style-border border-three">Book A Table</a>
+                                    <a href="{% url 'shop' %}" class="th-btn style3">Get A Offer</a>
+                                    <a href="{% url 'contact' %}" class="th-btn style-border border-three">Book A
+                                        Table</a>
                                 </div>
                             </div>
                         </div>
@@ -306,22 +303,17 @@ Delivery Area
                     <div class="row align-items-center flex-row-reverse">
                         <div class="col-xl-7 mb-25 mb-xl-0">
                             <div class="img-box7">
-                                <div class="shape1">
-                                    <img class="flipX" src="assets/img/normal/delivery_2.png" alt="shape">
-                                </div>
                                 <div class="img1 flipY">
-                                    <img src="assets/img/normal/delivery_1.png" alt="Why">
+                                    <img src="{% static 'img/normal/delivery_1.png' %}" alt="Why">
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-5 text-center text-xl-start">
                             <div class="title-area mb-35">
-                                <span class="sub-title3"><img src="assets/img/theme-img/title_icon2.svg" alt="Icon">Food Delivery</span>
+                                <span class="sub-title3"><img src="{% static 'img/theme-img/title_icon2.svg' %}" alt="Icon">Food Delivery</span>
                                 <h2 class="sec-title">Where Good Food Meets Fast Delivery</h2>
                                 <div class="text-ani">
-                                    <p class="sec-text">Indulge in a gourmet journey with a menu that showcases a fusion
-                                        of flavors. Our chefs use the finest ingredients to create dishes that are not
-                                        just meals but unforgettable experiences.</p>
+                                    <p class="sec-text">Indulge in a gourmet journey with a menu that showcases a fusion of flavors. Our chefs use the finest ingredients to create dishes that are not just meals but unforgettable experiences.</p>
                                 </div>
                             </div>
                             <div class="check-feature-wrap">
@@ -352,79 +344,59 @@ Delivery Area
             <!--==============================
 Brand Area  
 ==============================-->
-            <div class="space-bottom">
-                <div class="container brand-container">
+            <div class="space">
+                <div class="container">
                     <div class="swiper th-slider" id="brandSlider1"
-                         data-slider-options='{"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"7"}}}'>
+                         data-slider-options='{"spaceBetween":45,"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"5"}}}'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_1.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_2.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_3.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_4.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_3.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_4.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_5.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_6.svg" alt="Brand Logo">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <img src="assets/img/brand/brand_1_7.svg" alt="Brand Logo">
+                                <div class="brand-box style2">
+                                    <img src="{% static 'img/brand/brand_2_5.svg' %}" alt="Brand Logo">
                                 </div>
                             </div>
                         </div>

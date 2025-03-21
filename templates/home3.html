@@ -274,12 +274,12 @@ Menu Area
                         </div>
                         <div class="col-xl-8">
                             <div class="menu-list-area">
-                                {% for sandwich in sandwiches %}
+                                {% for pizza in pizzas|slice:"6" %}
                                     <div class="menu-list">
                                         <div class="box-img">
-                                            <img src="{{ sandwich.image.url }}" alt="Food">
+                                            <img src="{{ pizza.image.url }}" alt="Food">
                                             <div class="actions">
-                                                <form action="{% url 'cart:cart_add' sandwich.model_name|default:'Sandwich' sandwich.id %}"
+                                                <form action="{% url 'cart:cart_add' pizza.model_name|default:'Pizza' pizza.id %}"
                                                       method="POST" class="icon-btn-form">
                                                     {% csrf_token %}
                                                     <button type="submit" class="icon-btn">
@@ -290,11 +290,11 @@ Menu Area
                                         </div>
                                         <div class="media-body">
                                             <h3 class="box-title"><a
-                                                    href="{{ sandwich.get_absolute_url }}">{{ pizza.title }}</a></h3>
+                                                    href="{{ pizza.get_absolute_url }}">{{ pizza.title }}</a></h3>
                                             <div class="box-content">
-                                                <p class="box-text">{{ sandwich.short_description|truncatechars:60 }}</p>
+                                                <p class="box-text">{{ pizza.short_description|truncatechars:60 }}</p>
                                                 <div class="box-line"></div>
-                                                <h4 class="box-price">{{ sandwich.price }}</h4>
+                                                <h4 class="box-price">{{ pizza.price }}</h4>
                                             </div>
                                         </div>
                                     </div>

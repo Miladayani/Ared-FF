@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}
     Chefs Detail
@@ -10,12 +11,12 @@
         <div id="smooth-content"><!--==============================
     Breadcumb
 ============================== -->
-            <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+            <div class="breadcumb-wrapper " data-bg-src="{% static 'img/bg/2148461707.jpg' %}">
                 <div class="container">
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">Chef Details</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="home-restaurant-shop.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Chef Details</li>
                         </ul>
                     </div>
@@ -28,7 +29,7 @@ Team Area
                     <div class="row gy-40">
                         <div class="col-xl-6">
                             <div class="about-card-img">
-                                <img src="assets/img/team/team_details.jpg" alt="team image">
+                                <img src="{% static 'img/team/high-angle-chef-with-plate.jpg' %}" alt="team image">
                             </div>
                         </div>
                         <div class="col-xl-6 align-self-center">
@@ -67,22 +68,22 @@ Team Area
                             <h3 class="mb-4 mt-n2 title-ani2">Signature Dishes</h3>
                             <div class="row gy-30">
                                 <div class="col-sm-4 col-6">
-                                    <img src="assets/img/gallery/team_gallery_1.jpg" alt="image" class="w-100">
+                                    <img src="{% static 'img/gallery/t.g (1) (1).jpg' %}" alt="image" class="w-100">
                                 </div>
                                 <div class="col-sm-4 col-6">
-                                    <img src="assets/img/gallery/team_gallery_2.jpg" alt="image" class="w-100">
+                                    <img src="{% static 'img/gallery/t.g (2) (1).jpg' %}" alt="image" class="w-100">
                                 </div>
                                 <div class="col-sm-4 col-6">
-                                    <img src="assets/img/gallery/team_gallery_3.jpg" alt="image" class="w-100">
+                                    <img src="{% static 'img/gallery/t.g (3) (1).jpg' %}" alt="image" class="w-100">
                                 </div>
                                 <div class="col-sm-4 col-6">
-                                    <img src="assets/img/gallery/team_gallery_4.jpg" alt="image" class="w-100">
+                                    <img src="{% static 'img/gallery/t.g (4) (1).jpg' %}" alt="image" class="w-100">
                                 </div>
                                 <div class="col-sm-4 col-6">
-                                    <img src="assets/img/gallery/team_gallery_5.jpg" alt="image" class="w-100">
+                                    <img src="{% static 'img/gallery/t.g (5) (1).jpg' %}" alt="image" class="w-100">
                                 </div>
                                 <div class="col-sm-4 col-6">
-                                    <img src="assets/img/gallery/team_gallery_6.jpg" alt="image" class="w-100">
+                                    <img src="{% static 'img/gallery/t.g (6) (1).jpg' %}" alt="image" class="w-100">
                                 </div>
                             </div>
                         </div>
