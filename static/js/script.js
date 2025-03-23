@@ -393,3 +393,67 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const replyForm = document.getElementById('reply-form');
+    const commentForm = document.getElementById('comment-form');
+    const cancelReplyBtn = document.getElementById('cancel-reply');
+    const replyParentId = document.getElementById('reply_parent_id');
+
+    // فرم ریپلای در ابتدا مخفی باشد
+    replyForm.style.display = 'none';
+
+    document.querySelectorAll('.reply-btn').forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            const parentId = this.getAttribute('data-comment-id');
+
+            // تنظیم parent_id در فرم ریپلای
+            replyParentId.value = parentId;
+
+            // نمایش فرم ریپلای و مخفی کردن فرم اصلی
+            commentForm.style.display = 'none';
+            replyForm.style.display = 'block';
+
+            // اسکرول به فرم ریپلای
+            replyForm.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // دکمه کنسل برای بستن فرم ریپلای و بازگرداندن فرم اصلی
+    cancelReplyBtn.addEventListener('click', function () {
+        replyForm.style.display = 'none';
+        commentForm.style.display = 'block';
+        replyParentId.value = '';
+        commentForm.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // بعد از ارسال ریپلای، فرم را مخفی کن
+    replyForm.addEventListener('submit', function () {
+        setTimeout(function () {
+            replyForm.style.display = 'none';
+            commentForm.style.display = 'block';
+            replyParentId.value = '';
+        }, 500);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.toggle-replies-btn').forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            let commentId = this.getAttribute('data-comment-id');
+            let replyList = document.getElementById('replies-' + commentId);
+
+            if (replyList.style.display === 'none' || replyList.style.display === '') {
+                replyList.style.display = 'block';
+                this.textContent = "close replies";
+            } else {
+                replyList.style.display = 'none';
+                let replyCount = replyList.querySelectorAll('.th-comment-item').length;
+                this.innerHTML = `show replies (<span class="reply-count">${replyCount}</span>)`;
+            }
+        });
+    });
+});
+

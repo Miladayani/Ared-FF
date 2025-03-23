@@ -11,6 +11,6 @@ urlpatterns = [
     path('filter-foods/', filter_foods, name='filter_foods'),
     path('search/', search, name='search'),
     path('product/<str:model_name>/<int:product_id>/', get_product_details, name='get_product_details'),
-    path('pizzas/<int:pizza_id>/comment/', CommentCreateView.as_view(), name='pizza_comment_create'),
-    path('sandwiches/<int:sandwich_id>/comment/', CommentCreateView.as_view(), name='sandwich_comment_create'),
+    path('pizza/<int:pizza_id>/comment/', CommentCreateView.as_view(), name='pizza_comment_create'),
+    path('sandwich/<int:sandwich_id>/comment/', CommentCreateView.as_view(), name='sandwich_comment_create'),
 ]

@@ -2,8 +2,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import reverse
-from itertools import chain
-from django.core.paginator import Paginator
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from .forms import CommentForm
 from .models import Pizza, Sandwich, Comment
@@ -80,6 +80,7 @@ class Shop(ListView):
         return super().get(request, *args, **kwargs)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CommentCreateView(CreateView):
     model = Comment
     form_class = CommentForm
@@ -87,20 +88,44 @@ class CommentCreateView(CreateView):
     def form_valid(self, form):
         obj = form.save(commit=False)
         obj.author = self.request.user
+        parent_id = self.request.POST.get('parent_id')
 
-        if 'pizza_id' in self.kwargs:
-            obj.pizza = get_object_or_404(Pizza, id=self.kwargs['pizza_id'])
-        elif 'sandwich_id' in self.kwargs:
-            obj.sandwich = get_object_or_404(Sandwich, id=self.kwargs['sandwich_id'])
+        if parent_id and parent_id.strip():
+            try:
+                parent = Comment.objects.get(id=parent_id)
+                obj.parent = parent
+
+                # اطمینان از اینکه محصول از parent گرفته شود (برای تمام سطوح ریپلای)
+                obj.pizza = parent.pizza if parent.pizza else None
+                obj.sandwich = parent.sandwich if parent.sandwich else None
+
+                print(f"Parent comment found: {obj.parent.id}")
+            except Comment.DoesNotExist:
+                print("ERROR: Parent comment not found!")
+                obj.parent = None
+        else:
+            if 'pizza_id' in self.kwargs:
+                obj.pizza = get_object_or_404(Pizza, id=self.kwargs['pizza_id'])
+            elif 'sandwich_id' in self.kwargs:
+                obj.sandwich = get_object_or_404(Sandwich, id=self.kwargs['sandwich_id'])
 
         obj.save()
-        return redirect(self.get_success_url())  # بعد از ثبت، صفحه رفرش می‌شود
+        return redirect(self.get_success_url())
+
+    # def post(self, request, *args, **kwargs):
+    #     print("✅ درخواست POST به ویو رسید!")
+    #
+    #     form = self.get_form()
+    #     if form.is_valid():
+    #         print("✅ فرم معتبر است!")
+    #         return self.form_valid(form)
+    #     else:
+    #         print("❌ فرم معتبر نیست! خطاها:", form.errors)
+    #
+    #     return self.form_invalid(form)
 
     def get_success_url(self):
-        if 'pizza_id' in self.kwargs:
-            return self.request.path
-        elif 'sandwich_id' in self.kwargs:
-            return self.request.path
+        return self.request.path
 
     def get_template_names(self):
         """بر اساس نوع محصول، قالب مناسب را انتخاب می‌کند"""
@@ -115,13 +140,17 @@ class CommentCreateView(CreateView):
 
         if 'pizza_id' in self.kwargs:
             pizza = get_object_or_404(Pizza, id=self.kwargs['pizza_id'])
-            context['pizza'] = pizza  # اضافه کردن pizza به context
-            context['comments'] = pizza.comments.filter(active=True)
+            context['pizza'] = pizza
+            # فقط کامنت‌های اصلی را نمایش می‌دهیم (بدون ریپلای‌ها)
+            context['comments'] = pizza.comments.filter(active=True, parent=None)
 
         elif 'sandwich_id' in self.kwargs:
             sandwich = get_object_or_404(Sandwich, id=self.kwargs['sandwich_id'])
             context['sandwich'] = sandwich
-            context['comments'] = sandwich.comments.filter(active=True)
+            # فقط کامنت‌های اصلی را نمایش می‌دهیم (بدون ریپلای‌ها)
+            context['comments'] = sandwich.comments.filter(active=True, parent=None)
+
+        print(f"Comments loaded: {context['comments'].count()}")
         return context
 
 

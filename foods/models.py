@@ -50,7 +50,8 @@ class Sandwich(models.Model):
 class Comment(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, related_name='comments', null=True, blank=True)
     sandwich = models.ForeignKey(Sandwich, on_delete=models.CASCADE, related_name='comments', null=True, blank=True)
-    rating = models.PositiveIntegerField(default=5, choices=[(i, i) for i in range(1, 6)])  # امتیاز از 1 تا 5
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
+    rating = models.PositiveIntegerField(default=5, choices=[(i, i) for i in range(1, 6)], blank=True, null=True)  # امتیاز از 1 تا 5
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
     body = models.TextField()
     email = models.EmailField()

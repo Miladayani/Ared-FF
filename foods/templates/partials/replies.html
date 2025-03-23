@@ -1,0 +1,33 @@
+{% load static %}
+{% for reply in replies %}
+    <li class="th-comment-item">
+        <div class="th-post-comment">
+            <div class="comment-avater">
+                {% if reply.author.profile_picture %}
+                    <img src="{{ reply.author.profile_picture.url }}" alt="Reply Author">
+                {% else %}
+                    <img src="{% static 'img/gallery/default-profile.png' %}" alt="Default Profile">
+                {% endif %}
+            </div>
+            <div class="comment-content">
+                <h3 class="name">{{ reply.author.username }}</h3>
+                <p class="text">{{ reply.body }}</p>
+                <a href="#" class="reply-btn" data-comment-id="{{ reply.id }}">
+                    <i class="fas fa-reply"></i> Reply
+                </a>
+
+                {% if reply.replies.all %}
+                    <p class="toggle-replies-btn" data-comment-id="{{ reply.id }}" style="cursor: pointer; color: blue; display: inline-block;">
+                        show replies ({{ reply.replies.all|length }})
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if reply.replies.all %}
+            <ul class="children" id="replies-{{ reply.id }}" style="display: none;">
+                {% include 'partials/replies.html' with replies=reply.replies.all %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
