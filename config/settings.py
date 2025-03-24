@@ -222,3 +222,6 @@ CITIES_LIGHT_TRANSLATION_LANGUAGES = ['fa']
 CITIES_LIGHT_INCLUDE_COUNTRIES = ['IR']
 
 ZARINPAL_MERCHANT_ID = env('DJANGO_ZARINPAL_MERCHANT_ID')
+
+# internationalization
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'templates', 'locale')]
