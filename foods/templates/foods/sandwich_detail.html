@@ -3,6 +3,7 @@
 {% load jalali_tags %}
 {% load comment_tags %}
 {% load humanize %}
+{% load custom_filters %}
 
 {% block page_title %}
 {% endblock %}
@@ -37,7 +38,7 @@
                         <div class="col-lg-6 align-self-center">
                             <div class="product-about">
                                 <p class="price">{{ sandwich.price|intcomma }}
-{#                                    <del>$25.99</del>#}
+                                    {#                                    <del>$25.99</del>#}
                                 </p>
                                 <h2 class="product-title">{{ sandwich.title }}</h2>
                                 <div class="product-rating">
@@ -65,7 +66,8 @@
                                                        name="quantity" value="1" title="Qty">
                                                 <button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i>
                                                 </button>
-                                                <button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i>
+                                                <button class="quantity-minus qty-btn"><i
+                                                        class="far fa-chevron-down"></i>
                                                 </button>
                                             </div>
                                             <button class="th-btn">Add to Cart</button>
@@ -74,7 +76,8 @@
                                     </form>
                                 {% endif %}
                                 <div class="product_meta">
-                                    <span class="posted_in">Category: <a href="{% url 'shop' %}">Dinner/Lunch Food</a></span>
+                                    <span class="posted_in">Category: <a
+                                            href="{% url 'shop' %}">Dinner/Lunch Food</a></span>
                                     <span>Tags: <a href="{% url 'shop' %}">Lunch</a>
                                     <a href="{% url 'shop' %}">Dinner</a>
                                         <a href="{% url 'shop' %}">Food</a></span>
@@ -100,50 +103,75 @@
                              aria-labelledby="reviews-tab">
                             <div class="woocommerce-Reviews">
                                 <div class="th-comments-wrap ">
+                                    <h2 class="blog-inner-title h4"><i class="far fa-comments"></i> Comments
+                                        ({{ sandwich.comments.all|length }})</h2>
                                     <ul id="comment-list">
                                         {% for comment in sandwich.comments.all %}
-                                            <li class="review th-comment-item" data-rating="{{ comment.rating }}">
-                                                <div class="th-post-comment">
-                                                    <div class="comment-avater">
-                                                        {% if comment.author.profile_picture %}
-                                                            <img src="{{ comment.author.profile_picture.url }}"
-                                                                 alt="Comment Author">
-                                                        {% else %}
-                                                            <img src="{% static 'img/gallery/default-profile.png' %}"
-                                                                 alt="Default Profile">
-                                                        {% endif %}
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <h4 class="name">{{ comment.author.username }}</h4>
-                                                        <span class="commented-on">
-                                                            <i class="fal fa-calendar"></i>
-                                                            {{ comment.date_created|date:"Y/m/d" }}
-                                                        </span>
-                                                        <div class="custom-stars">
-                                                            {% for i in "12345" %}
-                                                                <span class="star {% if comment.rating|add:0 >= forloop.counter %}active{% endif %}">
-                                                                    &#9733;
-                                                                </span>
-                                                            {% endfor %}
+                                            {% if comment.parent is None %}
+                                                <li class="review th-comment-item" data-rating="{{ comment.rating }}">
+                                                    <div class="th-post-comment">
+                                                        <div class="comment-avater">
+                                                            {% if comment.author.profile_picture %}
+                                                                <img src="{{ comment.author.profile_picture.url }}"
+                                                                     alt="Comment Author">
+                                                            {% else %}
+                                                                <img src="{% static 'img/gallery/default-profile.png' %}"
+                                                                     alt="Default Profile">
+                                                            {% endif %}
                                                         </div>
-                                                        <p class="text">{{ comment.body }}</p>
+                                                        <div class="comment-content">
+                                                            <h3 class="name">{{ comment.author.username }}</h3>
+
+                                                            <!-- نمایش rating فقط برای کامنت‌های اصلی -->
+                                                            <div class="custom-stars">
+                                                                {% for i in "12345" %}
+                                                                    <span class="star {% if comment.rating|add:0 >= forloop.counter %}active{% endif %}">
+                                                                        &#9733;
+                                                                    </span>
+                                                                {% endfor %}
+                                                            </div>
+
+                                                            <p class="text">{{ comment.body }}</p>
+                                                            <a href="#" class="reply-btn"
+                                                               data-comment-id="{{ comment.id }}">
+                                                                <i class="fas fa-reply"></i> Reply
+                                                            </a>
+
+                                                            {% if comment.replies.all %}
+                                                                <p class="toggle-replies-btn"
+                                                                   data-comment-id="{{ comment.id }}"
+                                                                   style="cursor: pointer; color: blue; display: inline-block;">
+                                                                    show replies ({{ comment|count_replies }})
+                                                                </p>
+                                                            {% endif %}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
+
+                                                    <!-- نمایش ریپلای‌ها (پیش‌فرض مخفی) -->
+                                                    {% if comment.replies.all %}
+                                                        <ul class="children" id="replies-{{ comment.id }}"
+                                                            style="display: none;">
+                                                            {% include 'partials/replies.html' with replies=comment.replies.all %}
+                                                        </ul>
+                                                    {% endif %}
+                                                </li>
+                                            {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div> <!-- Comment Form -->
-
                                 <div class="th-comment-form ">
                                     <div class="form-title">
-                                        <h3 class="blog-inner-title ">Add a review</h3>
+                                        <h3 class="blog-inner-title h4 mb-2"><i class="fa-solid fa-reply"></i> Leave a
+                                            Comment</h3>
+                                        <p class="form-text">Your email address will not be published. Required fields
+                                            are marked *</p>
                                     </div>
                                     {% if user.is_authenticated %}
                                         <form method="POST" id="comment-form"
                                               action="{% url 'sandwich_comment_create' sandwich.id %}">
                                             {% csrf_token %}
                                             <div class="form-group rating-select d-flex align-items-center">
-                                                <label>Your Rating</label>
+                                                <label>Your Rating *</label>
                                                 <p class="custom-stars">
                                                     <span>
                                                         <span class="star" data-rating="1">&#9733;</span>
@@ -157,11 +185,11 @@
                                                 <!-- مقدار rating را اینجا ارسال می‌کنیم -->
                                             </div>
                                             <div class="col-12 form-group">
-                                                <textarea placeholder="Write a Message" class="form-control"
+                                                <textarea placeholder="Write a Message *" class="form-control"
                                                           name="body"></textarea>
                                             </div>
                                             <div class="col-md-6 form-group">
-                                                <input type="text" placeholder="Your Email" class="form-control"
+                                                <input type="text" placeholder="Your Email *" class="form-control"
                                                        name="email">
                                                 <i class="text-title far fa-envelope"></i>
                                             </div>
@@ -177,11 +205,29 @@
                                                 <button type="submit" class="th-btn">Post Review</button>
                                             </div>
                                         </form>
+                                        <!-- فرم ارسال ریپلای -->
+                                        <form method="POST" id="reply-form"
+                                              action="{% url 'sandwich_comment_create' sandwich.id %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="parent_id" id="reply_parent_id" value="">
+                                            <div class="col-12 form-group">
+                                                <textarea placeholder="Write a Reply *" class="form-control" name="body"
+                                                          required></textarea>
+                                            </div>
+                                            <div class="col-12 form-group">
+                                                <input type="email" placeholder="Your Email *" class="form-control"
+                                                       name="email" required>
+                                            </div>
+                                            <div class="col-12 form-group mb-0">
+                                                <button type="submit" class="th-btn">Post Reply</button>
+                                                <button type="button" id="cancel-reply" class="th-btn">Cancel</button>
+                                            </div>
+                                        </form>
                                     {% else %}
-                                        <p>If you want to leave a comment, please <a href="{% url 'account_login' %}">login</a>.
+                                        <p>If you want to leave a comment, please <a
+                                                href="{% url 'account_login' %}">login</a>.
                                         </p>
                                     {% endif %}
-
                                 </div>
                             </div>
                         </div>

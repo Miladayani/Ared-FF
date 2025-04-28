@@ -112,18 +112,6 @@ class CommentCreateView(CreateView):
         obj.save()
         return redirect(self.get_success_url())
 
-    # def post(self, request, *args, **kwargs):
-    #     print("✅ درخواست POST به ویو رسید!")
-    #
-    #     form = self.get_form()
-    #     if form.is_valid():
-    #         print("✅ فرم معتبر است!")
-    #         return self.form_valid(form)
-    #     else:
-    #         print("❌ فرم معتبر نیست! خطاها:", form.errors)
-    #
-    #     return self.form_invalid(form)
-
     def get_success_url(self):
         return self.request.path
 

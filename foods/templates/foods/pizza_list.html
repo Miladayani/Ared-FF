@@ -36,7 +36,7 @@ Menu Area
                                 {% for pizza in pizzas %}
                                     <div class="menu-list">
                                         <div class="box-img">
-                                            <img src="{{ pizza.image.url }}" alt="Food">
+                                            <img src="{{ pizza.image.url }}" loading="lazy" alt="Food">
                                             <div class="actions">
                                                 <form action="{% url 'cart:cart_add' pizza.model_name|default:'Pizza' pizza.id %}"
                                                       method="POST" class="icon-btn-form">
