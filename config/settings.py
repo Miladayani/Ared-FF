@@ -29,7 +29,12 @@ SECRET_KEY = env.str('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'aredff.ir',
+    'www.aredff.ir',
+]
 
 
 # Application definition
@@ -64,8 +69,6 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'payment',
-
-
 ]
 
 SITE_ID = 1
@@ -124,7 +127,7 @@ DATABASES = {
         'NAME': 'ared',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'kosnanat0991',
+        'PASSWORD': 'Miladayani0991@',
     }
 }
 
