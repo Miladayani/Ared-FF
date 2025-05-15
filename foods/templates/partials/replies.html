@@ -17,7 +17,7 @@
                 </a>
 
                 {% if reply.replies.all %}
-                    <p class="toggle-replies-btn" data-comment-id="{{ reply.id }}" style="cursor: pointer; color: blue; display: inline-block;">
+                    <p class="toggle-replies-btn" data-comment-id="{{ reply.id }}" style="cursor: pointer; color: orangered; display: inline-block;">
                         show replies ({{ reply.replies.all|length }})
                     </p>
                 {% endif %}

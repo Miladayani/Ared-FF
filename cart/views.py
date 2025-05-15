@@ -34,35 +34,21 @@ def cart_detail_view(request):
 def add_to_cart_view(request, product_id, model_name):
     cart = Cart(request)
 
-    # دریافت مدل به‌صورت داینامیک
     try:
         model = apps.get_model(app_label='foods', model_name=model_name)
         product = get_object_or_404(model, id=product_id)
     except LookupError:
-        # اگر مدل پیدا نشد، کاربر رو به صفحه‌ای دیگه هدایت کن
         return redirect('shop')
 
-    # افزودن محصول به سبد خرید (به صورت پیش‌فرض ۱ عدد اضافه می‌شه)
-    cart.add(product, quantity=1)
+    # دریافت quantity از فرم
+    try:
+        quantity = int(request.POST.get('quantity', 1))
+    except (ValueError, TypeError):
+        quantity = 1
 
-    # هدایت کاربر به صفحه‌ای مناسب (مثلاً صفحه سبد خرید یا صفحه محصولات)
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  # یا هر URL دیگه‌ای که مناسب باشه
-# @require_POST
-# def add_to_cart_view(request, product_id, model_name):
-#     cart = Cart(request)
-#
-#     # دریافت مدل به‌صورت داینامیک
-#     model = apps.get_model(app_label='foods', model_name=model_name)
-#     product = get_object_or_404(model, id=product_id)
-#
-#     form = AddToCartProductForm(request.POST)
-#
-#     if form.is_valid():
-#         cleaned_data = form.cleaned_data
-#         quantity = cleaned_data['quantity']
-#         cart.add(product, quantity, replace_current_quantity=cleaned_data['inplace'])
-#
-#     return redirect('sandwich_list')
+    cart.add(product, quantity=quantity)
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def remove_from_cart_view(request, model_name, product_id):

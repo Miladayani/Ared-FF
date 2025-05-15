@@ -39,24 +39,6 @@ class Cart:
         messages.success(self.request, 'Product successfully added to Cart.')
         self.save()
 
-    # def add(self, product, quantity=1, replace_current_quantity=False):
-    #     """ اضافه کردن محصول بدون ذخیره آبجکت مدل """
-    #     model_name = product.__class__.__name__.lower()
-    #     key = f"{model_name}_{product.id}"
-    #
-    #     if key not in self.cart:
-    #         self.cart[key] = {'quantity': 0, 'price': str(product.price), 'product_id': product.id,
-    #                           'model_name': model_name}
-    #
-    #     if replace_current_quantity:
-    #         self.cart[key]['quantity'] = quantity
-    #     else:
-    #         self.cart[key]['quantity'] += quantity
-    #
-    #     messages.success(self.request, 'Product successfully added to Cart.')
-    #
-    #     self.save()
-
     def remove(self, product_id):
         """
         Remove a product from the cart.

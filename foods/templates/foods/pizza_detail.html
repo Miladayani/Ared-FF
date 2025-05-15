@@ -121,6 +121,7 @@
                                                             {% endif %}
                                                         </div>
                                                         <div class="comment-content">
+                                                            <span class="commented-on"><i class="fal fa-calendar"></i>{{ comment.date_created|to_jalali:'%Y/%B/%d'}}</span>
                                                             <h3 class="name">{{ comment.author.username }}</h3>
 
                                                             <!-- نمایش rating فقط برای کامنت‌های اصلی -->
@@ -131,7 +132,6 @@
                                                                     </span>
                                                                 {% endfor %}
                                                             </div>
-
                                                             <p class="text">{{ comment.body }}</p>
                                                             <a href="#" class="reply-btn"
                                                                data-comment-id="{{ comment.id }}">
