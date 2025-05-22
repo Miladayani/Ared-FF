@@ -1,6 +1,6 @@
 {% load static %}
 
-<footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer_bg_2.jpg">
+<footer class="footer-wrapper footer-layout1" data-bg-src="#">
     <div class="container z-index-common">
         <div class="newsletter-wrap">
             <div class="newsletter-content">
@@ -42,11 +42,10 @@
                         <h3 class="widget_title">Quick Links</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="team.html">Team Member</a></li>
-                                <li><a href="about.html">Testimonials</a></li>
-                                <li><a href="about.html">Company History</a></li>
-                                <li><a href="contact.html">Need a Career?</a></li>
-                                <li><a href="faq.html">FAQs</a></li>
+                                <li><a href="{% url 'chef' %}">Team Member</a></li>
+                                <li><a href="{% url 'aboutus' %}">Testimonials</a></li>
+                                <li><a href="{% url 'aboutus' %}">Company History</a></li>
+                                <li><a href="{% url 'contact' %}">Need a Career?</a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,11 +57,11 @@
                         <h3 class="widget_title">Food Menu</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="shop.html">White Castle</a></li>
-                                <li><a href="shop.html">Beef Sandwich</a></li>
-                                <li><a href="shop.html">Cherry Limeade</a></li>
-                                <li><a href="shop.html">Sandwich</a></li>
-                                <li><a href="shop.html">Pumpkin Spice</a></li>
+                                <li><a href="{% url 'shop' %}">Chicken Castle</a></li>
+                                <li><a href="{% url 'shop' %}">Beef Sandwich</a></li>
+                                <li><a href="{% url 'shop' %}">Fajita</a></li>
+                                <li><a href="{% url 'shop' %}">Sandwich</a></li>
+                                <li><a href="{% url 'shop' %}">RoastBeef</a></li>
                             </ul>
                         </div>
                     </div>
@@ -100,8 +99,8 @@
                 <div class="col-md-5 text-center text-md-end">
                     <div class="footer-links">
                         <ul>
-                            <li><a href="about.html">Terms & Condition</a></li>
-                            <li><a href="about.html">Privacy & Policy</a></li>
+                            <li><a href="{% url 'aboutus' %}">Terms & Condition</a></li>
+                            <li><a href="{% url 'aboutus' %}">Privacy & Policy</a></li>
                         </ul>
                     </div>
                 </div>
